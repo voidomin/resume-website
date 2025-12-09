@@ -330,48 +330,100 @@
         text-decoration: underline;
       }
       @media print {
-        body {
-          font-size: 11px;
-          line-height: 1.25;
+        /* use slightly smaller margins on the page than screen A4 */
+        @page {
+          size: A4;
+          margin: 8mm;
         }
+
+        body {
+          background: #ffffff;
+          font-size: 10.5px; /* ↓ slightly smaller */
+          line-height: 1.5; /* ↓ tighter line spacing */
+          margin: 0;
+          padding: 0;
+        }
+
         .page {
           box-shadow: none;
-          margin: 0;
+          margin: 0 auto;
+          width: 100%;
+          min-height: auto;
           display: flex !important;
           flex-direction: row !important;
         }
-        .sidebar {
-          padding: 12px 10px;
-        }
+
+        .sidebar,
         .main-content {
-          padding: 12px;
+          padding: 8px 8px; /* ↓ less padding */
+          box-sizing: border-box;
         }
-        /* Force column widths in print to keep two-column layout */
+
+        /* Keep same column split but tighter vertical spacing */
         .sidebar {
           width: 32% !important;
         }
+
         .main-content {
           width: 68% !important;
         }
-        .section {
-          margin-bottom: 12px;
+
+        .section,
+        .sidebar-section {
+          margin-bottom: 8px; /* ↓ was 12 / 18 */
         }
+
+        .sidebar-section:last-child {
+          margin-bottom: 0; /* avoid extra gap below References */
+        }
+
         .profile-header h1 {
           font-size: 20px;
+          margin-bottom: 3px;
         }
+
+        .profile-header h2 {
+          font-size: 11px;
+        }
+
+        .sidebar-section h2,
+        .section h2 {
+          font-size: 14px; /* ↓ slightly smaller */
+          margin-bottom: 4px;
+          padding-bottom: 2px;
+        }
+
+        .sidebar-section p,
+        .sidebar-section li,
+        .section p,
+        .section li,
+        .reference-contact {
+          font-size: 10.5px; /* ↓ text smaller to save height */
+          margin: 3px 0;
+        }
+
+        .job {
+          margin-bottom: 8px; /* ↓ from 14px */
+        }
+
+        .education-item {
+          margin-bottom: 8px;
+        }
+
         .skills-bar {
           width: 50%;
         }
-        /* Force colors for print where possible */
+
         * {
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
         }
-        /* Ensure progress bars print in high-contrast */
+
         .skills-fill {
           background: #000 !important;
         }
       }
+
       /* Responsive: stack sidebar and main on narrow screens */
       @media (max-width: 900px) {
         .page {
