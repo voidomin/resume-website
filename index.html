@@ -2,86 +2,645 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akash Bhat – Resume & Portfolio</title>
+    <meta
+      name="description"
+      content="Resume and portfolio of Akash Bhat – Full-stack developer and test-automation engineer."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
+      :root {
+        --bg: #050816;
+        --bg-alt: #0b1020;
+        --card-bg: #111827;
+        --card-border: rgba(148, 163, 184, 0.25);
+        --accent: #f97316;
+        --accent-soft: rgba(249, 115, 22, 0.2);
+        --text-main: #e5e7eb;
+        --text-muted: #9ca3af;
+        --chip-bg: #111827;
+        --chip-border: #1f2937;
+        --btn-bg: #f97316;
+        --btn-text: #0b1020;
+        --btn-outline-border: #4b5563;
+        --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+        --radius-lg: 18px;
+        --radius-pill: 999px;
+        --transition-fast: 160ms ease-out;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: "Inter", sans-serif;
-        background: #f4f6f9;
         margin: 0;
-        padding: 0;
+        min-height: 100vh;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #1e293b 0,
+          #020617 46%,
+          #000 100%
+        );
+        color: var(--text-main);
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        padding: 24px;
       }
-      .container {
-        background: white;
-        padding: 32px;
-        border-radius: 14px;
-        max-width: 460px;
-        width: 90%;
-        text-align: center;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+
+      .page-wrap {
+        max-width: 1040px;
+        width: 100%;
       }
+
+      .shell {
+        background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+        border-radius: 28px;
+        border: 1px solid rgba(148, 163, 184, 0.32);
+        box-shadow: var(--shadow-soft);
+        padding: 28px 26px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* subtle gradient highlight top */
+      .shell::before {
+        content: "";
+        position: absolute;
+        inset: -120px -180px auto auto;
+        background: radial-gradient(
+          circle at top,
+          rgba(249, 115, 22, 0.28),
+          transparent 60%
+        );
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .id-block {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: rgba(15, 23, 42, 0.85);
+        color: var(--text-muted);
+        font-size: 11px;
+      }
+
+      .eyebrow-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+      }
+
       h1 {
-        margin-top: 0;
         font-size: 26px;
+        letter-spacing: 0.02em;
+        margin: 2px 0 4px;
       }
-      p {
-        color: #555;
-        margin-bottom: 24px;
-        font-size: 15px;
+
+      .subtitle {
+        font-size: 13px;
+        color: var(--text-muted);
       }
-      .btn {
-        display: block;
-        margin: 10px 0;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 16px;
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .chip {
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--chip-border);
+        background: rgba(15, 23, 42, 0.9);
+        padding: 4px 9px;
+        font-size: 11px;
+        color: var(--text-muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .chip-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+
+      .btn-primary {
+        border-radius: var(--radius-pill);
+        background: linear-gradient(135deg, #fb923c, #f97316);
+        color: var(--btn-text);
+        font-size: 12px;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         font-weight: 600;
         text-decoration: none;
-        transition: 0.25s ease;
+        box-shadow: 0 14px 30px rgba(249, 115, 22, 0.32);
+        transition: transform var(--transition-fast),
+          box-shadow var(--transition-fast), background var(--transition-fast);
       }
-      .digital {
-        background: #2c3e50;
-        color: white;
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(249, 115, 22, 0.45);
+        background: linear-gradient(135deg, #fdba74, #fb923c);
       }
-      .ats {
-        background: #16a085;
-        color: white;
+
+      .btn-primary span.icon {
+        font-size: 14px;
       }
-      .print {
-        background: #d35400;
-        color: white;
+
+      .btn-ghost {
+        border-radius: var(--radius-pill);
+        border: 1px solid #4b5563;
+        background: rgba(15, 23, 42, 0.8);
+        color: var(--text-main);
+        font-size: 12px;
+        padding: 8px 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+        transition: background var(--transition-fast),
+          border-color var(--transition-fast), transform var(--transition-fast);
       }
-      .portfolio {
-        background: #8e44ad;
-        color: white;
+
+      .btn-ghost:hover {
+        background: rgba(31, 41, 55, 0.9);
+        border-color: #6b7280;
+        transform: translateY(-1px);
       }
-      .btn:hover {
-        opacity: 0.85;
+
+      .pill-switch {
+        display: inline-flex;
+        border-radius: 999px;
+        padding: 3px;
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(75, 85, 99, 0.9);
+        backdrop-filter: blur(12px);
+        gap: 4px;
+        font-size: 11px;
+      }
+
+      .pill-switch button {
+        border-radius: 999px;
+        border: none;
+        padding: 4px 10px;
+        font-size: 11px;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background var(--transition-fast),
+          color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .pill-switch button span.dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: transparent;
+      }
+
+      .pill-switch button.is-active {
+        background: radial-gradient(circle at top left, #f97316, #ea580c);
+        color: #020617;
+        transform: translateY(-0.5px);
+      }
+
+      .pill-switch button.is-active span.dot {
+        background: #020617;
+      }
+
+      /* Main layout content */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 18px;
+        align-items: flex-start;
+        margin-top: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .summary-panel {
+        border-radius: var(--radius-lg);
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        padding: 14px 14px 12px;
+      }
+
+      .summary-panel h2 {
+        font-size: 13px;
+        margin: 0 0 6px;
+      }
+
+      .summary-panel p {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .summary-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .summary-tag {
+        font-size: 11px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-muted);
+      }
+
+      .variants-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .variant-card {
+        border-radius: var(--radius-lg);
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid var(--card-border);
+        padding: 10px 10px 9px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: relative;
+        overflow: hidden;
+        transition: border-color var(--transition-fast),
+          transform var(--transition-fast), box-shadow var(--transition-fast),
+          background var(--transition-fast);
+      }
+
+      .variant-card:hover {
+        border-color: rgba(249, 115, 22, 0.7);
         transform: translateY(-2px);
+        box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+        background: radial-gradient(
+          circle at top,
+          rgba(249, 115, 22, 0.12),
+          #020617
+        );
+      }
+
+      .variant-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .variant-chip span.bullet {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .variant-title {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .variant-desc {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .variant-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      .link-pill {
+        font-size: 11px;
+        border-radius: 999px;
+        padding: 4px 9px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-main);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background var(--transition-fast),
+          border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .link-pill span.icon {
+        font-size: 13px;
+      }
+
+      .link-pill:hover {
+        background: rgba(31, 41, 55, 0.95);
+        border-color: rgba(249, 115, 22, 0.85);
+        transform: translateY(-1px);
+      }
+
+      .link-pill.is-secondary {
+        border-style: dashed;
+        opacity: 0.9;
+      }
+
+      footer {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        color: var(--text-muted);
+        position: relative;
+        z-index: 1;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .footer-tag {
+        padding: 3px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 860px) {
+        .shell {
+          padding: 22px 18px 18px;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .hero-actions {
+          justify-content: flex-start;
+        }
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 540px) {
+        body {
+          padding: 16px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        .variants-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Akash Bhat</h1>
-      <p>Select a version of my resume or visit my portfolio</p>
+    <div class="page-wrap">
+      <div class="shell">
+        <header>
+          <div class="id-block">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Open for full-stack & QA roles</span>
+            </div>
+            <h1>Akash Bhat</h1>
+            <div class="subtitle">
+              Full-stack Developer & Test-Automation Engineer · Bengaluru, India
+            </div>
+            <div class="chip-row">
+              <span class="chip">
+                <span class="chip-dot"></span>
+                React · Next.js · TypeScript
+              </span>
+              <span class="chip">
+                <span class="chip-dot"></span>
+                Python · Selenium · PostgreSQL
+              </span>
+              <span class="chip">
+                <span class="chip-dot"></span>
+                M.Sc. Molecular &amp; Cellular Biology
+              </span>
+            </div>
+          </div>
 
-      <a class="btn digital" href="Digital/resume_digital.html" target="_blank"
-        >💻 Digital Resume</a
-      >
-      <a class="btn ats" href="Ats/resume_ats.pdf" target="_blank"
-        >⚙️ ATS Resume (PDF)</a
-      >
-      <a class="btn print" href="Print/resume_print.pdf" target="_blank"
-        >🖨 Print-Friendly Resume</a
-      >
-      <a class="btn portfolio" href="Portfolio/portfolio.html" target="_blank"
-        >🌐 Portfolio Website</a
-      >
+          <div class="hero-actions">
+            <a href="Portfolio/portfolio.html" class="btn-primary">
+              <span class="icon">↗</span>
+              <span>Open Portfolio</span>
+            </a>
+
+            <div class="pill-switch" aria-label="Preferred resume format">
+              <button type="button" class="is-active">
+                <span class="dot"></span>
+                <span>Print-ready</span>
+              </button>
+              <button type="button">
+                <span class="dot"></span>
+                <span>ATS-friendly</span>
+              </button>
+              <button type="button">
+                <span class="dot"></span>
+                <span>Digital</span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <section class="content-grid">
+          <article class="summary-panel">
+            <h2>Summary</h2>
+            <p>
+              Full-stack developer (React, Next.js, TypeScript, REST APIs,
+              PostgreSQL) and test-automation engineer (Python, Selenium,
+              Postman, CI) with experience shipping production features and
+              building automation that reduces manual QA effort. Background in
+              molecular &amp; cellular biology with peer-reviewed publication
+              experience.
+            </p>
+            <div class="summary-tags">
+              <span class="summary-tag">React · Next.js · TypeScript</span>
+              <span class="summary-tag">Python · Selenium · Pytest</span>
+              <span class="summary-tag">PostgreSQL · REST APIs</span>
+              <span class="summary-tag"
+                >M.Sc. Molecular &amp; Cellular Biology</span
+              >
+            </div>
+          </article>
+
+          <section class="variants-grid" aria-label="Resume versions">
+            <!-- Print -->
+            <article class="variant-card">
+              <div class="variant-chip">
+                <span class="bullet"></span>
+                <span>Version 01</span>
+              </div>
+              <div class="variant-title">Print Resume</div>
+              <div class="variant-desc">
+                Designed for A4 printing and sharing as a PDF; best choice for
+                referrals and in-person meetings.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="Print/resume_print.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon">⬇</span>
+                  <span>Download PDF</span>
+                </a>
+                <a
+                  class="link-pill is-secondary"
+                  href="Print/resume_print.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon">↗</span>
+                  <span>View HTML</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- ATS -->
+            <article class="variant-card">
+              <div class="variant-chip">
+                <span class="bullet"></span>
+                <span>Version 02</span>
+              </div>
+              <div class="variant-title">ATS Resume</div>
+              <div class="variant-desc">
+                Minimal, single-column layout tuned for ATS parsing and large
+                job-portal uploads.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="Ats/resume_ats.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon">⬇</span>
+                  <span>Download PDF</span>
+                </a>
+                <a
+                  class="link-pill is-secondary"
+                  href="Ats/resume_ats.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon">↗</span>
+                  <span>View HTML</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Digital -->
+            <article class="variant-card">
+              <div class="variant-chip">
+                <span class="bullet"></span>
+                <span>Version 03</span>
+              </div>
+              <div class="variant-title">Digital Resume</div>
+              <div class="variant-desc">
+                Screen-first layout for sharing on email, LinkedIn, and as a
+                live web profile.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="Digital/resume_digital.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon">↗</span>
+                  <span>Open Digital Resume</span>
+                </a>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <footer>
+          <div>
+            <span>Last updated: 2025</span>
+          </div>
+          <div class="footer-tags">
+            <span class="footer-tag">Bengaluru, India</span>
+            <span class="footer-tag">github.com/voidomin</span>
+            <span class="footer-tag">linkedin.com/in/akash-bhat-930346197</span>
+          </div>
+        </footer>
+      </div>
     </div>
   </body>
 </html>
