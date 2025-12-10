@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Preview — Theme + Variants</title>
+    <style>
+      /* Inline copy of the CSS above (shortened slightly for preview) */
+      /* For brevity in this preview I include the essential styles and transitions. */
+
+      :root {
+        --bg-page: linear-gradient(180deg, #f7f9fb, #fff);
+        --card-bg: #fff;
+        --muted: #6b7280;
+        --text: #0f172a;
+        --accent: #0ea5e9;
+        --accent-2: #0284c7;
+        --chip-bg: #f3f4f6;
+        --pill-bg: #f8fafc;
+        --border: rgba(16, 24, 40, 0.04);
+        --glow: rgba(14, 165, 233, 0.14);
+      }
+      .theme-sunset {
+        --bg-page: linear-gradient(180deg, #fff6f8, #fffaf0);
+        --card-bg: linear-gradient(180deg, #fff7ed, #fffaf2);
+        --muted: #7c5b5b;
+        --text: #2b1b17;
+        --accent: #f97316;
+        --accent-2: #fb923c;
+        --chip-bg: #fff1e6;
+        --pill-bg: #fff7f1;
+        --border: rgba(39, 26, 13, 0.06);
+        --glow: rgba(249, 115, 22, 0.12);
+      }
+      .theme-ocean {
+        --bg-page: linear-gradient(180deg, #f0fafc, #fff);
+        --card-bg: linear-gradient(180deg, #f7fdff, #f0fbff);
+        --muted: #3b556d;
+        --text: #07263f;
+        --accent: #06b6d4;
+        --accent-2: #0891b2;
+        --chip-bg: #ecfeff;
+        --pill-bg: #f1fcfe;
+        --border: rgba(3, 37, 65, 0.06);
+        --glow: rgba(6, 182, 212, 0.12);
+      }
+      .theme-forest {
+        --bg-page: linear-gradient(180deg, #f6fbf6, #fff);
+        --card-bg: linear-gradient(180deg, #f8fff7, #f3fff2);
+        --muted: #4b6b52;
+        --text: #0a2b12;
+        --accent: #16a34a;
+        --accent-2: #4ade80;
+        --chip-bg: #effcf0;
+        --pill-bg: #f3fff4;
+        --border: rgba(6, 30, 15, 0.06);
+        --glow: rgba(22, 163, 74, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: var(--bg-page);
+        color: var(--text);
+        transition: background 0.42s ease, color 0.32s ease;
+      }
+      .page-wrap {
+        padding: 36px 20px;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .shell {
+        width: 100%;
+        max-width: 980px;
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06), 0 3px 10px var(--glow);
+        transition: background 0.42s ease, box-shadow 0.42s ease;
+      }
+      header {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+      .id-block {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .eyebrow-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .chip-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .chip {
+        background: var(--chip-bg);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: auto;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .pill-switch {
+        display: inline-flex;
+        gap: 8px;
+        background: var(--pill-bg);
+        padding: 6px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+      }
+      .pill {
+        background: transparent;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .pill.is-active {
+        background: rgba(255, 255, 255, 0.6);
+        color: var(--accent-2);
+      }
+      .theme-picker {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+      }
+      .theme-btn {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+      .content-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 18px;
+      }
+      .summary-panel {
+        padding: 14px;
+        border-radius: 8px;
+        background: linear-gradient(180deg, #fff, #fbfdff);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+      }
+      .variants-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .variant-card {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 110px;
+      }
+      .variant-links {
+        margin-top: auto;
+        display: flex;
+        gap: 8px;
+      }
+      .link-pill {
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+        color: inherit;
+        font-weight: 700;
+      }
+      footer {
+        margin-top: 18px;
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+        padding-top: 12px;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+      }
+      @media (max-width: 760px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+        .variants-grid {
+          grid-template-columns: 1fr;
+        }
+        .theme-picker {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="shell" id="shell">
+        <header>
+          <div class="id-block">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>Open for full-stack & QA roles
+            </div>
+            <h1>Akash Bhat</h1>
+            <div class="subtitle">
+              Full-stack Developer & Test-Automation Engineer · Bengaluru, India
+            </div>
+            <div class="chip-row">
+              <div class="chip">React · Next.js</div>
+              <div class="chip">Python · Selenium</div>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a id="primaryAction" class="btn-primary" href="#" target="_blank"
+              >Open Portfolio</a
+            >
+            <div
+              class="pill-switch"
+              role="tablist"
+              aria-label="Resume variants"
+            >
+              <button class="pill is-active" data-variant="print" role="tab">
+                Print
+              </button>
+              <button class="pill" data-variant="ats" role="tab">ATS</button>
+              <button class="pill" data-variant="digital" role="tab">
+                Digital
+              </button>
+            </div>
+            <div class="theme-picker" aria-hidden="false"></div>
+          </div>
+        </header>
+
+        <section class="content-grid">
+          <article class="summary-panel">
+            <h2>Summary</h2>
+            <p>
+              Full-stack dev (React, Next.js, TypeScript) and automation
+              engineer (Python, Selenium).
+            </p>
+          </article>
+
+          <section class="variants-grid">
+            <article id="variant-print" class="variant-card">
+              <div><strong>Print Resume</strong></div>
+              <div>Designed for A4 printing and PDF sharing.</div>
+              <div class="variant-links">
+                <a class="link-pill" href="#">Download PDF</a
+                ><a class="link-pill" href="#">View HTML</a>
+              </div>
+            </article>
+            <article id="variant-ats" class="variant-card">
+              <div><strong>ATS Resume</strong></div>
+              <div>Single-column, ATS-friendly layout.</div>
+              <div class="variant-links">
+                <a class="link-pill" href="#">Download PDF</a
+                ><a class="link-pill" href="#">View HTML</a>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <footer>
+          <div>Last updated: 2025</div>
+          <div>github.com/voidomin</div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      /* Inline JS: builds theme swatches and variant interactions (compact preview) */
+      (function () {
+        const shell = document.getElementById("shell");
+        const hero = document.querySelector(".theme-picker");
+        const THEMES = [
+          { id: "ocean", label: "Ocean", class: "theme-ocean" },
+          { id: "sunset", label: "Sunset", class: "theme-sunset" },
+          { id: "forest", label: "Forest", class: "theme-forest" },
+        ];
+        const KEY = "resume_theme_v1";
+        function apply(t) {
+          THEMES.forEach((x) => shell.classList.remove(x.class));
+          shell.classList.add(THEMES.find((x) => x.id === t).class);
+          localStorage.setItem(KEY, t);
+        }
+        THEMES.forEach((t) => {
+          const b = document.createElement("button");
+          b.className = "theme-btn";
+          b.dataset.theme = t.id;
+          if (t.id === "sunset")
+            b.style.background = "linear-gradient(135deg,#fb923c,#f97316)";
+          if (t.id === "ocean")
+            b.style.background = "linear-gradient(135deg,#06b6d4,#0891b2)";
+          if (t.id === "forest")
+            b.style.background = "linear-gradient(135deg,#16a34a,#4ade80)";
+          b.addEventListener("click", () => apply(t.id));
+          hero.appendChild(b);
+        });
+        const saved = localStorage.getItem(KEY) || "ocean";
+        apply(saved);
+
+        // pills
+        const pills = Array.from(document.querySelectorAll(".pill"));
+        const primary = document.getElementById("primaryAction");
+        function setActive(v) {
+          pills.forEach((p) =>
+            p.classList.toggle("is-active", p.dataset.variant === v)
+          );
+          // demo behaviour: change CTA text
+          primary.textContent =
+            v === "print"
+              ? "Open Print"
+              : v === "ats"
+              ? "Open ATS"
+              : "Open Digital";
+        }
+        pills.forEach((p) => {
+          p.addEventListener("click", () => setActive(p.dataset.variant));
+        });
+      })();
+    </script>
+  </body>
+</html>
