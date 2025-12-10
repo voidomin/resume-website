@@ -1,20 +1,3 @@
-/**
- * assets/js/index.js
- * Refactored OOP-style manager-based script for index.html
- *
- * - ThemeManager: handles swatches, persisted choice and OS pref
- * - VariantManager: handles pill/tab switching, card selection, primary action update
- * - App: boots everything and wires managers together
- *
- * Keep DOM ids/classes consistent with index.html:
- * - #themeToggle, #themeIcon, #themeText  (theme toggle button)
- * - .theme-picker (swatches injected)
- * - .theme-select (select fallback - created by ThemeManager)
- * - .pill-switch .pill (variant tabs)
- * - .variant-card (cards with data-variant attr)
- * - #primaryAction and #primaryActionText (main CTA button)
- */
-
 (() => {
   "use strict";
 
@@ -37,24 +20,32 @@
       // DOM refs
       this.shell = $(".shell") || document.body;
       this.themeToggleBtn = $("#themeToggle");
+      this.paletteBtn = $("#paletteToggle");
       this.themeIcon = $("#themeIcon");
       this.themeText = $("#themeText");
       this.hero = $(".hero-actions") || null;
+
+      // SVGs
+      this.SVG_SUN = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+      this.SVG_MOON = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
 
       // init
       this.init();
     }
 
     init() {
-      // Add theme picker swatches and select fallback to hero
-      this._buildThemePicker();
       // Apply saved theme (or system preference)
       const saved = this._readStoredTheme() || this._getSystemPref();
       this.applyTheme(saved, false);
 
-      // wire toggle button
+      // wire toggle button (Dark Mode)
       if (this.themeToggleBtn) {
         this.themeToggleBtn.addEventListener("click", () => this.toggle());
+      }
+
+      // wire palette button (Theme Color Cycle)
+      if (this.paletteBtn) {
+        this.paletteBtn.addEventListener("click", () => this.cycleTheme());
       }
 
       // respond to system changes only if user hasn't saved a pref
@@ -132,8 +123,6 @@
 
       // persist
       this._saveTheme(theme.id);
-      // sync swatches/select UI
-      this._syncPickerUI(theme.id);
       // update toggle icon/text to reflect non-dark (for accessibility)
       this._updateToggleUI(false);
     }
@@ -148,104 +137,38 @@
       } catch (e) {}
     }
 
+    cycleTheme() {
+      // Find current active theme, defaulting to first if none match
+      const currentThemeClass = this.THEMES.find((t) =>
+        document.body.classList.contains(t.className)
+      );
+      const currentId = currentThemeClass
+        ? currentThemeClass.id
+        : this.THEMES[0].id;
+
+      // Calculate next index
+      const currentIndex = this.THEMES.findIndex((t) => t.id === currentId);
+      const nextIndex = (currentIndex + 1) % this.THEMES.length;
+
+      // Apply next theme
+      this.applyTheme(this.THEMES[nextIndex].id, true);
+    }
+
     _updateToggleUI(isDark) {
       if (!this.themeIcon || !this.themeText) return;
       if (isDark) {
         // moon -> sun icon
-        this.themeIcon.textContent = "☀️";
+        this.themeIcon.innerHTML = this.SVG_SUN;
         this.themeText.textContent = "Switch to light theme";
         this.themeToggleBtn &&
           this.themeToggleBtn.setAttribute("aria-pressed", "true");
       } else {
-        this.themeIcon.textContent = "🌙";
+        // sun -> moon icon
+        this.themeIcon.innerHTML = this.SVG_MOON;
         this.themeText.textContent = "Switch to dark theme";
         this.themeToggleBtn &&
           this.themeToggleBtn.setAttribute("aria-pressed", "false");
       }
-    }
-
-    _buildThemePicker() {
-      if (!this.hero) return;
-
-      // avoid re-inserting multiple times
-      if ($(".theme-picker", this.hero)) return;
-
-      const wrapper = document.createElement("div");
-      wrapper.className = "theme-picker";
-      wrapper.setAttribute("role", "radiogroup");
-      wrapper.setAttribute("aria-label", "Choose visual theme");
-
-      this.THEMES.forEach((t) => {
-        const btn = document.createElement("button");
-        btn.className = "theme-btn";
-        btn.type = "button";
-        btn.dataset.theme = t.id;
-        btn.title = t.label;
-        btn.setAttribute("aria-pressed", "false");
-        // quick inline color hints (optional)
-        if (t.id === "sunset") {
-          btn.style.background = "linear-gradient(135deg,#fb923c,#f97316)";
-        } else if (t.id === "ocean") {
-          btn.style.background = "linear-gradient(135deg,#06b6d4,#0891b2)";
-        } else if (t.id === "forest") {
-          btn.style.background = "linear-gradient(135deg,#16a34a,#4ade80)";
-        }
-        btn.addEventListener("click", () => {
-          this.applyTheme(t.id, true);
-          // mark aria state
-          wrapper
-            .querySelectorAll(".theme-btn")
-            .forEach((b) => b.setAttribute("aria-pressed", "false"));
-          btn.setAttribute("aria-pressed", "true");
-        });
-        wrapper.appendChild(btn);
-      });
-
-      // label text for the control
-      const label = document.createElement("span");
-      label.style.fontSize = "12px";
-      label.style.color = "var(--muted)";
-      label.style.marginLeft = "6px";
-      label.textContent = "Theme";
-      wrapper.appendChild(label);
-
-      // accessible select fallback (hidden on large screens via CSS)
-      const sel = document.createElement("select");
-      sel.className = "theme-select";
-      sel.setAttribute("aria-label", "Choose theme");
-      this.THEMES.forEach((t) => {
-        const op = document.createElement("option");
-        op.value = t.id;
-        op.textContent = t.label;
-        sel.appendChild(op);
-      });
-      sel.addEventListener("change", () => this.applyTheme(sel.value, true));
-      wrapper.appendChild(sel);
-
-      this.hero.appendChild(wrapper);
-
-      // set initial pressed state from stored theme
-      const saved = this._readStoredTheme();
-      if (saved) {
-        const pressed = wrapper.querySelector(
-          `.theme-btn[data-theme="${saved}"]`
-        );
-        if (pressed) pressed.setAttribute("aria-pressed", "true");
-        const selEl = wrapper.querySelector(".theme-select");
-        if (selEl) selEl.value = saved;
-      }
-    }
-
-    _syncPickerUI(themeId) {
-      const swatches = $$(".theme-btn");
-      swatches.forEach((b) =>
-        b.setAttribute(
-          "aria-pressed",
-          b.dataset.theme === themeId ? "true" : "false"
-        )
-      );
-      const select = $(".theme-select");
-      if (select) select.value = themeId;
     }
   }
 
@@ -254,21 +177,20 @@
     constructor(options = {}) {
       this.pills = $$(".pill");
       this.variantCards = $$(".variant-card");
-      this.primaryAction = $("#primaryAction");
-      this.primaryActionText = $("#primaryActionText");
+      this.primaryAction = $("#portfolioAction");
+      this.primaryActionText = $("#portfolioActionText");
       this._variantMap = {
         print: {
           id: "variant-print",
-          prefer: 'a[href*="resume_print.html"], a[href*="resume_print.pdf"]',
+          prefer: 'a[href*="resume_print.pdf"]', // Prefer PDF download for Print
         },
         ats: {
           id: "variant-ats",
-          prefer: 'a[href*="resume_ats.html"], a[href*="resume_ats.pdf"]',
+          prefer: 'a[href*="resume_ats.pdf"]', // Prefer PDF download for ATS
         },
         digital: {
           id: "variant-digital",
-          prefer:
-            'a[href*="resume_digital.html"], a[href*="resume_digital.html"]',
+          prefer: 'a[href*="resume_digital.html"]', // Prefer HTML view for Digital
         },
         portfolio: {
           id: "variant-portfolio",

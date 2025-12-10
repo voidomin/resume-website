@@ -55,15 +55,61 @@
               <span id="portfolioActionText">Open Portfolio</span>
             </a>
 
+            <!-- Minimalist Palette Cycle Button -->
+            <button
+              id="paletteToggle"
+              class="btn-icon"
+              aria-label="Cycle color theme"
+              title="Cycle color theme"
+            >
+              <!-- SVG Palette Icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+                ></path>
+              </svg>
+            </button>
+
             <!-- Theme toggle -->
             <button
               id="themeToggle"
               class="btn-icon"
               aria-pressed="false"
-              aria-label="Toggle theme"
-              title="Toggle theme"
+              aria-label="Toggle dark mode"
+              title="Toggle dark mode"
             >
-              <span id="themeIcon" aria-hidden="true"></span>
+              <!-- Initial Icon (Moon) -->
+              <span id="themeIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  ></path>
+                </svg>
+              </span>
               <span class="visually-hidden" id="themeText">Switch theme</span>
             </button>
 
@@ -96,6 +142,14 @@
                 aria-selected="false"
               >
                 Digital
+              </button>
+              <button
+                class="pill"
+                data-variant="portfolio"
+                role="tab"
+                aria-selected="false"
+              >
+                Portfolio
               </button>
             </div>
           </div>
@@ -130,7 +184,7 @@
             >
               <div class="variant-chip">
                 <span class="bullet" aria-hidden="true"></span
-                ><span>Version 01</span>
+                ><span>A4 Print</span>
               </div>
               <div class="variant-title" id="variant-print-title">
                 Print Resume
@@ -165,7 +219,7 @@
             >
               <div class="variant-chip">
                 <span class="bullet" aria-hidden="true"></span
-                ><span>Version 02</span>
+                ><span>Machine-Optimized</span>
               </div>
               <div class="variant-title" id="variant-ats-title">ATS Resume</div>
               <div class="variant-desc">
@@ -198,7 +252,7 @@
             >
               <div class="variant-chip">
                 <span class="bullet" aria-hidden="true"></span
-                ><span>Version 03</span>
+                ><span>Interactive Web</span>
               </div>
               <div class="variant-title" id="variant-digital-title">
                 Digital Resume
@@ -227,7 +281,7 @@
             >
               <div class="variant-chip">
                 <span class="bullet" aria-hidden="true"></span
-                ><span>Extra</span>
+                ><span>Portfolio</span>
               </div>
               <div class="variant-title" id="variant-portfolio-title">
                 Portfolio
