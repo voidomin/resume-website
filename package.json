@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "preview": "npx http-server . -p 8080"
+  },
+  "devDependencies": {}
+}
