@@ -317,7 +317,10 @@
       </div>
     </div>
 
-    <!-- local JS (refactored OOP) -->
+    <!-- Modern browsers: use modular code (ES modules) -->
     <script type="module" src="assets/js/main.js"></script>
+
+    <!-- Legacy fallback: browsers that don't support modules will load this -->
+    <script nomodule src="assets/js/index.js"></script>
   </body>
 </html>
