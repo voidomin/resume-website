@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev, refactor/modules]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install deps
+        run: npm ci
+      - name: Install dev deps
+        run: npm i
+      - name: Lint
+        run: npx eslint . --ext .js,.mjs || true
+      - name: Format (check)
+        run: npx prettier --check "**/*.{js,css,html,json,md}"
+      - name: Build
+        run: npm run build
+      - name: Upload dist
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist

@@ -25,7 +25,7 @@ export class VariantManager {
   init() {
     this.pills.forEach((p) => {
       p.addEventListener("click", () =>
-        this.setActiveVariant(p.dataset.variant)
+        this.setActiveVariant(p.dataset.variant),
       );
       p.addEventListener("keydown", (ev) => this._pillKeyHandler(ev, p));
     });
