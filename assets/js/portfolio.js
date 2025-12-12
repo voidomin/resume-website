@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
   const toggles = document.querySelectorAll(".resume-toggle");
   const printBtn = document.getElementById("resume-print");
   const atsBtn = document.getElementById("resume-ats");

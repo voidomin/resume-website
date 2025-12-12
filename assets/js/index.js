@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   "use strict";
 
   /* ---------------------- Utility helpers ---------------------- */
@@ -140,7 +140,7 @@
     cycleTheme() {
       // Find current active theme, defaulting to first if none match
       const currentThemeClass = this.THEMES.find((t) =>
-        document.body.classList.contains(t.className),
+        document.body.classList.contains(t.className)
       );
       const currentId = currentThemeClass
         ? currentThemeClass.id
@@ -205,7 +205,7 @@
       // wire pill click + keyboard
       this.pills.forEach((p) => {
         p.addEventListener("click", () =>
-          this.setActiveVariant(p.dataset.variant),
+          this.setActiveVariant(p.dataset.variant)
         );
         p.addEventListener("keydown", (ev) => this._pillKeyHandler(ev, p));
       });

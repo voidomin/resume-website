@@ -1,4 +1,4 @@
-// app.js — boots the managers
+﻿// app.js — boots the managers
 import { ThemeManager } from "./theme-manager.js";
 import { VariantManager } from "./variant-manager.js";
 

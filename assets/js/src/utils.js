@@ -1,4 +1,4 @@
-// utils.js — tiny helpers used across managers
+﻿// utils.js — tiny helpers used across managers
 export const $ = (sel, ctx = document) => ctx.querySelector(sel);
 export const $$ = (sel, ctx = document) =>
   Array.from(ctx.querySelectorAll(sel));

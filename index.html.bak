@@ -1,0 +1,326 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Akash – Resume & Portfolio</title>
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- local CSS -->
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+
+  <body>
+    <div class="page-wrap">
+      <div class="shell" role="main">
+        <header class="site-header">
+          <div class="id-block">
+            <div class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              <span>Open for full-stack & QA roles</span>
+            </div>
+
+            <h1>Akash</h1>
+            <div class="subtitle">
+              Full-stack Developer & Test-Automation Engineer · Bengaluru, India
+            </div>
+
+            <div class="chip-row" aria-hidden="true">
+              <span class="chip"
+                ><span class="chip-dot"></span>React · Next.js ·
+                TypeScript</span
+              >
+              <span class="chip"
+                ><span class="chip-dot"></span>Python · Selenium ·
+                PostgreSQL</span
+              >
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <!-- Portfolio open (separate file) -->
+            <a
+              id="portfolioAction"
+              class="btn-primary"
+              href="portfolio/portfolio.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">↗</span>
+              <span id="portfolioActionText">Open Portfolio</span>
+            </a>
+
+            <!-- Minimalist Palette Cycle Button -->
+            <button
+              id="paletteToggle"
+              class="btn-icon"
+              aria-label="Cycle color theme"
+              title="Cycle color theme"
+            >
+              <!-- SVG Palette Icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Theme toggle -->
+            <button
+              id="themeToggle"
+              class="btn-icon"
+              aria-pressed="false"
+              aria-label="Toggle dark mode"
+              title="Toggle dark mode"
+            >
+              <!-- Initial Icon (Moon) -->
+              <span id="themeIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  ></path>
+                </svg>
+              </span>
+              <span class="visually-hidden" id="themeText">Switch theme</span>
+            </button>
+
+            <!-- Resume variant pill switch -->
+            <div
+              class="pill-switch"
+              role="tablist"
+              aria-label="Resume variants"
+            >
+              <button
+                class="pill is-active"
+                data-variant="print"
+                role="tab"
+                aria-selected="true"
+              >
+                Print
+              </button>
+              <button
+                class="pill"
+                data-variant="ats"
+                role="tab"
+                aria-selected="false"
+              >
+                ATS
+              </button>
+              <button
+                class="pill"
+                data-variant="digital"
+                role="tab"
+                aria-selected="false"
+              >
+                Digital
+              </button>
+              <button
+                class="pill"
+                data-variant="portfolio"
+                role="tab"
+                aria-selected="false"
+              >
+                Portfolio
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <section class="content-grid">
+          <article class="summary-panel" id="summary">
+            <h2>Summary</h2>
+            <p>
+              Full-stack developer (React, Next.js, TypeScript, REST APIs,
+              PostgreSQL) and test-automation engineer (Python, Selenium,
+              Postman, CI). Background in molecular & cellular biology;
+              peer-reviewed publication experience.
+            </p>
+
+            <div class="summary-tags" aria-hidden="true">
+              <span class="summary-tag">React</span>
+              <span class="summary-tag">TypeScript</span>
+              <span class="summary-tag">Selenium</span>
+              <span class="summary-tag">PostgreSQL</span>
+            </div>
+          </article>
+
+          <section class="variants-grid" aria-label="Resume versions">
+            <!-- each card has data-variant attribute to help JS map -->
+            <article
+              class="variant-card is-selected"
+              id="variant-print"
+              data-variant="print"
+              role="region"
+              aria-labelledby="variant-print-title"
+            >
+              <div class="variant-chip">
+                <span class="bullet" aria-hidden="true"></span
+                ><span>A4 Print</span>
+              </div>
+              <div class="variant-title" id="variant-print-title">
+                Print Resume
+              </div>
+              <div class="variant-desc">
+                Designed for A4 printing and PDF sharing.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="print/resume_print.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">⬇</span><span>Download PDF</span></a
+                >
+                <a
+                  class="link-pill is-secondary"
+                  href="print/resume_print.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">↗</span><span>View HTML</span></a
+                >
+              </div>
+            </article>
+
+            <article
+              class="variant-card"
+              id="variant-ats"
+              data-variant="ats"
+              role="region"
+              aria-labelledby="variant-ats-title"
+            >
+              <div class="variant-chip">
+                <span class="bullet" aria-hidden="true"></span
+                ><span>Machine-Optimized</span>
+              </div>
+              <div class="variant-title" id="variant-ats-title">ATS Resume</div>
+              <div class="variant-desc">
+                Single-column, ATS-friendly layout for job portals.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="ats/resume_ats.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">⬇</span><span>Download PDF</span></a
+                >
+                <a
+                  class="link-pill is-secondary"
+                  href="ats/resume_ats.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">↗</span><span>View HTML</span></a
+                >
+              </div>
+            </article>
+
+            <article
+              class="variant-card"
+              id="variant-digital"
+              data-variant="digital"
+              role="region"
+              aria-labelledby="variant-digital-title"
+            >
+              <div class="variant-chip">
+                <span class="bullet" aria-hidden="true"></span
+                ><span>Interactive Web</span>
+              </div>
+              <div class="variant-title" id="variant-digital-title">
+                Digital Resume
+              </div>
+              <div class="variant-desc">
+                Screen-first resume for LinkedIn / email sharing.
+              </div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="Digital/resume_digital.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">↗</span
+                  ><span>Open Digital Resume</span></a
+                >
+              </div>
+            </article>
+
+            <article
+              class="variant-card"
+              id="variant-portfolio"
+              data-variant="portfolio"
+              role="region"
+              aria-labelledby="variant-portfolio-title"
+            >
+              <div class="variant-chip">
+                <span class="bullet" aria-hidden="true"></span
+                ><span>Portfolio</span>
+              </div>
+              <div class="variant-title" id="variant-portfolio-title">
+                Portfolio
+              </div>
+              <div class="variant-desc">Full project site and downloads.</div>
+              <div class="variant-links">
+                <a
+                  class="link-pill"
+                  href="portfolio/portfolio.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="icon">↗</span><span>Open Portfolio</span></a
+                >
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <footer class="site-footer">
+          <div>Last updated: 2025</div>
+          <div class="footer-tags">
+            <span class="footer-tag">Bengaluru, India</span>
+            <span class="footer-tag"
+              ><a
+                href="https://github.com/voidomin"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github.com/voidomin</a
+              ></span
+            >
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Modern browsers: use modular code (ES modules) -->
+    <script type="module" src="assets/js/main.js"></script>
+
+    <!-- Legacy fallback: browsers that don't support modules will load this -->
+    <script nomodule src="assets/js/index.js"></script>
+  </body>
+</html>

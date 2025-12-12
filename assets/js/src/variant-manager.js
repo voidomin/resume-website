@@ -1,4 +1,4 @@
-// variant-manager.js
+﻿// variant-manager.js
 import { $, $$ } from "./utils.js";
 
 export class VariantManager {
@@ -25,7 +25,7 @@ export class VariantManager {
   init() {
     this.pills.forEach((p) => {
       p.addEventListener("click", () =>
-        this.setActiveVariant(p.dataset.variant),
+        this.setActiveVariant(p.dataset.variant)
       );
       p.addEventListener("keydown", (ev) => this._pillKeyHandler(ev, p));
     });
@@ -103,7 +103,7 @@ export class VariantManager {
 
   _setPrimaryToPortfolio() {
     if (this.primaryAction) {
-      this.primaryAction.setAttribute("href", "Portfolio/portfolio.html");
+      this.primaryAction.setAttribute("href", "portfolio/portfolio.html");
       if (this.primaryActionText)
         this.primaryActionText.textContent = "Open Portfolio";
     }

@@ -1,4 +1,4 @@
-// theme-manager.js
+﻿// theme-manager.js
 import { $, $$ } from "./utils.js";
 
 export class ThemeManager {
@@ -110,7 +110,7 @@ export class ThemeManager {
 
   cycleTheme() {
     const currentThemeClass = this.THEMES.find((t) =>
-      document.body.classList.contains(t.className),
+      document.body.classList.contains(t.className)
     );
     const currentId = currentThemeClass
       ? currentThemeClass.id
