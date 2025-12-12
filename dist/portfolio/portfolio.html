@@ -1,0 +1,344 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Akash – Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/assets/css/portfolio.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <!-- ====== LEFT: MAIN CONTENT ====== -->
+      <main class="page-main">
+        <!-- Hero / Intro -->
+        <header class="hero" id="top">
+          <div class="hero-tag">Full-stack Developer · Test Automation</div>
+          <h1 class="hero-title">Akash</h1>
+          <p class="hero-subtitle">
+            I build robust web applications and automation frameworks that
+            reduce defects, improve performance, and make shipping faster.
+          </p>
+
+          <div class="hero-meta">
+            <span class="pill">Bengaluru, India</span>
+            <span class="pill pill-soft">Open to SDE / Full-stack roles</span>
+          </div>
+
+          <div class="hero-actions">
+            <!-- Resume view toggle -->
+            <div class="hero-resume-group" aria-label="Resume type toggle">
+              <button class="resume-toggle active" data-target="print">
+                Print
+              </button>
+              <button class="resume-toggle" data-target="ats">ATS</button>
+            </div>
+
+            <!-- Primary print resume -->
+            <a
+              id="resume-print"
+              class="btn btn-primary resume-btn"
+              href="/Print/resume_print.pdf"
+              download="Akash_Bhat_Resume.pdf"
+              data-track="resume-print"
+            >
+              📄 Download Résumé
+            </a>
+
+            <!-- ATS resume -->
+            <a
+              id="resume-ats"
+              class="btn btn-ghost resume-btn"
+              href="/Ats/resume_ats.pdf"
+              download="Akash_Bhat_Resume_ATS.pdf"
+              data-track="resume-ats"
+            >
+              📑 Download ATS Résumé
+            </a>
+
+            <!-- Visual / Digital CV -->
+            <a
+              class="btn btn-ghost subtle"
+              href="/Digital/resume_digital.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="resume-digital"
+            >
+              🖼 View Visual CV
+            </a>
+
+            <!-- Contact scroll -->
+            <a href="#contact" class="btn btn-outline"> ✉️ Contact me </a>
+          </div>
+        </header>
+
+        <!-- About -->
+        <section class="card" id="about">
+          <h2 class="section-title">About</h2>
+          <p>
+            I'm a full-stack developer with experience in
+            <strong>React</strong>, <strong>Next.js</strong>,
+            <strong>TypeScript</strong>, and <strong>PostgreSQL</strong>, plus
+            test automation using <strong>Python</strong>,
+            <strong>Selenium</strong>, and <strong>Pytest</strong>. I enjoy
+            turning complex requirements into clean, maintainable systems and
+            building tools that make teams faster and more reliable.
+          </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="card" id="experience">
+          <h2 class="section-title">Experience</h2>
+
+          <article class="experience-item">
+            <header class="experience-header">
+              <div>
+                <h3>Program Coordinator & Web Developer · Abhyudaya</h3>
+                <div class="experience-meta">
+                  Bengaluru · Aug 2025 – Present
+                </div>
+              </div>
+            </header>
+            <ul class="experience-points">
+              <li>
+                Coordinate program activities, outreach, and stakeholder
+                relations for community initiatives.
+              </li>
+              <li>
+                Streamline program delivery and organise events and trainings
+                for students and volunteers.
+              </li>
+              <li>
+                Designed and developed Abhyudaya’s website to improve online
+                outreach and make program, volunteer, and donation information
+                easier to access.
+              </li>
+            </ul>
+          </article>
+
+          <article class="experience-item">
+            <header class="experience-header">
+              <div>
+                <h3>Development Engineer · Merck</h3>
+                <div class="experience-meta">
+                  Bengaluru · Jan 2024 – Jul 2025
+                </div>
+              </div>
+            </header>
+            <ul class="experience-points">
+              <li>
+                Built front-end and back-end features for
+                <strong>Bio4C Process Pad</strong> using React, TypeScript, and
+                REST APIs.
+              </li>
+              <li>
+                Automated regression tests and workflows using Python and
+                Selenium, reducing manual QA effort.
+              </li>
+              <li>
+                Collaborated with cross-functional teams to implement APIs and
+                UI features and deliver releases reliably.
+              </li>
+            </ul>
+          </article>
+
+          <article class="experience-item">
+            <header class="experience-header">
+              <div>
+                <h3>Research Project · IISc (Indian Institute of Science)</h3>
+                <div class="experience-meta">
+                  Bengaluru · Jun 2023 – Dec 2023
+                </div>
+              </div>
+            </header>
+            <ul class="experience-points">
+              <li>
+                Performed computational research in structural biology and
+                protein stability analysis.
+              </li>
+              <li>
+                Published <em>“In Silico Saturation Mutagenesis of CCDB”</em> in
+                <em>Proteins: Structure, Function, and Bioinformatics</em>.
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- Projects -->
+        <section class="card" id="projects">
+          <h2 class="section-title">Selected Projects</h2>
+
+          <article class="project-item">
+            <header class="project-header">
+              <h3>Param Adventures – Tourism Website</h3>
+              <a
+                href="https://param-adventure.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                Live site ↗
+              </a>
+            </header>
+            <p class="project-summary">
+              Responsive tourism website built with <strong>Next.js</strong> and
+              <strong>TypeScript</strong> for trip discovery and enquiries.
+            </p>
+            <ul class="project-points">
+              <li>
+                Built modular TypeScript components and booking flows for trip
+                listings and enquiries.
+              </li>
+              <li>
+                Integrated maps/APIs and optimised performance and accessibility
+                for a smoother user experience.
+              </li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Responsive UI</span>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <header class="project-header">
+              <h3>Abhyudaya NGO Website</h3>
+              <a
+                href="https://abhyudayakkss.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                Live site ↗
+              </a>
+            </header>
+            <p class="project-summary">
+              Website for a non-profit organisation showcasing programs,
+              centres, volunteering, and donation information.
+            </p>
+            <ul class="project-points">
+              <li>
+                Designed a clear navigation structure for programs, centres, and
+                contact flows to improve discoverability.
+              </li>
+              <li>
+                Supported outreach by making key information easier to find for
+                donors and volunteers.
+              </li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Web Design</span>
+              <span class="tag">Content Architecture</span>
+              <span class="tag">NGO</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Skills -->
+        <section class="card" id="skills">
+          <h2 class="section-title">Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skills-column">
+              <h3>Frontend</h3>
+              <p>React.js, Next.js, TypeScript, HTML, CSS</p>
+            </div>
+            <div class="skills-column">
+              <h3>Backend & APIs</h3>
+              <p>FastAPI, PHP, REST APIs, PostgreSQL</p>
+            </div>
+            <div class="skills-column">
+              <h3>Automation & Testing</h3>
+              <p>Python, Selenium, Pytest, Postman, CI/CD</p>
+            </div>
+            <div class="skills-column">
+              <h3>Tools & DevOps</h3>
+              <p>Git, Docker, Linux, Jira</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="card" id="contact">
+          <h2 class="section-title">Contact</h2>
+          <p>
+            The fastest way to reach me is via email. I’m happy to discuss
+            full-time roles, collaborations, or side projects.
+          </p>
+          <div class="contact-grid">
+            <a href="mailto:akashkbhat216@gmail.com" class="contact-chip">
+              📧 akashkbhat216@gmail.com
+            </a>
+            <a
+              href="https://github.com/voidomin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-chip"
+            >
+              💻 github.com/voidomin
+            </a>
+            <a
+              href="https://www.linkedin.com/in/akash-bhat-930346197"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-chip"
+            >
+              🔗 linkedin.com/in/akash-bhat
+            </a>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>© <span id="year"></span> Akash </span>
+          <a href="#top">Back to top ↑</a>
+        </footer>
+      </main>
+
+      <!-- ====== RIGHT: SIDEBAR (OPTIONAL VISUAL) ====== -->
+      <aside class="page-aside">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <!-- If you want, replace with your photo -->
+            <span class="avatar-initials">AB</span>
+          </div>
+          <div class="profile-text">
+            <h2>Akash</h2>
+            <p>Full-stack Developer · Automation</p>
+          </div>
+          <div class="profile-meta">
+            <span>📍 Bengaluru, India</span>
+            <span>🎓 M.Sc. Molecular &amp; Cellular Biology</span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3>Quick Highlights</h3>
+          <ul class="side-list">
+            <li>3rd place in a hackathon conducted by Merck.</li>
+            <li>Published peer-reviewed research on protein stability.</li>
+            <li>
+              State government scholarship recipient (State Scholarship Program
+              – SSP).
+            </li>
+            <li>
+              1st place in a poster-making competition at Dayananda Sagar
+              University.
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <!-- JS -->
+    <script src="/assets/js/portfolio.js" type="module" defer></script>
+  </body>
+</html>
