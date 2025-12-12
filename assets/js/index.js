@@ -346,7 +346,7 @@
       });
     }
   }
-
+  console.log("hello");
   /* ---------------------- Start the App ---------------------- */
   document.addEventListener("DOMContentLoaded", () => {
     const app = new App();
