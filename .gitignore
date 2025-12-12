@@ -1,9 +1,18 @@
-# 1) Add node_modules to .gitignore if it's not already there
-if (-not (Select-String -Path .gitignore -Pattern "node_modules" -Quiet -ErrorAction SilentlyContinue)) {
-  Add-Content -Path .gitignore -Value "`n# dependencies`nnode_modules/`n"
-  git add .gitignore
-  git commit -m "chore: ignore node_modules in .gitignore"
-  git push
-} else {
-  Write-Host "node_modules/ already in .gitignore"
-}
+# node / build
+node_modules/
+dist/
+.DS_Store
+
+# editor / OS
+.env
+.vscode/
+*.log
+
+# tooling
+.npm/
+.npmrc
+package-lock.json
+
+# caches
+.eslintcache
+.prettiercache
