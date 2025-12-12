@@ -4,7 +4,7 @@
   /* ---------------------- Utility helpers ---------------------- */
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  /* clamp removed — unused */
 
   /* ---------------------- ThemeManager ---------------------- */
   class ThemeManager {
@@ -26,8 +26,10 @@
       this.hero = $(".hero-actions") || null;
 
       // SVGs
-      this.SVG_SUN = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-      this.SVG_MOON = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+      this.SVG_SUN =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+      this.SVG_MOON =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
       // init
       this.init();
@@ -63,14 +65,12 @@
 
     _getSystemPref() {
       try {
-        if (
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
           return "dark";
         }
       } catch (e) {
-        // ignore
+        // ignore (unsupported environment / private mode)
+        void e;
       }
       return "light";
     }
@@ -79,6 +79,7 @@
       try {
         return localStorage.getItem(this.THEME_KEY);
       } catch (e) {
+        void e;
         return null;
       }
     }
@@ -88,13 +89,13 @@
         localStorage.setItem(this.THEME_KEY, themeId);
       } catch (e) {
         // ignore (private mode)
+        void e;
       }
     }
 
     applyTheme(themeIdOrMode, animate = true) {
       // Accept 'dark' / 'light' or one of THEME ids
-      const isSystemMode =
-        themeIdOrMode === "dark" || themeIdOrMode === "light";
+      const isSystemMode = themeIdOrMode === "dark" || themeIdOrMode === "light";
       if (isSystemMode) {
         // toggle 'dark-theme' class
         if (themeIdOrMode === "dark") {
@@ -115,8 +116,7 @@
       });
 
       // find theme entry
-      const theme =
-        this.THEMES.find((t) => t.id === themeIdOrMode) || this.THEMES[0];
+      const theme = this.THEMES.find((t) => t.id === themeIdOrMode) || this.THEMES[0];
       // apply classes
       document.body.classList.add(theme.className);
       this.shell.classList.add(theme.className);
@@ -134,17 +134,18 @@
       this.applyTheme(next, true);
       try {
         localStorage.setItem(this.THEME_KEY, next);
-      } catch (e) {}
+      } catch (e) {
+        void e;
+        // intentionally ignore errors in this environment
+      }
     }
 
     cycleTheme() {
       // Find current active theme, defaulting to first if none match
       const currentThemeClass = this.THEMES.find((t) =>
-        document.body.classList.contains(t.className),
+        document.body.classList.contains(t.className)
       );
-      const currentId = currentThemeClass
-        ? currentThemeClass.id
-        : this.THEMES[0].id;
+      const currentId = currentThemeClass ? currentThemeClass.id : this.THEMES[0].id;
 
       // Calculate next index
       const currentIndex = this.THEMES.findIndex((t) => t.id === currentId);
@@ -155,19 +156,19 @@
     }
 
     _updateToggleUI(isDark) {
-      if (!this.themeIcon || !this.themeText) return;
+      if (!this.themeIcon || !this.themeText) {
+        return;
+      }
       if (isDark) {
         // moon -> sun icon
         this.themeIcon.innerHTML = this.SVG_SUN;
         this.themeText.textContent = "Switch to light theme";
-        this.themeToggleBtn &&
-          this.themeToggleBtn.setAttribute("aria-pressed", "true");
+        this.themeToggleBtn && this.themeToggleBtn.setAttribute("aria-pressed", "true");
       } else {
         // sun -> moon icon
         this.themeIcon.innerHTML = this.SVG_MOON;
         this.themeText.textContent = "Switch to dark theme";
-        this.themeToggleBtn &&
-          this.themeToggleBtn.setAttribute("aria-pressed", "false");
+        this.themeToggleBtn && this.themeToggleBtn.setAttribute("aria-pressed", "false");
       }
     }
   }
@@ -204,18 +205,17 @@
     init() {
       // wire pill click + keyboard
       this.pills.forEach((p) => {
-        p.addEventListener("click", () =>
-          this.setActiveVariant(p.dataset.variant),
-        );
+        p.addEventListener("click", () => this.setActiveVariant(p.dataset.variant));
         p.addEventListener("keydown", (ev) => this._pillKeyHandler(ev, p));
       });
 
       // also let clicking a card (not its inner link) activate it
       this.variantCards.forEach((card) => {
         card.addEventListener("click", (ev) => {
-          if (ev.target && ev.target.closest("a")) return;
-          const variant =
-            card.dataset.variant || card.id.replace("variant-", "");
+          if (ev.target && ev.target.closest("a")) {
+            return;
+          }
+          const variant = card.dataset.variant || card.id.replace("variant-", "");
           this.setActiveVariant(variant);
         });
       });
@@ -227,10 +227,10 @@
       });
 
       // initial selection: use pill with is-active or first
-      const start =
-        this.pills.find((p) => p.classList.contains("is-active")) ||
-        this.pills[0];
-      if (start) this.setActiveVariant(start.dataset.variant);
+      const start = this.pills.find((p) => p.classList.contains("is-active")) || this.pills[0];
+      if (start) {
+        this.setActiveVariant(start.dataset.variant);
+      }
     }
 
     _pillKeyHandler(ev, pill) {
@@ -241,8 +241,7 @@
         next.focus();
       } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") {
         ev.preventDefault();
-        const prev =
-          this.pills[(idx - 1 + this.pills.length) % this.pills.length];
+        const prev = this.pills[(idx - 1 + this.pills.length) % this.pills.length];
         prev.focus();
       } else if (ev.key === "Enter" || ev.key === " ") {
         ev.preventDefault();
@@ -279,7 +278,9 @@
 
       // Try to find the preferred link inside the card
       let target = cardEl.querySelector(mapping.prefer);
-      if (!target) target = cardEl.querySelector("a");
+      if (!target) {
+        target = cardEl.querySelector("a");
+      }
 
       if (target) {
         const href = target.getAttribute("href");
@@ -292,20 +293,19 @@
     _setPrimaryToPortfolio() {
       if (this.primaryAction) {
         this.primaryAction.setAttribute("href", "Portfolio/portfolio.html");
-        this.primaryActionText &&
-          (this.primaryActionText.textContent = "Open Portfolio");
+        this.primaryActionText && (this.primaryActionText.textContent = "Open Portfolio");
       }
     }
 
     _updatePrimary(href) {
-      if (!this.primaryAction || !href) return;
+      if (!this.primaryAction || !href) {
+        return;
+      }
       this.primaryAction.setAttribute("href", href);
       this.primaryAction.setAttribute("target", "_blank");
       this.primaryAction.setAttribute("rel", "noopener noreferrer");
       const isPDF = /\.pdf($|\?)/i.test(href);
-      this.primaryActionText.textContent = isPDF
-        ? "Open / Download"
-        : "Open — Selected";
+      this.primaryActionText.textContent = isPDF ? "Open / Download" : "Open — Selected";
     }
   }
 
@@ -329,15 +329,20 @@
       // Detect keyboard vs mouse to add focus-visible polyfill
       let usingKeyboard = false;
       window.addEventListener("keydown", (e) => {
-        if (e.key === "Tab") usingKeyboard = true;
+        if (e.key === "Tab") {
+          usingKeyboard = true;
+        }
       });
       window.addEventListener("mousedown", () => (usingKeyboard = false));
       document.addEventListener("focusin", (ev) => {
-        if (usingKeyboard && ev.target)
+        if (usingKeyboard && ev.target) {
           ev.target.classList.add("focus-visible");
+        }
       });
       document.addEventListener("focusout", (ev) => {
-        if (ev.target) ev.target.classList.remove("focus-visible");
+        if (ev.target) {
+          ev.target.classList.remove("focus-visible");
+        }
       });
     }
   }

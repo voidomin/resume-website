@@ -17,15 +17,21 @@ export class App {
   _initFocusVisible() {
     let usingKeyboard = false;
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Tab") usingKeyboard = true;
+      if (e.key === "Tab") {
+        usingKeyboard = true;
+      }
     });
     window.addEventListener("mousedown", () => (usingKeyboard = false));
 
     document.addEventListener("focusin", (ev) => {
-      if (usingKeyboard && ev.target) ev.target.classList.add("focus-visible");
+      if (usingKeyboard && ev.target) {
+        ev.target.classList.add("focus-visible");
+      }
     });
     document.addEventListener("focusout", (ev) => {
-      if (ev.target) ev.target.classList.remove("focus-visible");
+      if (ev.target) {
+        ev.target.classList.remove("focus-visible");
+      }
     });
   }
 }

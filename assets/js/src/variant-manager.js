@@ -24,15 +24,15 @@ export class VariantManager {
 
   init() {
     this.pills.forEach((p) => {
-      p.addEventListener("click", () =>
-        this.setActiveVariant(p.dataset.variant),
-      );
+      p.addEventListener("click", () => this.setActiveVariant(p.dataset.variant));
       p.addEventListener("keydown", (ev) => this._pillKeyHandler(ev, p));
     });
 
     this.variantCards.forEach((card) => {
       card.addEventListener("click", (ev) => {
-        if (ev.target && ev.target.closest("a")) return;
+        if (ev.target && ev.target.closest("a")) {
+          return;
+        }
         const variant = card.dataset.variant || card.id.replace("variant-", "");
         this.setActiveVariant(variant);
       });
@@ -43,10 +43,10 @@ export class VariantManager {
       lp.addEventListener("blur", () => lp.classList.remove("focus"));
     });
 
-    const start =
-      this.pills.find((p) => p.classList.contains("is-active")) ||
-      this.pills[0];
-    if (start) this.setActiveVariant(start.dataset.variant);
+    const start = this.pills.find((p) => p.classList.contains("is-active")) || this.pills[0];
+    if (start) {
+      this.setActiveVariant(start.dataset.variant);
+    }
   }
 
   _pillKeyHandler(ev, pill) {
@@ -57,8 +57,7 @@ export class VariantManager {
       next.focus();
     } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") {
       ev.preventDefault();
-      const prev =
-        this.pills[(idx - 1 + this.pills.length) % this.pills.length];
+      const prev = this.pills[(idx - 1 + this.pills.length) % this.pills.length];
       prev.focus();
     } else if (ev.key === "Enter" || ev.key === " ") {
       ev.preventDefault();
@@ -91,7 +90,9 @@ export class VariantManager {
     }
 
     let target = cardEl.querySelector(mapping.prefer);
-    if (!target) target = cardEl.querySelector("a");
+    if (!target) {
+      target = cardEl.querySelector("a");
+    }
 
     if (target) {
       const href = target.getAttribute("href");
@@ -104,19 +105,20 @@ export class VariantManager {
   _setPrimaryToPortfolio() {
     if (this.primaryAction) {
       this.primaryAction.setAttribute("href", "portfolio/portfolio.html");
-      if (this.primaryActionText)
+      if (this.primaryActionText) {
         this.primaryActionText.textContent = "Open Portfolio";
+      }
     }
   }
 
   _updatePrimary(href) {
-    if (!this.primaryAction || !href) return;
+    if (!this.primaryAction || !href) {
+      return;
+    }
     this.primaryAction.setAttribute("href", href);
     this.primaryAction.setAttribute("target", "_blank");
     this.primaryAction.setAttribute("rel", "noopener noreferrer");
     const isPDF = /\.pdf($|\?)/i.test(href);
-    this.primaryActionText.textContent = isPDF
-      ? "Open / Download"
-      : "Open — Selected";
+    this.primaryActionText.textContent = isPDF ? "Open / Download" : "Open — Selected";
   }
 }

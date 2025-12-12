@@ -119,11 +119,7 @@ header,
   gap: 8px;
   color: var(--muted);
   font-size: 13px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   padding: 6px 10px;
   border-radius: 999px;
   width: fit-content;
@@ -293,11 +289,7 @@ h1 {
   color: var(--text);
 }
 .pill.is-active {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.55),
-    rgba(255, 255, 255, 0.12)
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
   color: var(--accent-2);
   box-shadow: 0 6px 16px rgba(2, 6, 23, 0.04);
 }
@@ -422,11 +414,7 @@ h1 {
   color: var(--text);
   border: 1px solid rgba(15, 23, 42, 0.04);
   font-weight: 700;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.03)
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
   transition:
     transform 120ms ease,
     background 120ms ease;
@@ -529,11 +517,7 @@ button:focus,
 /* ---------------- Final tweaks for summary visibility in dark -- important ---------------- */
 /* Make summary panel contrast stronger in dark so text reads well */
 .dark-theme .summary-panel {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.015)
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.015));
   border: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--muted);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);

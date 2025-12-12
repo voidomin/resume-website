@@ -1,5 +1,5 @@
 ﻿// theme-manager.js
-import { $, $$ } from "./utils.js";
+import { $ } from "./utils.js";
 
 export class ThemeManager {
   constructor(options = {}) {
@@ -17,8 +17,10 @@ export class ThemeManager {
     this.themeText = $("#themeText");
     this.hero = $(".hero-actions") || null;
 
-    this.SVG_SUN = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`; // you can paste full svgs from your file
-    this.SVG_MOON = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+    this.SVG_SUN =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'; // you can paste full svgs from your file
+    this.SVG_MOON =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
     this.init();
   }
@@ -48,13 +50,13 @@ export class ThemeManager {
 
   _getSystemPref() {
     try {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
         return "dark";
       }
-    } catch (e) {}
+    } catch (e) {
+      // ignore (unsupported environment / private mode)
+      void e;
+    }
     return "light";
   }
 
@@ -62,6 +64,7 @@ export class ThemeManager {
     try {
       return localStorage.getItem(this.THEME_KEY);
     } catch (e) {
+      void e;
       return null;
     }
   }
@@ -69,7 +72,10 @@ export class ThemeManager {
   _saveTheme(themeId) {
     try {
       localStorage.setItem(this.THEME_KEY, themeId);
-    } catch (e) {}
+    } catch (e) {
+      // ignore (unsupported environment / private mode)
+      void e;
+    }
   }
 
   applyTheme(themeIdOrMode, animate = true) {
@@ -90,8 +96,7 @@ export class ThemeManager {
       this.shell.classList.remove(t.className);
     });
 
-    const theme =
-      this.THEMES.find((t) => t.id === themeIdOrMode) || this.THEMES[0];
+    const theme = this.THEMES.find((t) => t.id === themeIdOrMode) || this.THEMES[0];
     document.body.classList.add(theme.className);
     this.shell.classList.add(theme.className);
 
@@ -105,33 +110,34 @@ export class ThemeManager {
     this.applyTheme(next, true);
     try {
       localStorage.setItem(this.THEME_KEY, next);
-    } catch (e) {}
+    } catch (e) {
+      // ignore (unsupported environment / private mode)
+      void e;
+    }
   }
 
   cycleTheme() {
     const currentThemeClass = this.THEMES.find((t) =>
-      document.body.classList.contains(t.className),
+      document.body.classList.contains(t.className)
     );
-    const currentId = currentThemeClass
-      ? currentThemeClass.id
-      : this.THEMES[0].id;
+    const currentId = currentThemeClass ? currentThemeClass.id : this.THEMES[0].id;
     const currentIndex = this.THEMES.findIndex((t) => t.id === currentId);
     const nextIndex = (currentIndex + 1) % this.THEMES.length;
     this.applyTheme(this.THEMES[nextIndex].id, true);
   }
 
   _updateToggleUI(isDark) {
-    if (!this.themeIcon || !this.themeText) return;
+    if (!this.themeIcon || !this.themeText) {
+      return;
+    }
     if (isDark) {
       this.themeIcon.innerHTML = this.SVG_SUN;
       this.themeText.textContent = "Switch to light theme";
-      this.themeToggleBtn &&
-        this.themeToggleBtn.setAttribute("aria-pressed", "true");
+      this.themeToggleBtn && this.themeToggleBtn.setAttribute("aria-pressed", "true");
     } else {
       this.themeIcon.innerHTML = this.SVG_MOON;
       this.themeText.textContent = "Switch to dark theme";
-      this.themeToggleBtn &&
-        this.themeToggleBtn.setAttribute("aria-pressed", "false");
+      this.themeToggleBtn && this.themeToggleBtn.setAttribute("aria-pressed", "false");
     }
   }
 }
