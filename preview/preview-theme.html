@@ -270,21 +270,11 @@
             </div>
           </div>
           <div class="hero-actions">
-            <a id="primaryAction" class="btn-primary" href="#" target="_blank"
-              >Open Portfolio</a
-            >
-            <div
-              class="pill-switch"
-              role="tablist"
-              aria-label="Resume variants"
-            >
-              <button class="pill is-active" data-variant="print" role="tab">
-                Print
-              </button>
+            <a id="primaryAction" class="btn-primary" href="#" target="_blank">Open Portfolio</a>
+            <div class="pill-switch" role="tablist" aria-label="Resume variants">
+              <button class="pill is-active" data-variant="print" role="tab">Print</button>
               <button class="pill" data-variant="ats" role="tab">ATS</button>
-              <button class="pill" data-variant="digital" role="tab">
-                Digital
-              </button>
+              <button class="pill" data-variant="digital" role="tab">Digital</button>
             </div>
             <div class="theme-picker" aria-hidden="false"></div>
           </div>
@@ -294,8 +284,8 @@
           <article class="summary-panel">
             <h2>Summary</h2>
             <p>
-              Full-stack dev (React, Next.js, TypeScript) and automation
-              engineer (Python, Selenium).
+              Full-stack dev (React, Next.js, TypeScript) and automation engineer (Python,
+              Selenium).
             </p>
           </article>
 
@@ -346,12 +336,9 @@
           const b = document.createElement("button");
           b.className = "theme-btn";
           b.dataset.theme = t.id;
-          if (t.id === "sunset")
-            b.style.background = "linear-gradient(135deg,#fb923c,#f97316)";
-          if (t.id === "ocean")
-            b.style.background = "linear-gradient(135deg,#06b6d4,#0891b2)";
-          if (t.id === "forest")
-            b.style.background = "linear-gradient(135deg,#16a34a,#4ade80)";
+          if (t.id === "sunset") b.style.background = "linear-gradient(135deg,#fb923c,#f97316)";
+          if (t.id === "ocean") b.style.background = "linear-gradient(135deg,#06b6d4,#0891b2)";
+          if (t.id === "forest") b.style.background = "linear-gradient(135deg,#16a34a,#4ade80)";
           b.addEventListener("click", () => apply(t.id));
           hero.appendChild(b);
         });
@@ -362,16 +349,10 @@
         const pills = Array.from(document.querySelectorAll(".pill"));
         const primary = document.getElementById("primaryAction");
         function setActive(v) {
-          pills.forEach((p) =>
-            p.classList.toggle("is-active", p.dataset.variant === v),
-          );
+          pills.forEach((p) => p.classList.toggle("is-active", p.dataset.variant === v));
           // demo behaviour: change CTA text
           primary.textContent =
-            v === "print"
-              ? "Open Print"
-              : v === "ats"
-                ? "Open ATS"
-                : "Open Digital";
+            v === "print" ? "Open Print" : v === "ats" ? "Open ATS" : "Open Digital";
         }
         pills.forEach((p) => {
           p.addEventListener("click", () => setActive(p.dataset.variant));
