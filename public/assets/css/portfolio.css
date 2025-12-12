@@ -81,18 +81,8 @@ body {
 .profile-card,
 .side-card {
   background:
-    radial-gradient(
-        circle at top left,
-        rgba(30, 64, 175, 0.35),
-        transparent 40%
-      )
-      border-box,
-    radial-gradient(
-        circle at bottom right,
-        rgba(15, 118, 110, 0.35),
-        transparent 45%
-      )
-      border-box,
+    radial-gradient(circle at top left, rgba(30, 64, 175, 0.35), transparent 40%) border-box,
+    radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.35), transparent 45%) border-box,
     rgba(15, 23, 42, 0.9);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(148, 163, 184, 0.4);
@@ -116,16 +106,8 @@ body {
   padding: 24px 24px 20px;
   border-radius: 24px;
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(248, 250, 252, 0.2),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(56, 189, 248, 0.25),
-      transparent 60%
-    ),
+    radial-gradient(circle at top left, rgba(248, 250, 252, 0.2), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.25), transparent 60%),
     linear-gradient(135deg, #020617, #020617);
   border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow: 0 25px 80px rgba(15, 23, 42, 0.9);
@@ -139,16 +121,8 @@ body {
   inset: -40%;
   opacity: 0.33;
   background:
-    radial-gradient(
-      circle at 0% 0%,
-      rgba(244, 244, 245, 0.35),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 110% 110%,
-      rgba(56, 189, 248, 0.35),
-      transparent 55%
-    );
+    radial-gradient(circle at 0% 0%, rgba(244, 244, 245, 0.35), transparent 55%),
+    radial-gradient(circle at 110% 110%, rgba(56, 189, 248, 0.35), transparent 55%);
   mix-blend-mode: screen;
   pointer-events: none;
 }

@@ -5,7 +5,9 @@
 
   // Initial state: Print = primary, ATS = ghost
   function setPrimary(type) {
-    if (!printBtn || !atsBtn) return;
+    if (!printBtn || !atsBtn) {
+      return;
+    }
 
     if (type === "print") {
       // Print is active
@@ -41,7 +43,7 @@
   document.querySelectorAll("[data-track]").forEach((el) => {
     el.addEventListener("click", () => {
       const label = el.getAttribute("data-track");
-      console.log("download-click:", label);
+      console.warn("download-click:", label);
 
       // Later you can wire this to:
       // gtag('event', 'resume_download', { event_category: 'Resume', event_label: label });
