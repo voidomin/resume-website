@@ -2,50 +2,79 @@
 import js from "@eslint/js";
 import globals from "globals";
 import prettierPlugin from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
 
 /**
- * Flat config: export an array of config objects.
- * - First block: project-specific rules (assets/js)
- * - Then include the canonical recommended JS config (from @eslint/js)
- * - Then include a small Prettier integration by registering the plugin
- *   and turning on the prettier/prettier rule.
+ * ESLint Flat Config — Professional Setup
+ *
+ * Responsibilities:
+ * - ESLint → correctness, safety, best practices
+ * - Prettier → formatting
+ *
+ * Strategy:
+ * - Warnings instead of errors (CI-friendly)
+ * - Prettier disables conflicting ESLint rules
+ * - Scoped rules for project JS only
  */
 
 export default [
+  /* --------------------------------------------------
+   * 1. Global ignores (applies everywhere)
+   * -------------------------------------------------- */
   {
-    files: ["assets/js/**/*.js", "assets/js/src/**/*.js", "assets/js/*.js"],
     ignores: ["node_modules/**", "dist/**", "public/**", "preview/**"],
+  },
+
+  /* --------------------------------------------------
+   * 2. Base JavaScript recommended rules
+   * -------------------------------------------------- */
+  js.configs.recommended,
+
+  /* --------------------------------------------------
+   * 3. Project-specific JS rules
+   * -------------------------------------------------- */
+  {
+    files: ["assets/js/**/*.js", "assets/js/src/**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: globals.browser,
     },
     rules: {
-      "no-unused-vars": ["warn", { args: "none", vars: "all", ignoreRestSiblings: true }],
-      "no-empty": ["warn", { allowEmptyCatch: false }],
+      /* Safety & correctness */
       "no-undef": "warn",
+      "no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
+      "no-empty": ["warn", { allowEmptyCatch: false }],
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "prefer-const": "warn",
       eqeqeq: ["warn", "always"],
+
+      /* Maintainability */
       curly: ["warn", "all"],
-      semi: ["warn", "always"],
-      quotes: ["warn", "double", { avoidEscape: true }],
     },
   },
 
-  // include the official JS recommended config (object form — allowed in flat config)
-  js.configs.recommended,
+  /* --------------------------------------------------
+   * 4. Disable ESLint rules that conflict with Prettier
+   * -------------------------------------------------- */
+  prettierConfig,
 
-  // Prettier plugin integration (flat config style)
+  /* --------------------------------------------------
+   * 5. Prettier as an ESLint rule (non-blocking)
+   * -------------------------------------------------- */
   {
     files: ["**/*.{js,css,html,json,md}"],
-    ignores: ["node_modules/**", "dist/**"],
-    // register the plugin under "prettier"
     plugins: {
       prettier: prettierPlugin,
     },
     rules: {
-      // turn on the prettier rule (it uses the plugin we've registered above)
       "prettier/prettier": "warn",
     },
   },

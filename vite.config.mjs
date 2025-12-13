@@ -2,7 +2,7 @@
 
 export default defineConfig({
   root: ".",
-  base: "/",
+  base: "/resume-website/",
   build: {
     outDir: "dist",
     emptyOutDir: true,
