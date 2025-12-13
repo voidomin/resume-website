@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "🔧 Running Prettier..."
+npm run format
+
+echo "🧹 Running ESLint fix..."
+npm run lint:fix
+
+echo "✨ Staging updated files..."
+git add .
+
+echo "✔ Pre-commit checks finished."
