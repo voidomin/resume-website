@@ -1,99 +1,116 @@
-# Akash — Resume & Portfolio
+# Resume Website
 
-A lightweight static website that contains multiple versions of my resume (Print / ATS / Digital) and a portfolio page.  
-Everything is built using plain **HTML + CSS + JavaScript** with clean folder structure and themeable UI.
+A modern, modular, and production-ready resume + portfolio website built with
+**vanilla HTML, CSS, and JavaScript**, enhanced using **Vite**, **ESLint**,
+**Prettier**, **Husky**, and **GitHub Actions CI/CD**.
 
----
-
-## 📂 Project Structure
-
-│ .gitignore
-│ index.html
-│ package.json
-│ README.md
-│
-├───assets
-│ ├───css
-│ │ index.css
-│ │ portfolio.css
-│ │
-│ ├───img
-│ │ akash_CV.jpeg
-│ │
-│ └───js
-│ index.js
-│ portfolio.js
-│
-├───Ats
-│ resume_ats.html
-│ resume_ats.pdf
-│
-├───Digital
-│ resume_digital.html
-│
-├───docs
-│ style-guide.md
-│
-├───Portfolio
-│ portfolio.html
-│
-├───preview
-│ preview-theme.html
-│
-└───Print
-resume_print.html
-resume_print.pdf
+Live site:  
+👉 https://voidomin.github.io/resume-website/
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- **Multiple resume formats**
-  - Print-ready (A4 + PDF)
-  - ATS-friendly
-  - Digital screen-ready
-- **Portfolio page** (separate clean layout)
-- **Theme system**
-  - Light / Dark mode toggle
-  - Extra color themes (Ocean / Sunset / Forest)
-  - Stored in localStorage
-- **Clean OOP JavaScript architecture**
-  - `ThemeManager`
-  - `VariantManager`
-  - `App`
+- 📄 Multiple resume formats
+  - **Print** (A4-optimized PDF)
+  - **ATS-friendly** (machine-readable)
+  - **Digital / Visual resume**
+- 🎨 Theme system (dark mode + color themes)
+- 🧩 Modular JavaScript architecture (OOP-based managers)
+- ⚡ Fast builds with Vite
+- 🔍 ESLint + Prettier enforced
+- 🧪 CI checks on every PR
+- 🤖 Automated PR lint comments (Reviewdog)
+- 🚀 Auto-deployment to GitHub Pages
 
 ---
 
-## 🧪 How to Preview
+## 📁 Project Structure
 
-Open `index.html` directly, or run a small static server:
+```text
+.
+├── assets/                 # Source CSS & JS
+│   ├── css/
+│   └── js/
+│       └── src/             # Modular JS (ThemeManager, VariantManager, App)
+├── public/                  # Static routes (GitHub Pages)
+│   ├── ats/
+│   ├── digital/
+│   ├── portfolio/
+│   └── print/
+├── dist/                    # Production build output
+├── docs/
+│   └── style-guide.md
+├── .github/workflows/       # CI & deploy workflows
+├── vite.config.mjs
+└── index.html
 
-npx http-server .
+## 🧠 JavaScript Architecture
+The core logic is split into clean, testable modules:
 
-or use VS Code’s Live Server.
+ThemeManager
+Handles dark mode, theme switching, persistence
 
----
+VariantManager
+Controls resume variant selection and CTA updates
 
-## 🏷 Tags & Workflow
+App
+Bootstraps and wires everything together
 
-- Work on `dev` branch
-- Merge into `main` only when stable
-- Tag releases like:
+Legacy fallback support is retained for non-module browsers.
 
-git tag index-v3
-git push origin index-v3
+## 🛠️ Local Development
+Install dependencies
+bash
+Copy code
+npm install
+Run dev server
+bash
+Copy code
+npm run dev
+Build for production
+bash
+Copy code
+npm run build
 
----
+##🧹 Code Quality
+Format code
+bash
+Copy code
+npm run format
+Lint code
+bash
+Copy code
+npm run lint
+Auto-fix lint issues
+bash
+Copy code
+npm run lint:fix
+Pre-commit hooks ensure formatting and linting before every commit.
 
-## 📌 License
+##🔁 CI / CD
+On every PR
+ESLint (no-fix)
 
-Personal project — no public license yet.
+Prettier check
 
----
+Vite build
 
-## ✨ Future Improvements
+Inline PR comments via Reviewdog
 
-- Split CSS into components (Button / Card / VariantGrid)
-- Add build tooling (PostCSS / Vite) — optional
-- Add GitHub Pages deployment
-- Add ESLint + Stylelint + Prettier
+On merge to main
+Production build
+
+Deploy to GitHub Pages
+
+📦 Deployment
+
+This site is deployed using GitHub Pages from the Vite build output.
+
+Base path is configured for repo hosting:
+
+base: "/resume-website/"
+
+📄 License
+
+```
