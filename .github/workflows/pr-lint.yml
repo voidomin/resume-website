@@ -1,0 +1,34 @@
+name: PR Lint Review (ESLint → reviewdog)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  eslint-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run ESLint and output JSON report
+        run: |
+          mkdir -p reports
+          npx eslint "assets/js/**/*.js" "assets/js/src/**/*.js" --format json -o reports/eslint-report.json || true
+        continue-on-error: true
+
+      - name: Run reviewdog (ESLint)
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          eslint_report: reports/eslint-report.json
+          reporter: github-pr-review
