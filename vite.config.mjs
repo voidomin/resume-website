@@ -1,10 +1,10 @@
 ﻿import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: ".",
-  base: "/resume-website/",
+  base: "/resume-website/", // REQUIRED for GitHub Pages
   build: {
     outDir: "dist",
     emptyOutDir: true,
   },
+  publicDir: "public", // explicitly tell Vite where static pages live
 });
