@@ -1,0 +1,379 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Akash - Resume (ATS)</title>
+    <style>
+      /* Minimal, ATS-safe single-column layout */
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        margin: 0;
+        padding: 0;
+        background: #e9ecf1;
+        font-size: 12px;
+        line-height: 1.4;
+
+        /* Center resume block on screen */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      .resume {
+        width: 100%;
+        max-width: 800px;
+        margin: 24px;
+        background: #ffffff;
+        padding: 20px 24px;
+        box-sizing: border-box;
+        border: 1px solid #d0d4dd;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+
+      header {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 0 0 4px 0;
+        letter-spacing: 0.5px;
+      }
+
+      h2 {
+        font-size: 13.5px;
+        margin: 14px 0 6px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 2px;
+      }
+
+      h3 {
+        font-size: 12.5px;
+        margin: 7px 0 2px 0;
+      }
+
+      p {
+        margin: 3px 0;
+      }
+
+      ul {
+        margin: 3px 0 6px 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+
+      .contact {
+        font-size: 11.3px;
+        margin-bottom: 6px;
+      }
+
+      .contact-line {
+        margin: 2px 0;
+      }
+
+      .meta {
+        font-style: italic;
+        font-size: 11px;
+        margin-bottom: 2px;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin: 10px 0 12px 0;
+      }
+
+      /* Slight visual separation between sections */
+      section + section {
+        margin-top: 6px;
+        padding-top: 4px;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+          display: block; /* remove flex centering for print */
+        }
+
+        .resume {
+          margin: 0;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          max-width: none;
+          width: 190mm;
+          padding: 7mm 9mm;
+          font-size: 9.2px;
+          line-height: 1.22;
+        }
+
+        h1 {
+          font-size: 16px;
+          margin-bottom: 2px;
+        }
+
+        h2 {
+          font-size: 12px;
+          margin: 8px 0 3px 0;
+          padding-bottom: 1px;
+        }
+
+        h3 {
+          font-size: 10.8px;
+          margin: 5px 0 2px 0;
+        }
+
+        .contact {
+          font-size: 9.8px;
+        }
+
+        .meta {
+          font-size: 9.2px;
+        }
+
+        ul {
+          margin: 2px 0 5px 15px;
+        }
+
+        li {
+          margin: 1px 0;
+        }
+
+        p {
+          margin: 2px 0;
+        }
+
+        .section-divider {
+          margin: 6px 0 8px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume">
+      <header>
+        <h1>Akash</h1>
+        <div class="contact">
+          <div class="contact-line">
+            No 41, 2nd Main, Vinayaka Nagara, Gubbalala, Bangalore Urban 560061
+          </div>
+          <div class="contact-line">Phone: +91 7019779907</div>
+          <div class="contact-line">
+            Email:
+            <a href="mailto:akashkbhat4414@gmail.com"> akashkbhat4414@gmail.com </a>
+          </div>
+          <div class="contact-line">
+            Publication:
+            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/prot.26738">
+              Wiley Online Library
+            </a>
+          </div>
+          <div class="contact-line">
+            Project:
+            <a href="https://param-adventure.vercel.app/"> https://param-adventure.vercel.app/ </a>
+          </div>
+          <div class="contact-line">
+            GitHub:
+            <a href="https://github.com/voidomin"> https://github.com/voidomin </a>
+          </div>
+          <div class="contact-line">
+            LinkedIn:
+            <a href="http://www.linkedin.com/in/akash-bhat-930346197">
+              http://www.linkedin.com/in/akash-bhat-930346197
+            </a>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Full-stack developer (React, Next.js, TypeScript, REST APIs, PostgreSQL) and
+          test-automation engineer (Python, Selenium, Postman, CI). Experienced in building scalable
+          web applications and automated test frameworks that reduce defects, improve performance,
+          and speed up releases.
+        </p>
+      </section>
+
+      <section>
+        <h2>Tech Stack Summary</h2>
+        <p>
+          JavaScript, TypeScript, React.js, Next.js, HTML, CSS, PHP, FastAPI, REST APIs, PostgreSQL,
+          Python, pandas, NumPy, Selenium, Pytest, Postman, Git, Docker, Linux, Jira.
+        </p>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <h3>Program Coordinator &amp; Web Developer, Abhyudaya</h3>
+        <div class="meta">August 2025 – Present | Bengaluru, India</div>
+        <ul>
+          <li>
+            Coordinate program activities, outreach, and stakeholder relations across community
+            initiatives.
+          </li>
+          <li>
+            Streamline program delivery and organise events and trainings for students and
+            volunteers.
+          </li>
+        </ul>
+
+        <h3>Development Engineer, Merck</h3>
+        <div class="meta">January 2024 – July 2025 | Bengaluru, India</div>
+        <ul>
+          <li>
+            Built front-end and back-end features for Bio4C Process Pad using React, TypeScript,
+            REST APIs, and PostgreSQL.
+          </li>
+          <li>
+            Automated regression tests and workflows using Python and Selenium, reducing manual QA
+            effort.
+          </li>
+          <li>
+            Implemented APIs and UI features and collaborated with cross-functional teams to deliver
+            product releases.
+          </li>
+        </ul>
+
+        <h3>Research Project, Indian Institute of Science (IISc)</h3>
+        <div class="meta">June 2023 – December 2023 | Bengaluru, India</div>
+        <ul>
+          <li>
+            Conducted computational research in structural biology and protein stability analysis.
+          </li>
+          <li>
+            Published “In Silico Saturation Mutagenesis of CCDB” in the journal
+            <em>Proteins: Structure, Function, and Bioinformatics</em>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Achievements</h2>
+        <ul>
+          <li>
+            Reduced manual QA effort by creating Python + Selenium automation for key workflows at
+            Merck.
+          </li>
+          <li>
+            Designed and developed Abhyudaya’s website to improve online outreach and information
+            access for volunteers and donors.
+          </li>
+          <li>
+            Built reusable TypeScript components and patterns that improved frontend development
+            speed and consistency.
+          </li>
+          <li>
+            Published peer-reviewed bioinformatics research on protein stability in a reputed
+            international journal.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+
+        <h3>Param Adventures – Tourism Website</h3>
+        <div class="meta">Personal / Freelance</div>
+        <p>
+          Built a responsive tourism website using TypeScript and Next.js. Live:
+          <a href="https://param-adventure.vercel.app/"> https://param-adventure.vercel.app/ </a>
+        </p>
+        <ul>
+          <li>
+            Implemented booking flows and modular TypeScript components for trip listings and
+            enquiries.
+          </li>
+          <li>
+            Integrated maps/APIs and optimised performance and accessibility for a smoother user
+            experience.
+          </li>
+        </ul>
+
+        <h3>Abhyudaya Website – NGO Platform</h3>
+        <div class="meta">Abhyudaya</div>
+        <p>
+          Designed and developed the website
+          <a href="https://abhyudayakkss.org/"> https://abhyudayakkss.org/ </a>
+          to present programs, volunteering, and donation information.
+        </p>
+        <ul>
+          <li>
+            Structured content for programs, centres, and contact flows to increase clarity for
+            visitors.
+          </li>
+          <li>
+            Improved discoverability of key information, supporting outreach and engagement for
+            community initiatives.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+
+        <h3>M.Sc. in Molecular &amp; Cellular Biology</h3>
+        <div class="meta">
+          MS Ramaiah University of Applied Sciences, Bengaluru, India | August 2022 – September 2024
+        </div>
+        <p>GPA: 8.12</p>
+
+        <h3>B.Sc. in Biotechnology</h3>
+        <div class="meta">Dayananda Sagar University, Bengaluru, India | July 2019 – May 2022</div>
+      </section>
+
+      <section>
+        <h2>Relevant Coursework / Learning</h2>
+        <p>
+          Data Structures and Algorithms, Web Development, Software Engineering, Database Systems,
+          Object-Oriented Programming (OOP), Computer Networks, Basic Operating Systems.
+        </p>
+      </section>
+
+      <section>
+        <h2>Awards &amp; Publications</h2>
+        <ul>
+          <li>
+            Published “In Silico Saturation Mutagenesis of CCDB” in
+            <em>Proteins: Structure, Function, and Bioinformatics</em>.
+          </li>
+          <li>
+            3rd place in a hackathon conducted by Merck (team-based software development and problem
+            solving).
+          </li>
+          <li>State government scholarship recipient through State Scholarship Program (SSP).</li>
+          <li>1st place in a poster-making competition at Dayananda Sagar University.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Additional</h2>
+        <p>References available upon request.</p>
+      </section>
+    </div>
+  </body>
+</html>

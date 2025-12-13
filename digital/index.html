@@ -1,0 +1,1122 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akash - Development Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global layout – screen-first, no print constraints */
+      :root {
+        --bg-body: radial-gradient(circle at top left, #e5e7eb, #d1d5db);
+        --bg-page: #ffffff;
+        --border-page: rgba(148, 163, 184, 0.4);
+        --shadow-page: 0 20px 50px rgba(15, 23, 42, 0.22);
+
+        --sidebar-grad-from: #3b4c63;
+        --sidebar-grad-to: #111827;
+        --sidebar-text: #ecf0f1;
+
+        --main-text: #333333;
+        --subtle-text: #4b5563;
+        --muted-text: #6b7280;
+        --heading-text: #111827;
+
+        --accent-gold: #f59e0b;
+        --accent-gold-soft: #fbbf24;
+        --link-main: #2563eb;
+        --link-hover: #1d4ed8;
+
+        --chip-bg: #f3f4f6;
+        --chip-border: #e5e7eb;
+      }
+
+      body.dark-mode {
+        --bg-body: radial-gradient(circle at top left, #020617, #020617);
+        --bg-page: #020617;
+        --border-page: rgba(30, 64, 175, 0.6);
+        --shadow-page: 0 20px 55px rgba(15, 23, 42, 0.8);
+
+        --sidebar-grad-from: #020617;
+        --sidebar-grad-to: #020617;
+        --sidebar-text: #e5e7eb;
+
+        --main-text: #e5e7eb;
+        --subtle-text: #d1d5db;
+        --muted-text: #9ca3af;
+        --heading-text: #f9fafb;
+
+        --accent-gold: #facc15;
+        --accent-gold-soft: #fbbf24;
+        --link-main: #60a5fa;
+        --link-hover: #93c5fd;
+
+        --chip-bg: rgba(15, 23, 42, 0.8);
+        --chip-border: rgba(55, 65, 81, 0.9);
+      }
+
+      body {
+        margin: 0;
+        padding: 24px 12px;
+        font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg-body);
+        color: var(--main-text);
+        line-height: 1.5;
+        font-size: 13px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition:
+          background 0.35s ease,
+          color 0.25s ease;
+      }
+
+      .page {
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+        min-height: 640px;
+        display: flex;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid var(--border-page);
+        box-shadow: var(--shadow-page);
+        background-color: var(--bg-page);
+        transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .sidebar {
+        width: 32%;
+        background: radial-gradient(
+          circle at top left,
+          var(--sidebar-grad-from),
+          var(--sidebar-grad-to)
+        );
+        color: var(--sidebar-text);
+        padding: 22px 16px;
+        box-sizing: border-box;
+      }
+
+      .main-content {
+        width: 68%;
+        padding: 26px 28px;
+        box-sizing: border-box;
+      }
+
+      /* Theme toggle */
+      .top-bar {
+        max-width: 1100px;
+        margin: 0 auto 10px auto;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .theme-toggle {
+        font-size: 11.5px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.8);
+        background: rgba(15, 23, 42, 0.06);
+        color: #111827;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        backdrop-filter: blur(4px);
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.1s ease,
+          color 0.2s ease;
+      }
+
+      body.dark-mode .theme-toggle {
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+        border-color: rgba(55, 65, 81, 0.9);
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-1px);
+        border-color: var(--accent-gold-soft);
+      }
+
+      .theme-toggle-icon {
+        font-size: 13px;
+      }
+
+      /* Profile header */
+      .profile-header {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #34495e;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .profile-header img {
+        width: 150px;
+        height: 180px;
+        object-fit: cover;
+        border: 3px solid var(--accent-gold-soft);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        display: block;
+        margin: 15px auto;
+        border-radius: 10px;
+      }
+
+      .profile-header h1 {
+        margin: 0 0 4px 0;
+        font-size: 24px;
+        font-family: "Merriweather", "Inter", serif;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: #ffffff;
+      }
+
+      .profile-header h2 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 600;
+        color: #cbd5f5;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      /* Sidebar sections */
+      .sidebar-section {
+        margin-bottom: 18px;
+      }
+
+      .sidebar-section h2 {
+        font-size: 13px;
+        margin: 0 0 10px 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #41556f;
+        text-transform: uppercase;
+        color: var(--accent-gold-soft);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      .sidebar-section p,
+      .sidebar-section li {
+        font-size: 11.5px;
+        margin: 6px 0;
+        line-height: 1.45;
+      }
+
+      .sidebar-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        margin: 6px 0;
+      }
+
+      .contact-icon {
+        flex: 0 0 20px;
+        width: 20px;
+        font-size: 14px;
+        line-height: 1.1;
+      }
+
+      .contact-text {
+        flex: 1 1 auto;
+        font-size: 11.5px;
+        color: #e5e7eb;
+      }
+
+      .contact-text a {
+        color: #e5e7eb;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .contact-text a:hover {
+        color: var(--accent-gold-soft);
+        border-color: var(--accent-gold-soft);
+      }
+
+      .sidebar-section a {
+        color: #e5e7eb;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .sidebar-section a:hover {
+        color: var(--accent-gold-soft);
+        border-color: var(--accent-gold-soft);
+      }
+
+      .email-link {
+        word-break: break-all;
+      }
+
+      /* Highlights / chips */
+      .highlights {
+        display: block;
+      }
+
+      .chip {
+        display: inline-block;
+        background-color: rgba(236, 240, 241, 0.08);
+        border: 1px solid rgba(209, 213, 219, 0.4);
+        color: #e5e7eb;
+        border-radius: 999px;
+        padding: 4px 10px;
+        margin: 0 6px 6px 0;
+        font-size: 11px;
+        font-weight: 600;
+        backdrop-filter: blur(2px);
+      }
+
+      .rating-star {
+        color: var(--accent-gold-soft);
+        font-size: 12px;
+      }
+
+      .rating-star.empty {
+        color: #6b7280;
+      }
+
+      .reference-item {
+        margin-bottom: 8px;
+      }
+
+      .reference-name {
+        font-weight: 600;
+        font-size: 12px;
+        color: #f9fafb;
+      }
+
+      .reference-contact {
+        font-size: 11.5px;
+        color: #d1d5db;
+      }
+
+      .reference-contact a {
+        color: #e5e7eb;
+      }
+
+      /* Main content */
+      .section {
+        margin-bottom: 16px;
+      }
+
+      .section h2 {
+        font-size: 15px;
+        margin: 0 0 6px 0;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--accent-gold);
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--heading-text);
+        letter-spacing: 0.1em;
+        position: relative;
+        padding-left: 24px; /* for icons */
+      }
+
+      /* Section icons */
+      #profile-summary h2::before,
+      #work-experience h2::before,
+      #education h2::before,
+      #internships h2::before,
+      #projects h2::before,
+      #skills h2::before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-55%);
+        font-size: 15px;
+      }
+
+      #profile-summary h2::before {
+        content: "👤";
+      }
+      #work-experience h2::before {
+        content: "💼";
+      }
+      #education h2::before {
+        content: "🎓";
+      }
+      #internships h2::before {
+        content: "🔬";
+      }
+      #projects h2::before {
+        content: "🛠️";
+      }
+      #skills h2::before {
+        content: "⚙️";
+      }
+
+      .section p,
+      .section li {
+        font-size: 13px;
+        color: var(--subtle-text);
+        margin: 4px 0;
+        line-height: 1.55;
+      }
+
+      .section ul {
+        padding-left: 18px;
+        margin: 6px 0;
+      }
+
+      .section li {
+        margin-bottom: 4px;
+        position: relative;
+      }
+
+      .section li::before {
+        content: "•";
+        color: var(--accent-gold);
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
+
+      /* Top meta strip */
+      .top-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .meta-pill {
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      body.dark-mode .meta-pill {
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+        border-color: rgba(55, 65, 81, 0.9);
+      }
+
+      /* Jobs & education */
+      .job {
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #e5e7eb;
+      }
+
+      body.dark-mode .job {
+        border-bottom-color: #1f2937;
+      }
+
+      .job:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .job-title {
+        font-weight: 600;
+        color: var(--heading-text);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+
+      .job-company {
+        font-weight: 600;
+        color: #1f2937;
+      }
+
+      body.dark-mode .job-company {
+        color: #e5e7eb;
+      }
+
+      .job-period {
+        font-style: italic;
+        color: var(--muted-text);
+        font-size: 11.5px;
+        white-space: nowrap;
+      }
+
+      .education-item {
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed #e5e7eb;
+      }
+
+      body.dark-mode .education-item {
+        border-bottom-color: #1f2937;
+      }
+
+      .education-item:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .education-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .education-degree {
+        font-weight: 600;
+        color: var(--heading-text);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+
+      .education-period {
+        font-style: italic;
+        color: var(--muted-text);
+        font-size: 11.5px;
+        white-space: nowrap;
+      }
+
+      .education-institution {
+        font-weight: 500;
+        color: #1f2937;
+        font-size: 12.5px;
+      }
+
+      body.dark-mode .education-institution {
+        color: #e5e7eb;
+      }
+
+      .education-details {
+        font-size: 11.5px;
+        color: var(--muted-text);
+        margin-top: 3px;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 18px;
+        align-items: start;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .skills-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .skills-heading {
+        flex: 0 0 100px;
+        min-width: 70px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--heading-text);
+      }
+
+      .skills-sub {
+        font-size: 11.5px;
+        color: var(--muted-text);
+        margin-top: 4px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .skills-sub.nowrap {
+        white-space: nowrap;
+        gap: 8px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        font-size: 11.3px;
+      }
+
+      .chip-inline {
+        display: inline-block;
+        background: var(--chip-bg);
+        color: var(--heading-text);
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        margin: 0 4px 4px 0;
+        border: 1px solid var(--chip-border);
+      }
+
+      .skills-bar-wrap {
+        flex: 1 1 120px;
+        min-width: 0;
+      }
+
+      .skills-bar {
+        width: 100%;
+        height: 5px;
+        background: #e5e7eb;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      body.dark-mode .skills-bar {
+        background: #111827;
+      }
+
+      .skills-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        border-radius: 999px;
+      }
+
+      /* Links in main content */
+      .section a {
+        color: var(--link-main);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(37, 99, 235, 0.4);
+        padding-bottom: 1px;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      body.dark-mode .section a {
+        border-color: rgba(96, 165, 250, 0.6);
+      }
+
+      .section a:hover {
+        color: var(--link-hover);
+        border-color: var(--link-hover);
+      }
+
+      /* Responsive: stack sidebar and main on narrow screens */
+      @media (max-width: 900px) {
+        body {
+          padding: 12px;
+        }
+
+        .page {
+          flex-direction: column;
+          border-radius: 14px;
+        }
+
+        .sidebar,
+        .main-content {
+          width: 100%;
+        }
+
+        .sidebar {
+          order: 1;
+        }
+
+        .main-content {
+          order: 2;
+        }
+
+        .job-header,
+        .education-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .job-period,
+        .education-period {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Theme toggle bar -->
+    <div class="top-bar">
+      <button id="themeToggle" class="theme-toggle" type="button">
+        <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+    </div>
+
+    <div class="page">
+      <aside class="sidebar">
+        <div class="profile-header" id="profile">
+          <h1>AKASH</h1>
+          <h2>Development Engineer</h2>
+        </div>
+
+        <div class="sidebar-section contact-info">
+          <h2>Contact</h2>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span class="contact-text">
+              No 41, 2nd Main,<br />Vinayaka Nagara,<br />Gubbalala,<br />Bangalore Urban, 560061
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span class="contact-text">+91 7019779907</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <span class="contact-text">
+              <a href="mailto:akashkbhat4414@gmail.com" class="email-link">
+                akashkbhat4414@gmail.com
+              </a>
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <span class="contact-text">
+              <a
+                href="https://param-adventure.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Portfolio / Param Adventures
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Details</h2>
+          <ul>
+            <li><strong>Nationality:</strong> Indian</li>
+            <li><strong>Date of Birth:</strong> 21/06/2001</li>
+            <li><strong>Hobbies:</strong> Photography, Classical Music</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section highlights">
+          <h2>Highlights</h2>
+          <p style="margin: 0 0 8px 0; font-size: 11.5px; color: #ecf0f1">
+            Full-stack developer focused on scalable web apps, automation and data.
+          </p>
+          <div>
+            <span class="chip">React.js</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Selenium</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Social</h2>
+          <ul>
+            <li>
+              <strong>GitHub:</strong>
+              <a href="https://github.com/voidomin" target="_blank" rel="noopener noreferrer">
+                github.com/voidomin
+              </a>
+            </li>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a
+                href="http://www.linkedin.com/in/akash-bhat-930346197"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin.com/in/akash-bhat
+              </a>
+            </li>
+            <li>
+              <strong>Publication:</strong>
+              <a
+                href="https://onlinelibrary.wiley.com/doi/abs/10.1002/prot.26738"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Wiley Online Library
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Languages</h2>
+          <ul>
+            <li>English <span class="rating-star">★★★★★</span></li>
+            <li>Kannada <span class="rating-star">★★★★★</span></li>
+            <li>
+              Hindi <span class="rating-star">★★★</span><span class="rating-star empty">☆☆</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Soft Skills</h2>
+          <ul>
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Adaptability</li>
+            <li>Time Management</li>
+            <li>Communication</li>
+            <li>Critical Thinking</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>References</h2>
+          <div class="reference-item">
+            <div class="reference-name">Dr. Abhilash Mohan</div>
+            <div class="reference-contact">
+              Senior Manager, Merck |
+              <a href="mailto:abhilash.mohan@merckgroup.com"> abhilash.mohan@merckgroup.com </a>
+            </div>
+          </div>
+          <div class="reference-item">
+            <div class="reference-name">Dr. Deepesh Nagarajan</div>
+            <div class="reference-contact">
+              Professor, MS Ramaiah University of Applied Sciences |
+              <a href="mailto:deepeshn.bt.ls@msruas.ac.in"> deepeshn.bt.ls@msruas.ac.in </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <!-- Top meta strip -->
+        <div class="top-meta">
+          <span class="meta-pill">Development Engineer</span>
+          <span class="meta-pill">Bengaluru, India</span>
+          <span class="meta-pill">1.5+ years experience</span>
+          <span class="meta-pill">Open to full-stack roles</span>
+        </div>
+
+        <div class="section" id="profile-summary">
+          <h2>Professional Profile</h2>
+          <p>
+            Full-stack developer (React, Next.js, TypeScript, APIs, PostgreSQL) and test-automation
+            engineer (Python, Selenium, Postman, CI). Builds automated test frameworks and scalable
+            web applications that reduce defects and accelerate delivery.
+          </p>
+        </div>
+
+        <div class="section" id="work-experience">
+          <h2>Work Experience</h2>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">
+                  Program Coordinator <span class="job-company">Abhyudaya</span>
+                </h3>
+              </div>
+              <div class="job-period">August 2025 – Present</div>
+            </div>
+            <p>Bengaluru, India</p>
+            <ul>
+              <li>
+                Coordinate program activities, outreach, and stakeholder relations across community
+                initiatives.
+              </li>
+              <li>
+                Streamline program delivery and organise events and trainings for students and
+                volunteers.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">
+                  Development Engineer <span class="job-company">Merck</span>
+                </h3>
+              </div>
+              <div class="job-period">January 2024 – July 2025</div>
+            </div>
+            <p>Bengaluru, India</p>
+            <ul>
+              <li>Built front-end and back-end features for Bio4C Process Pad.</li>
+              <li>
+                Automated tests and workflows with Python and Selenium, reducing manual QA effort.
+              </li>
+              <li>
+                Implemented APIs and UI features and collaborated with cross-functional teams to
+                deliver product releases.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section" id="education">
+          <h2>Education</h2>
+
+          <div class="education-item">
+            <div class="education-header">
+              <h3 class="education-degree">M.Sc. in Molecular &amp; Cellular Biology</h3>
+              <div class="education-period">August 2022 – September 2024</div>
+            </div>
+            <div class="education-institution">
+              MS Ramaiah University of Applied Sciences, Bengaluru, India
+            </div>
+            <div class="education-details">
+              <strong>GPA:</strong> 8.12 | <strong>Thesis:</strong> In silico Saturation Mutagenesis
+              of CCDB
+              <br />
+              <strong>Relevant Coursework:</strong> Cell Biology, Biotechnology, Molecular Biology,
+              Biostatistics, Immunology, Recombinant DNA Technology, Bioinformatics, Tissue Culture
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-header">
+              <h3 class="education-degree">B.Sc. in Biotechnology</h3>
+              <div class="education-period">July 2019 – May 2023</div>
+            </div>
+            <div class="education-institution">
+              Dayananda Sagar College of Engineering, Bengaluru, India
+            </div>
+            <div class="education-details"><strong>Grade:</strong> 7.82</div>
+          </div>
+        </div>
+
+        <div class="section" id="internships">
+          <h2>Internships</h2>
+          <div class="job">
+            <div class="job-header">
+              <h3 class="job-title">Research Project</h3>
+              <div class="job-period">June 2023 – December 2023</div>
+            </div>
+            <p>Indian Institute of Science (IISc), Bengaluru, India</p>
+            <ul>
+              <li>Conducted computational research in structural biology and data analysis.</li>
+              <li>
+                Published “In Silico Saturation Mutagenesis of CCDB” in
+                <em>Proteins: Structure, Function, and Bioinformatics</em>.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section" id="projects">
+          <h2>Projects</h2>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Tourism Website</span>,
+                <span class="job-company">Param Adventures</span>
+              </div>
+              <div class="job-period">Personal / Freelance</div>
+            </div>
+            <p>
+              Built a responsive tourism website using TypeScript and Next.js.
+              <a
+                href="https://param-adventure.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live site
+              </a>
+            </p>
+            <ul>
+              <li>
+                Implemented booking flows and modular TypeScript components for trip listings and
+                enquiries.
+              </li>
+              <li>Integrated maps/APIs and optimised performance and accessibility.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <span class="job-title">NGO Website</span>,
+                <span class="job-company">Abhyudaya</span>
+              </div>
+              <div class="job-period">Volunteer Work</div>
+            </div>
+            <p>
+              Developed a comprehensive website for a non-profit organization.
+              <a href="https://abhyudayakkss.org/" target="_blank" rel="noopener noreferrer">
+                Live site
+              </a>
+            </p>
+            <ul>
+              <li>
+                Designed and implemented a user-friendly interface to showcase the organization's
+                activities.
+              </li>
+              <li>
+                Integrated features for donations and volunteer sign-ups to support community
+                outreach.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section" id="skills">
+          <h2>Technical Skills</h2>
+          <div class="skills-grid">
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">Frontend</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub nowrap">
+                <span class="chip-inline">React.js</span>
+                <span class="chip-inline">Next.js</span>
+                <span class="chip-inline">TypeScript</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">Backend</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub">
+                <span class="chip-inline">PHP</span>
+                <span class="chip-inline">FastAPI</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">APIs &amp; DB</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 82%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub">
+                <span class="chip-inline">PostgreSQL</span>
+                <span class="chip-inline">API Dev</span>
+                <span class="chip-inline">Postman</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">Python &amp; Data</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub">
+                <span class="chip-inline">Python</span>
+                <span class="chip-inline">pandas</span>
+                <span class="chip-inline">NumPy</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">Automation</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 78%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub">
+                <span class="chip-inline">Selenium</span>
+                <span class="chip-inline">Pytest</span>
+                <span class="chip-inline">CI/CD</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills-row">
+                <div class="skills-heading">Tools &amp; DevOps</div>
+                <div class="skills-bar-wrap">
+                  <div class="skills-bar">
+                    <div class="skills-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-sub">
+                <span class="chip-inline">Git</span>
+                <span class="chip-inline">Docker</span>
+                <span class="chip-inline">Linux</span>
+                <span class="chip-inline">Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Simple dark-mode toggle with local preference (optional)
+      const body = document.body;
+      const toggle = document.getElementById("themeToggle");
+      const icon = document.getElementById("themeIcon");
+      const label = document.getElementById("themeLabel");
+
+      function setTheme(isDark) {
+        if (isDark) {
+          body.classList.add("dark-mode");
+          icon.textContent = "☀️";
+          label.textContent = "Light mode";
+          try {
+            localStorage.setItem("akash-theme", "dark");
+          } catch (e) {}
+        } else {
+          body.classList.remove("dark-mode");
+          icon.textContent = "🌙";
+          label.textContent = "Dark mode";
+          try {
+            localStorage.setItem("akash-theme", "light");
+          } catch (e) {}
+        }
+      }
+
+      // Load saved theme if available
+      (function initTheme() {
+        try {
+          const saved = localStorage.getItem("akash-theme");
+          if (saved === "dark") {
+            setTheme(true);
+          } else if (saved === "light") {
+            setTheme(false);
+          }
+        } catch (e) {}
+      })();
+
+      toggle.addEventListener("click", () => {
+        const isDark = !body.classList.contains("dark-mode");
+        setTheme(isDark);
+      });
+    </script>
+  </body>
+</html>
