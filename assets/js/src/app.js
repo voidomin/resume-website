@@ -35,3 +35,4 @@ export class App {
     });
   }
 }
+// assets/js/src/utils.js
