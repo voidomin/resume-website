@@ -35,3 +35,5 @@ export class App {
     });
   }
 }
+// assets/js/src/utils.js
+const unused = 123;
