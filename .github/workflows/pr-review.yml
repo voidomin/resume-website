@@ -1,0 +1,30 @@
+name: PR Lint Review (ESLint → reviewdog)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  eslint-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint with reviewdog
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          eslint_flags: '"assets/js/**/*.js" "assets/js/src/**/*.js"'
+          reporter: github-pr-review
+          fail_on_error: false
