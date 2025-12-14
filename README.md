@@ -1,116 +1,120 @@
 # Resume Website
 
-A modern, modular, and production-ready resume + portfolio website built with
-**vanilla HTML, CSS, and JavaScript**, enhanced using **Vite**, **ESLint**,
-**Prettier**, **Husky**, and **GitHub Actions CI/CD**.
+A modular, themeable resume and portfolio website built with vanilla JavaScript and Vite.
+The project focuses on clean architecture, strong code quality, and automated CI/CD.
 
-Live site:  
-👉 https://voidomin.github.io/resume-website/
-
----
-
-## ✨ Features
-
-- 📄 Multiple resume formats
-  - **Print** (A4-optimized PDF)
-  - **ATS-friendly** (machine-readable)
-  - **Digital / Visual resume**
-- 🎨 Theme system (dark mode + color themes)
-- 🧩 Modular JavaScript architecture (OOP-based managers)
-- ⚡ Fast builds with Vite
-- 🔍 ESLint + Prettier enforced
-- 🧪 CI checks on every PR
-- 🤖 Automated PR lint comments (Reviewdog)
-- 🚀 Auto-deployment to GitHub Pages
+Live site:
+https://voidomin.github.io/resume-website/
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
 
-```text
-.
-├── assets/                 # Source CSS & JS
-│   ├── css/
-│   └── js/
-│       └── src/             # Modular JS (ThemeManager, VariantManager, App)
-├── public/                  # Static routes (GitHub Pages)
-│   ├── ats/
-│   ├── digital/
-│   ├── portfolio/
-│   └── print/
-├── dist/                    # Production build output
-├── docs/
-│   └── style-guide.md
-├── .github/workflows/       # CI & deploy workflows
-├── vite.config.mjs
-└── index.html
+- HTML, CSS, Vanilla JavaScript
+- Vite (development server and build tool)
+- ESLint (linting)
+- Prettier (formatting)
+- Husky + lint-staged (pre-commit checks)
+- GitHub Actions (CI)
+- GitHub Pages (deployment)
 
-## 🧠 JavaScript Architecture
-The core logic is split into clean, testable modules:
+---
 
-ThemeManager
-Handles dark mode, theme switching, persistence
+## Project Structure
 
-VariantManager
-Controls resume variant selection and CTA updates
+assets/js/src/
 
-App
-Bootstraps and wires everything together
+- Modular JavaScript source
+- ThemeManager, VariantManager, App bootstrap
 
-Legacy fallback support is retained for non-module browsers.
+public/
 
-## 🛠️ Local Development
-Install dependencies
-bash
-Copy code
+- Route-based pages
+- /portfolio
+- /ats
+- /digital
+- /print
+
+dist/
+
+- Production build output (auto-generated)
+- Do not edit manually
+
+.github/workflows/
+
+- CI and deployment workflows
+
+---
+
+## Local Development
+
+Install dependencies:
+
 npm install
-Run dev server
-bash
-Copy code
+
+Start development server:
+
 npm run dev
-Build for production
-bash
-Copy code
+
+Open in browser:
+http://localhost:5173
+
+---
+
+## Production Build
+
+Create production build:
+
 npm run build
 
-##🧹 Code Quality
-Format code
-bash
-Copy code
-npm run format
-Lint code
-bash
-Copy code
+Preview production build locally:
+
+npm run preview
+
+---
+
+## Code Quality
+
+Run ESLint:
+
 npm run lint
-Auto-fix lint issues
-bash
-Copy code
+
+Auto-fix ESLint issues:
+
 npm run lint:fix
-Pre-commit hooks ensure formatting and linting before every commit.
 
-##🔁 CI / CD
-On every PR
-ESLint (no-fix)
+Format code using Prettier:
 
-Prettier check
+npm run format
 
-Vite build
+Notes:
 
-Inline PR comments via Reviewdog
+- ESLint runs on pull requests via GitHub Actions
+- Prettier and ESLint fixes run automatically on commit using Husky
 
-On merge to main
-Production build
+---
 
-Deploy to GitHub Pages
+## Deployment
 
-📦 Deployment
+- Automatically deployed to GitHub Pages
+- Triggered on merge to the main branch
+- Uses Vite build output from the dist/ directory
+- Public base path configured for GitHub Pages
 
-This site is deployed using GitHub Pages from the Vite build output.
+---
 
-Base path is configured for repo hosting:
+## Contribution Workflow
 
-base: "/resume-website/"
+- All changes go through pull requests
+- CI must pass before merge
+- Branch-based development (feature/, refactor/, ci/)
 
-📄 License
+---
 
-```
+## Status
+
+Project is actively maintained and incrementally improved with a focus on:
+
+- Maintainability
+- Readability
+- Automation
