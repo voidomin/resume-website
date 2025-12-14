@@ -1,0 +1,56 @@
+<!-- 
+  EXAMPLE: Adding Navigation to index.html
+  
+  This shows how to add a simple navigation bar with active link highlighting
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- ... existing head content ... -->
+    <style>
+      /* Navigation styles */
+      .site-nav {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: var(--panel);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+      }
+
+      .site-nav a {
+        padding: 0.5rem 1rem;
+        color: var(--text);
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        font-weight: 500;
+      }
+
+      .site-nav a:hover {
+        background: var(--chip-bg);
+      }
+
+      /* Active link styling */
+      .site-nav a.active {
+        background: var(--accent);
+        color: white;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add navigation after opening <body> or inside header -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/resume-website/" data-nav-link>Home</a>
+      <a href="/resume-website/portfolio/" data-nav-link>Portfolio</a>
+      <a href="/resume-website/print/" data-nav-link>Print</a>
+      <a href="/resume-website/ats/" data-nav-link>ATS</a>
+      <a href="/resume-website/digital/" data-nav-link>Digital</a>
+    </nav>
+
+    <!-- ... rest of your content ... -->
+  </body>
+</html>
