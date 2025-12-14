@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found - Resume Website</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 8rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+        line-height: 1;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .spinner {
+        margin: 2rem auto 1rem;
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .redirect-msg {
+        font-size: 0.875rem;
+        opacity: 0.8;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p>
+        The page you're looking for doesn't exist or has been moved. Don't worry, we'll redirect you
+        to the homepage shortly.
+      </p>
+      <div class="spinner"></div>
+      <p class="redirect-msg">Redirecting in <span id="countdown">3</span> seconds...</p>
+      <a href="/resume-website/" class="btn">Go Home Now</a>
+    </div>
+
+    <script>
+      // GitHub Pages SPA redirect handling
+      // This script redirects 404 errors back to the base path
+      (function () {
+        const basePath = "/resume-website/";
+        const currentPath = window.location.pathname;
+
+        // If we're already at the base, don't redirect
+        if (currentPath === basePath || currentPath === basePath.replace(/\/$/, "")) {
+          document.querySelector(".redirect-msg").textContent = "You're already at the homepage!";
+          document.querySelector(".spinner").style.display = "none";
+          return;
+        }
+
+        // Countdown redirect
+        let seconds = 3;
+        const countdownEl = document.getElementById("countdown");
+
+        const interval = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds;
+
+          if (seconds <= 0) {
+            clearInterval(interval);
+            window.location.href = basePath;
+          }
+        }, 1000);
+      })();
+    </script>
+  </body>
+</html>
