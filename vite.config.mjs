@@ -5,6 +5,8 @@ export default defineConfig({
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    minify: 'esbuild',
+    cssCodeSplit: true,
   },
   publicDir: "public", // explicitly tell Vite where static pages live
 });
