@@ -619,3 +619,127 @@ button:focus-visible {
   outline: 3px solid #f39c12;
   outline-offset: 2px;
 }
+
+/* ====== Project Enhancements ====== */
+
+/* Tech Badges */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge Colors */
+.badge-nextjs {
+  background: #000;
+  color: #fff;
+}
+
+.badge-typescript {
+  background: #3178c6;
+  color: #fff;
+}
+
+.badge-react {
+  background: #61dafb;
+  color: #000;
+}
+
+.badge-responsive {
+  background: #10b981;
+  color: #fff;
+}
+
+.badge-html {
+  background: #e34f26;
+  color: #fff;
+}
+
+.badge-js {
+  background: #f7df1e;
+  color: #000;
+}
+
+.badge-design {
+  background: #8b5cf6;
+  color: #fff;
+}
+
+.badge-ngo {
+  background: #ec4899;
+  color: #fff;
+}
+
+/* Project Links */
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-demo,
+.btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.btn-demo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.btn-demo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.btn-code {
+  background: transparent;
+  color: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.btn-code:hover {
+  background: var(--accent-strong);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .project-links {
+    flex-direction: column;
+  }
+
+  .btn-demo,
+  .btn-code {
+    width: 100%;
+    justify-content: center;
+  }
+}
