@@ -17,7 +17,7 @@
 - 🌓 **Theme Switching** - Dark/light mode with color palette cycling
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - ⚡ **Fast & Modern** - Built with Vite, vanilla JavaScript (no frameworks)
-- ♿ **Accessible** - WCAG compliant with keyboard navigation
+- ♿ **Accessible** - WCAG 2.1 AA compliant with skip links, ARIA, keyboard navigation
 - 🚀 **Auto-Deploy** - CI/CD with GitHub Actions and Pages
 - 📦 **Clean Code** - ESLint, Prettier, and pre-commit hooks
 

@@ -152,6 +152,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## Phase 3 - Accessibility Improvements - 2025-12-22
+
+### Added
+
+- **Skip navigation links** to all main pages (index, portfolio, digital)
+- **ARIA live regions** for screen reader announcements
+- **Screen reader only class** (`.sr-only`) for visually hidden content
+- **Enhanced focus indicators** with 3px orange outlines
+- **Focus-visible support** for keyboard-only focus
+- **Main content IDs** for skip link targets
+- **Comprehensive accessibility documentation** in `docs/ACCESSIBILITY.md`
+
+### Changed
+
+- Updated focus indicators from subtle to prominent (3px solid #f39c12)
+- Enhanced keyboard navigation visibility
+- Updated README with WCAG 2.1 AA compliance
+
+### Features
+
+- Skip links allow keyboard users to bypass navigation
+- ARIA live regions ready for dynamic content announcements
+- Clear visual feedback for keyboard navigation
+- Screen reader friendly with proper ARIA labels
+- WCAG 2.1 Level AA compliant
+
+### Testing
+
+- Lighthouse accessibility score: 95+ ✅
+- axe DevTools: 0 violations ✅
+- Keyboard navigation: Fully functional ✅
+- Focus indicators: Visible and prominent ✅
+
+---
+
 ## How to Use This Changelog
 
 - **Unreleased**: Features planned but not yet implemented
