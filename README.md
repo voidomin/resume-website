@@ -37,6 +37,32 @@ _Coming soon - Screenshots of different resume variants and themes_
 - **Git Hooks**: Husky + lint-staged (pre-commit checks)
 - **CI/CD**: GitHub Actions
 - **Hosting**: GitHub Pages
+- **Analytics**: Google Analytics 4 (optional)
+
+---
+
+## 📊 Analytics
+
+The website includes **Google Analytics 4** integration for tracking:
+
+- Page views and user engagement
+- Resume downloads (Print, ATS, Digital)
+- Variant switches
+- Theme changes
+- User behavior
+
+### Setup
+
+1. Create a [Google Analytics 4 property](https://analytics.google.com/)
+2. Get your Measurement ID (format: `G-XXXXXXXXXX`)
+3. Replace `G-XXXXXXXXXX` in these files with your actual ID:
+   - `index.html`
+   - `public/portfolio/index.html`
+   - `public/digital/index.html`
+
+**Note**: GA4 is free forever with no limits on events or users.
+
+See [docs/ANALYTICS.md](docs/ANALYTICS.md) for detailed documentation.
 
 ---
 
