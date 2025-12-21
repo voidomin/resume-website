@@ -698,9 +698,68 @@
           white-space: normal;
         }
       }
+
+      /* ====== Accessibility ====== */
+
+      /* Skip Navigation Link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 100;
+        border-radius: 0 0 4px 0;
+        font-weight: 600;
+      }
+
+      .skip-link:focus {
+        top: 0;
+        outline: 3px solid #f39c12;
+        outline-offset: 2px;
+      }
+
+      /* Screen Reader Only */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      /* Enhanced Focus Indicators */
+      a:focus,
+      button:focus {
+        outline: 3px solid #f39c12;
+        outline-offset: 2px;
+      }
+
+      a:focus:not(:focus-visible),
+      button:focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid #f39c12;
+        outline-offset: 2px;
+      }
     </style>
   </head>
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Screen Reader Announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+
     <!-- Theme toggle bar -->
     <div class="top-bar">
       <button id="themeToggle" class="theme-toggle" type="button">
@@ -848,7 +907,7 @@
         </div>
       </aside>
 
-      <main class="main-content">
+      <main class="main-content" id="main-content">
         <!-- Top meta strip -->
         <div class="top-meta">
           <span class="meta-pill">Development Engineer</span>

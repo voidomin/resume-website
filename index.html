@@ -94,8 +94,14 @@
   </head>
 
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Screen Reader Announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+
     <div class="page-wrap">
-      <div class="shell" role="main">
+      <div class="shell" role="main" id="main-content">
         <header class="site-header">
           <div class="id-block">
             <div class="eyebrow">
