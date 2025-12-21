@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned Enhancements
 
 - Performance improvements and Lighthouse CI
-- Google Analytics 4 integration
 - Enhanced project showcase
 - Contact form with Formspree
 - Testing suite with Vitest and Playwright
@@ -124,6 +123,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automated Lighthouse testing on every push/PR
 - Performance targets: 90+ Performance, 95+ Accessibility, 100 SEO, 95+ Best Practices
 - Build time: ~224ms
+
+---
+
+## Phase 2 - Analytics (Google Analytics 4) - 2025-12-21
+
+### Added
+
+- **Google Analytics 4 tracking code** to index.html, portfolio, and digital pages
+- **Custom analytics module** (`assets/js/src/analytics.js`) for event tracking
+- **Custom event tracking** for downloads, variant switches, theme changes, palette changes
+- **Comprehensive documentation** in `docs/ANALYTICS.md`
+- **Analytics section** in README with setup instructions
+
+### Features
+
+- Track page views and user engagement
+- Track resume downloads (Print, ATS, Digital)
+- Track variant switches between resume types
+- Track theme changes (light/dark mode)
+- Track palette changes
+- Console logging for debugging
+
+### Setup Required
+
+- User needs to replace placeholder `G-XXXXXXXXXX` with actual GA4 Measurement ID
+- Free forever, no limits on events or users
 
 ---
 
