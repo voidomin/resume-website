@@ -102,6 +102,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## Phase 1B - Performance & Lighthouse CI - 2025-12-20
+
+### Added
+
+- **Font preconnect** to Google Fonts for faster loading
+- **DNS prefetch** for fonts.gstatic.com
+- **Defer attribute** to script tags for non-blocking JavaScript
+- **Vite build optimizations** (esbuild minification, CSS code splitting)
+- **Lighthouse CI workflow** in GitHub Actions
+- **Performance budgets** in lighthouserc.json
+
+### Changed
+
+- Updated `vite.config.mjs` with minification and CSS splitting
+- Optimized font loading in index.html and portfolio page
+
+### Result
+
+- Faster page loads with optimized font and JS loading
+- Automated Lighthouse testing on every push/PR
+- Performance targets: 90+ Performance, 95+ Accessibility, 100 SEO, 95+ Best Practices
+- Build time: ~224ms
+
+---
+
 ## How to Use This Changelog
 
 - **Unreleased**: Features planned but not yet implemented
