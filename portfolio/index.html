@@ -2,6 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+
     <title>Akash – Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -68,9 +80,15 @@
     <link rel="stylesheet" href="/resume-website/assets/css/portfolio.css" />
   </head>
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Screen Reader Announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+
     <div class="page-shell">
       <!-- ====== LEFT: MAIN CONTENT ====== -->
-      <main class="page-main">
+      <main class="page-main" id="main-content">
         <!-- Hero / Intro -->
         <header class="hero" id="top">
           <div class="hero-tag">Full-stack Developer · Test Automation</div>
