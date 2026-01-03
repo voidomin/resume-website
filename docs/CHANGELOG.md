@@ -218,6 +218,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## Phase 5 - Contact Form - 2026-01-03
+
+### Added
+
+- **Contact form** on portfolio page with Formspree integration
+- **Form fields**: Name, Email, Subject (optional), Message
+- **Gradient submit button** matching Phase 4 design
+- **Form divider** with "or send a message" text
+- **Proper accessibility**: Labels, required indicators, autocomplete
+- **Mobile responsive** layout with stacked fields
+
+### Features
+
+- Form integrates with Formspree (free: 50 submissions/month)
+- Placeholder endpoint (user needs to replace with actual Formspree ID)
+- Input focus states with accent color shadow
+- Smooth hover animations on submit button
+- Privacy note for user data
+
+### Setup Required
+
+1. Create Formspree account at https://formspree.io
+2. Create new form
+3. Replace `YOUR_FORM_ID` with actual endpoint
+
+---
+
 ## How to Use This Changelog
 
 - **Unreleased**: Features planned but not yet implemented
