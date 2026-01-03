@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DJN2MRH1K"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -383,11 +383,30 @@
           </div>
 
           <form
-            action="https://formspree.io/f/YOUR_FORM_ID"
+            action="https://api.web3forms.com/submit"
             method="POST"
             class="contact-form"
             id="contact-form"
           >
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="9d6af5b7-0c93-4f8e-a3f4-ddf64b2fb5f3" />
+
+            <!-- Optional: From Name -->
+            <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+
+            <!-- Optional: Subject -->
+            <input
+              type="hidden"
+              name="subject"
+              value="New Message from Portfolio"
+              id="web3forms-subject"
+            />
+
+            <!-- Optional: Redirection (Handled by JS, but good fallback) -->
+            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name <span class="required">*</span></label>
