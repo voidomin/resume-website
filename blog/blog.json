@@ -1,0 +1,18 @@
+[
+  {
+    "id": "welcome",
+    "title": "Welcome to My Digital Garden",
+    "date": "2026-01-05",
+    "summary": "Why I decided to build a portfolio from scratch using vanilla web technologies. A look into the philosophy behind this lightweight, fast, and accessible site.",
+    "tags": ["Personal", "Web Dev", "Philosophy"],
+    "url": "./posts/welcome.html"
+  },
+  {
+    "id": "tech-stack",
+    "title": "Building This Site: A Technical Deep Dive",
+    "date": "2026-01-06",
+    "summary": "How I built a performant, accessible portfolio using Vite, Vanilla JS, and GitHub Actions. No frameworks, just solid engineering.",
+    "tags": ["Technical", "Tutorial", "Vite"],
+    "url": "./posts/tech-stack.html"
+  }
+]

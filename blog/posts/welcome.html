@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Welcome to My Digital Garden | Akash</title>
+    <meta
+      name="description"
+      content="Why I decided to build a portfolio from scratch using vanilla web technologies."
+    />
+
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/portfolio.css" />
+    <link rel="stylesheet" href="../../assets/css/blog.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DJN2MRH1K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-7DJN2MRH1K");
+    </script>
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="nav-content">
+        <a href="../../" class="nav-logo">Akash<span class="highlight">.</span></a>
+        <div class="nav-links">
+          <a href="../../" data-nav-link>Home</a>
+          <a href="../../portfolio/" data-nav-link>Portfolio</a>
+          <a href="../../blog/" data-nav-link class="active">Blog</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="post-container">
+      <article class="blog-post">
+        <header class="post-header">
+          <div class="meta">
+            <time>January 5, 2026</time>
+            <span class="tag">Personal</span>
+          </div>
+          <h1>Welcome to My Digital Garden</h1>
+          <p class="lead">
+            Why I decided to build a portfolio from scratch using vanilla web technologies.
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>
+            In an era of heavy frameworks and complex build tools, I made a conscious decision to go
+            back to basics. This website isn't built with Next.js, React, or Vue. It's built with
+            <strong>Vanilla JavaScript</strong>, semantic HTML, and modern CSS.
+          </p>
+
+          <h2>Why "Digital Garden"?</h2>
+          <p>
+            A portfolio shouldn't just be a static brochures; it should be a living, breathing space
+            where ideas grow. By keeping the tech stack simple, I reduce the friction to write and
+            deploy. No complex hydration errors, no massive bundles—just content and code.
+          </p>
+
+          <h2>The Stack</h2>
+          <ul>
+            <li><strong>Vite</strong>: For a lightning-fast dev experience.</li>
+            <li><strong>Playwright</strong>: To ensure nothing breaks when I push code.</li>
+            <li><strong>GitHub Actions</strong>: For CI/CD that just works.</li>
+          </ul>
+
+          <p>
+            Stay tuned for more deep dives into how I built this site and other engineering
+            challenges I'm tackling.
+          </p>
+        </div>
+
+        <div class="post-footer">
+          <a href="../../blog/" class="back-link">← Back to all posts</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Akash. Built with Vanilla JS & Vite.</p>
+      </div>
+    </footer>
+  </body>
+</html>
