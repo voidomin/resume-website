@@ -30,17 +30,18 @@ test("navigation to portfolio works", async ({ page }) => {
 test("theme toggle changes class", async ({ page }) => {
   await page.goto("");
 
-  // Check theme buttons exist
-  // Note: The implementation uses system pref by default, buttons might be palette or resume variants
-  // Let's check resume variant buttons
-  const printBtn = page.getByText("Print", { exact: true });
+  // Check resume variant pill buttons exist
+  const printBtn = page.getByRole("tab", { name: "Print" });
   await expect(printBtn).toBeVisible();
 
-  const atsBtn = page.getByText("ATS", { exact: true });
+  const atsBtn = page.getByRole("tab", { name: "ATS" });
   await expect(atsBtn).toBeVisible();
+
+  // Print should be active by default
+  await expect(printBtn).toHaveClass(/is-active/);
 
   // Click ATS
   await atsBtn.click();
-  await expect(atsBtn).toHaveClass(/btn-primary/);
-  await expect(printBtn).toHaveClass(/btn-ghost/);
+  await expect(atsBtn).toHaveClass(/is-active/);
+  await expect(printBtn).not.toHaveClass(/is-active/);
 });
