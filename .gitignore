@@ -16,3 +16,9 @@ package-lock.json
 # caches
 .eslintcache
 .prettiercache
+
+# testing
+test-results/
+playwright-report/
+coverage/
+test_output.json

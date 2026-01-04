@@ -32,8 +32,17 @@ jobs:
       - name: Run ESLint (no-fix)
         run: npm run lint
 
+      - name: Run Unit Tests
+        run: npm run test:unit
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Build (Vite)
         run: npm run build
+
+      - name: Run E2E Tests
+        run: npm run test:e2e
 
       - name: Upload build artifact
         if: success()

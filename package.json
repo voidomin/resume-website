@@ -7,6 +7,8 @@
     "preview": "npx http-server . -p 8080",
     "dev": "vite",
     "build": "vite build",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
     "lint": "eslint \"assets/js/**/*.js\" \"assets/js/src/**/*.js\" --ext .js,.mjs",
     "lint:fix": "eslint \"assets/js/**/*.js\" \"assets/js/src/**/*.js\" --ext .js,.mjs --fix",
     "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
@@ -15,15 +17,18 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
+    "jsdom": "^27.4.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "vitest": "^4.0.16"
   },
   "lint-staged": {
     "assets/js/**/*.js": [
