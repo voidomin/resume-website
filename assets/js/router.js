@@ -20,7 +20,14 @@ export class Router {
     this.base = config.base || "/";
     this.activeClass = config.activeClass || "active";
     this.navSelector = config.navSelector || "[data-nav-link]";
-    this.knownRoutes = config.knownRoutes || ["home", "portfolio", "print", "ats", "digital"];
+    this.knownRoutes = config.knownRoutes || [
+      "home",
+      "portfolio",
+      "print",
+      "ats",
+      "digital",
+      "blog",
+    ];
     this.currentPath = this._getCurrentPath();
     this.currentRoute = this._getRouteFromPath(this.currentPath);
   }

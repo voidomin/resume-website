@@ -218,6 +218,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## Phase 7 - Blog Section - 2026-01-04
+
+### Added
+
+- **Blog Architecture**: Static HTML posts with dynamic JSON-based listing.
+- **Blog Content**:
+  - `welcome.html`: Introduction to the digital garden.
+  - `tech-stack.html`: Technical deep dive into the site's architecture.
+- **Styling**: Dedicated `blog.css` with responsive grid layout and typography.
+- **Navigation**: "Blog" link added to global navigation and Hero section.
+
 ## Phase 6 - Testing Suite - 2026-01-04
 
 ### Added

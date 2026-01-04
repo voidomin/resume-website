@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Building This Site: A Technical Deep Dive | Akash</title>
+    <meta
+      name="description"
+      content="How I built a performant, accessible portfolio using Vite, Vanilla JS, and GitHub Actions."
+    />
+
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/portfolio.css" />
+    <link rel="stylesheet" href="../../assets/css/blog.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DJN2MRH1K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-7DJN2MRH1K");
+    </script>
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="nav-content">
+        <a href="../../" class="nav-logo">Akash<span class="highlight">.</span></a>
+        <div class="nav-links">
+          <a href="../../" data-nav-link>Home</a>
+          <a href="../../portfolio/" data-nav-link>Portfolio</a>
+          <a href="../../blog/" data-nav-link class="active">Blog</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="post-container">
+      <article class="blog-post">
+        <header class="post-header">
+          <div class="meta">
+            <time>January 6, 2026</time>
+            <span class="tag">Technical</span>
+          </div>
+          <h1>Building This Site: A Technical Deep Dive</h1>
+          <p class="lead">
+            How I built a performant, accessible portfolio using Vite, Vanilla JS, and GitHub
+            Actions. No frameworks, just solid engineering.
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>
+            When I set out to rebuild my portfolio, I had one goal: <strong>Simplicity</strong>. I
+            wanted a site that loaded instantly, scored 100 on Lighthouse, and didn't require me to
+            update npm packages every week.
+          </p>
+
+          <h2>The Stack</h2>
+          <p>
+            I chose <strong>Vite</strong> as my build tool. Unlike Webpack, Vite uses native ES
+            modules during development, which means the server starts instantly. For production, it
+            builds heavily optimized assets using Rollup.
+          </p>
+
+          <h2>CSS Architecture</h2>
+          <p>
+            You won't find Tailwind here. I used <strong>CSS Variables</strong> for theming
+            (Light/Dark mode) and scoped CSS files for components. This keeps the separation of
+            concern clear and the bundle size tiny.
+          </p>
+
+          <pre><code>:root {
+  --primary: #3b82f6;
+  --surface: #ffffff;
+  --text: #111827;
+}
+
+[data-theme="dark"] {
+  --surface: #1f2937;
+  --text: #f9fafb;
+}</code></pre>
+
+          <h2>Automated Testing</h2>
+          <p>
+            Code without tests is legacy code. I implemented <strong>Vitest</strong> for unit
+            testing my router and analytics logic, and <strong>Playwright</strong> for end-to-end
+            testing. Every commit is verified by GitHub Actions before it goes live.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            This project proves you don't need a heavy framework to build a modern, interactive web
+            application. Sometimes, vanilla is the best flavor.
+          </p>
+        </div>
+
+        <div class="post-footer">
+          <a href="../../blog/" class="back-link">← Back to all posts</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Akash. Built with Vanilla JS & Vite.</p>
+      </div>
+    </footer>
+  </body>
+</html>
