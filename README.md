@@ -188,6 +188,19 @@ npm run format:check
 
 ---
 
+## 🧪 Testing
+
+The project uses a comprehensive testing suite:
+
+- **Unit Tests**: `npm run test:unit` (Vitest) - Tests core JS logic (Router, Analytics)
+- **E2E Tests**: `npm run test:e2e` (Playwright) - Tests full site functionality in browsers
+- **Linting**: `npm run lint` (ESLint) - Ensures code quality
+- **Formatting**: `npm run format` (Prettier) - Enforces style consistency
+
+Test results are verified automatically via GitHub Actions on every push.
+
+---
+
 ## Deployment
 
 - **Platform**: GitHub Pages
