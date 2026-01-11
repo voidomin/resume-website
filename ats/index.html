@@ -11,10 +11,9 @@
 
     <style>
       /* Minimal, ATS-safe single-column layout */
-      /* Minimal, ATS-safe single-column layout */
       @page {
         size: A4;
-        margin: 0; /* Remove browser print margins to avoid conflict */
+        margin: 10mm;
       }
 
       body {
@@ -25,6 +24,7 @@
         background: #e9ecf1;
         font-size: 12px;
         line-height: 1.4;
+
         /* Center resume block on screen */
         display: flex;
         justify-content: center;
@@ -32,40 +32,106 @@
         min-height: 100vh;
       }
 
-      /* ... skipping standard styles ... */
+      .resume {
+        width: 100%;
+        max-width: 800px;
+        margin: 24px;
+        background: #ffffff;
+        padding: 20px 24px;
+        box-sizing: border-box;
+        border: 1px solid #d0d4dd;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+
+      header {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 0 0 4px 0;
+        letter-spacing: 0.5px;
+      }
+
+      h2 {
+        font-size: 13.5px;
+        margin: 14px 0 6px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 2px;
+      }
+
+      h3 {
+        font-size: 12.5px;
+        margin: 7px 0 2px 0;
+      }
+
+      p {
+        margin: 3px 0;
+      }
+
+      ul {
+        margin: 3px 0 6px 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+
+      .contact {
+        font-size: 11.3px;
+        margin-bottom: 6px;
+      }
+
+      .contact-line {
+        margin: 2px 0;
+      }
+
+      .meta {
+        font-style: italic;
+        font-size: 11px;
+        margin-bottom: 2px;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin: 10px 0 12px 0;
+      }
+
+      /* Slight visual separation between sections */
+      section + section {
+        margin-top: 6px;
+        padding-top: 4px;
+      }
 
       @media print {
-        html, body {
-          width: 210mm;
-          height: auto !important;
-          min-height: 0 !important;
-          background: #fff !important;
-          overflow: visible !important;
-          display: block !important;
+        body {
+          background: #ffffff;
+          display: block; /* remove flex centering for print */
         }
 
         .resume {
-          width: 100% !important;
-          max-width: none !important;
-          margin: 0 !important;
-          padding: 12mm 15mm !important; /* Balanced padding */
-          border: none !important;
-          border-radius: 0 !important;
-          box-shadow: none !important;
-          font-size: 10px;
-          line-height: 1.3;
-          page-break-after: avoid !important;
-          page-break-inside: avoid !important;
-          box-sizing: border-box !important;
-        }
-        
-        /* Ensure specific elements don't force breaks */
-        section {
-          page-break-inside: avoid;
-        }
-
-        header {
-          text-align: center !important;
+          margin: 0;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          max-width: none;
+          width: 190mm;
+          padding: 7mm 9mm;
+          font-size: 9.2px;
+          line-height: 1.22;
         }
 
         h1 {
@@ -83,10 +149,7 @@
           font-size: 10.8px;
           margin: 5px 0 2px 0;
         }
-        a {
-          text-decoration: underline;
-          color: #000;
-        }
+
         .contact {
           font-size: 9.8px;
         }
