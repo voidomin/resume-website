@@ -11,14 +11,14 @@
       content="Thoughts on web development, software engineering, and the philosophy of building digital products."
     />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/resume-website/assets/css/index.css" />
-    <link rel="stylesheet" href="/resume-website/assets/css/portfolio.css" />
-    <link rel="stylesheet" href="/resume-website/assets/css/blog.css" />
+    <!-- Styles (relative for local + GitHub Pages) -->
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/portfolio.css" />
+    <link rel="stylesheet" href="../../assets/css/blog.css" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/resume-website/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/resume-website/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,7 +81,7 @@
               I'm always open to technical discussions, collaboration opportunities, and connecting
               with fellow developers.
             </p>
-            <a href="/resume-website/portfolio/#contact" class="btn btn-primary">
+            <a href="../portfolio/#contact" class="btn btn-primary">
               <span>Get in Touch</span>
               <span class="btn-arrow">→</span>
             </a>
@@ -98,10 +98,14 @@
 
     <!-- Scripts -->
     <script type="module">
-      import { createRouter } from "/resume-website/assets/js/router.js";
-      import { initBlog } from "/resume-website/assets/js/src/blog.js";
+      import { createRouter } from "../../assets/js/router.js";
+      import { initBlog } from "../../assets/js/src/blog.js";
 
-      const router = createRouter({ base: "/resume-website/" });
+      const base = window.location.pathname.includes("/resume-website/") ? "/resume-website/" : "/";
+      const router = createRouter({
+        base,
+        knownRoutes: ["home", "portfolio", "print", "ats", "digital", "blog", "public"],
+      });
       document.addEventListener("DOMContentLoaded", () => {
         router.init();
         initBlog();

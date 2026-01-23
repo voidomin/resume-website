@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "name": "AKASH",
+    "title": "Development Engineer / Bioinformatics",
+    "email": "akashkbhat4414@gmail.com",
+    "phone": "+91 7019779907",
+    "location": "Bengaluru, India",
+    "github": "https://github.com/voidomin",
+    "linkedin": "http://www.linkedin.com/in/akash-bhat-930346197",
+    "portfolio": "https://voidomin.github.io/resume-website/portfolio/",
+    "role": "bioinformatics"
+  },
+  "summary": "Computational biologist and bioinformatics researcher with expertise in protein engineering, structural biology, and molecular simulation. Proven track record of publishing peer-reviewed research while developing robust full-stack software solutions for biotech applications.",
+  "work_experience": [
+    {
+      "role": "Development Engineer",
+      "company": "Merck Life Science, Bangalore",
+      "period": "January 2024 – July 2025",
+      "bullets": [
+        "Engineered Bio4C Process Pad—an analytics platform serving 18+ biotech clients (Lotte, Syngene), enabling bioprocess monitoring through data-driven decision making systems.",
+        "Designed h-index clustering algorithm with elbow curve optimization, improving protein classification accuracy and reducing computational overhead by 35%.",
+        "Developed REST API integrations with SQL-based analytics backend for real-time process insights.",
+        "Tech stack: JavaScript, React, Next.js, Node.js, SQL, Python"
+      ]
+    },
+    {
+      "role": "Research Intern (Student Researcher)",
+      "company": "Indian Institute of Science (IISc), Molecular Biophysics Department",
+      "period": "June 2023 – December 2024",
+      "bullets": [
+        "Conducted in silico saturation mutagenesis of CCDB protein using computational methods to predict variant effects and protein stability.",
+        "Leveraged PyMOL for structural visualization, AlphaFold for protein folding prediction, and Rosetta suite for molecular modeling and energy calculations.",
+        "Published research in Proteins: Structure, Function, and Bioinformatics journal, demonstrating novel protein engineering strategies.",
+        "Used Linux bash scripting for bioinformatics workflow automation."
+      ]
+    },
+    {
+      "role": "Program Coordinator (Web Developer)",
+      "company": "Abhyudaya (NGO)",
+      "period": "August 2025 – Present",
+      "bullets": [
+        "Developing responsive web applications for nonprofit using HTML, CSS, JavaScript and Laravel backend.",
+        "Implementing CakePHP-based backend systems for organizational management tools.",
+        "Version control with Git/GitHub."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "In Silico Saturation Mutagenesis of CCDB",
+      "desc": "Computational protein engineering study on CCDB protein variants with full structural and functional analysis using molecular dynamics.",
+      "keywords": ["PyMOL", "AlphaFold", "Rosetta", "Protein Engineering", "Molecular Simulation"]
+    },
+    {
+      "name": "AI-Assisted Bioreactor Analytics (Concept)",
+      "desc": "Tool-calling agent framework for intelligent bioreactor parameter optimization and predictive analytics.",
+      "keywords": ["AI", "Analytics", "Bioreactor", "Python", "Agentic AI"]
+    }
+  ],
+  "skills": [
+    "Python",
+    "Structural Biology",
+    "Protein Folding",
+    "Molecular Simulation",
+    "PyMOL",
+    "AlphaFold",
+    "Linux/Bash",
+    "R",
+    "SQL",
+    "Git"
+  ],
+  "education": [
+    {
+      "degree": "Masters in Molecular & Cellular Biology / Life Sciences",
+      "institution": "MS Ramaiah University",
+      "year": "2024",
+      "details": "Published research on protein variant analysis"
+    },
+    {
+      "degree": "Bachelors in Biotechnology",
+      "institution": "Dayananda Sagar University",
+      "year": "2023",
+      "details": "State Government Scholarship recipient"
+    }
+  ],
+  "publications": [
+    {
+      "title": "In Silico Saturation Mutagenesis of CCDB",
+      "journal": "Proteins: Structure, Function, and Bioinformatics",
+      "year": "2024",
+      "link": "https://onlinelibrary.wiley.com/doi/abs/10.1002/prot.26738"
+    }
+  ],
+  "awards": [
+    "1st Place Poster Competition (Dayananda Sagar University)",
+    "State Government Scholarship",
+    "3rd Place Hackathon (Merck)"
+  ],
+  "certifications": ["JavaScript Mastery (Udemy)"],
+  "keywords": [
+    "bioinformatics",
+    "structural biology",
+    "protein engineering",
+    "python",
+    "molecular simulation",
+    "research"
+  ],
+  "ats_keywords": "Bioinformatics, Protein Engineering, PyMOL, AlphaFold, Rosetta, Molecular Simulation, Structural Biology, Python, Linux, Research",
+  "metrics": {
+    "experience_years": 2.5,
+    "projects_count": 2,
+    "publications_count": 1,
+    "companies": 3,
+    "tech_stack": {
+      "Languages": { "Python": 85, "R": 70, "Bash": 75, "JavaScript": 60 },
+      "Bioinformatics": { "PyMOL": 80, "AlphaFold": 75, "Rosetta": 80 },
+      "Frontend": { "React": 60, "Next.js": 55 },
+      "Backend": { "Node.js": 65, "REST APIs": 75 },
+      "Tools": { "Linux": 80, "Git": 85 }
+    },
+    "domains": {
+      "Research": 45,
+      "Bioinformatics": 35,
+      "Web Development": 20
+    }
+  }
+}

@@ -1,0 +1,78 @@
+name: Auto-Generate PDFs
+
+on:
+  push:
+    paths:
+      - "data/roles/*.json"
+      - "public/**/*.html"
+      - ".github/workflows/generate-pdfs.yml"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - "data/roles/*.json"
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate PDFs
+        run: node scripts/generate-pdf.js
+
+      - name: Check for PDF changes
+        id: pdf-check
+        run: |
+          if git diff --quiet public/ats/ public/print/; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push PDFs (if changed)
+        if: steps.pdf-check.outputs.has_changes == 'true' && github.event_name == 'push'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add public/ats/ public/print/
+          git commit -m "chore: auto-regenerate PDFs [skip ci]"
+          git push
+
+      - name: Comment on PR with PDF updates
+        if: steps.pdf-check.outputs.has_changes == 'true' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ **PDFs Updated**\n\nThe resume PDFs have been regenerated based on your changes:\n\n- **ATS Format**: Updated for each role\n- **Print Format**: Updated for each role\n\nChanges will be committed automatically on merge.'
+            })
+
+      - name: Upload PDF artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: |
+            public/ats/*/resume_ats.pdf
+            public/print/*/resume_print.pdf
+          retention-days: 30

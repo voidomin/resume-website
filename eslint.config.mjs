@@ -22,7 +22,7 @@ export default [
    * 1. Global ignores (applies everywhere)
    * -------------------------------------------------- */
   {
-    ignores: ["node_modules/**", "dist/**", "public/**", "preview/**"],
+    ignores: ["node_modules/**", "dist/**", "public/**", "preview/**", "scripts/**"],
   },
 
   /* --------------------------------------------------

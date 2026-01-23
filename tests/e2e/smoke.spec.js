@@ -30,18 +30,15 @@ test("navigation to portfolio works", async ({ page }) => {
 test("theme toggle changes class", async ({ page }) => {
   await page.goto("");
 
-  // Check resume variant pill buttons exist
-  const printBtn = page.getByRole("tab", { name: "Print" });
-  await expect(printBtn).toBeVisible();
+  const html = page.locator("html");
+  const toggleBtn = page.getByRole("button", { name: /toggle theme/i });
 
-  const atsBtn = page.getByRole("tab", { name: "ATS" });
-  await expect(atsBtn).toBeVisible();
+  await expect(toggleBtn).toBeVisible();
+  await expect(html).toHaveAttribute("data-theme", /(light|dark)/);
 
-  // Print should be active by default
-  await expect(printBtn).toHaveClass(/is-active/);
+  const initialTheme = await html.getAttribute("data-theme");
+  await toggleBtn.click();
 
-  // Click ATS
-  await atsBtn.click();
-  await expect(atsBtn).toHaveClass(/is-active/);
-  await expect(printBtn).not.toHaveClass(/is-active/);
+  const expectedTheme = initialTheme === "dark" ? "light" : "dark";
+  await expect(html).toHaveAttribute("data-theme", expectedTheme);
 });

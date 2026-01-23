@@ -20,6 +20,39 @@
 - ♿ **Accessible** - WCAG 2.1 AA compliant with skip links, ARIA, keyboard navigation
 - 🚀 **Auto-Deploy** - CI/CD with GitHub Actions and Pages
 - 📦 **Clean Code** - ESLint, Prettier, and pre-commit hooks
+- 📊 **Experience Metrics** - Interactive visualization dashboard
+- 🤖 **Auto-PDF Generation** - Regenerate PDFs on resume data changes
+- ✅ **Automated Testing** - Unit tests, link checking, code quality
+
+---
+
+## 🚀 GitHub Actions (CI/CD)
+
+This project includes **3 automated workflows** for seamless updates:
+
+1. **Auto-Generate PDFs** - Regenerates PDFs whenever you update role data
+2. **Code Quality** - Runs linting, formatting, and unit tests
+3. **Deploy** - Automatically deploys to GitHub Pages
+
+### Setup GitHub Actions:
+
+See [GITHUB_ACTIONS_SETUP.md](GITHUB_ACTIONS_SETUP.md) for detailed setup instructions.
+
+**Workflow Documentation**: [.github/WORKFLOWS.md](.github/WORKFLOWS.md)
+
+---
+
+## 📊 Interactive Features
+
+### Experience Metrics Dashboard
+
+View your skills, tech stack, and domain breakdown:
+
+- **URL**: `/metrics.html`
+- Switch between role variants
+- Visual skill proficiency bars
+- Domain focus charts
+- Experience statistics
 
 ---
 
@@ -35,9 +68,11 @@ _Coming soon - Screenshots of different resume variants and themes_
 - **Build Tool**: Vite (development server and bundler)
 - **Code Quality**: ESLint, Prettier
 - **Git Hooks**: Husky + lint-staged (pre-commit checks)
-- **CI/CD**: GitHub Actions
-- **Hosting**: GitHub Pages
+- **CI/CD**: GitHub Actions (3 workflows)
+- **Hosting**: GitHub Pages with auto-deployment
 - **Analytics**: Google Analytics 4 (optional)
+- **Testing**: Vitest (unit tests), Playwright (e2e)
+- **PDF Generation**: Playwright + Puppeteer
 
 ---
 
@@ -71,12 +106,17 @@ See [docs/ANALYTICS.md](docs/ANALYTICS.md) for detailed documentation.
 ```
 resume-website/
 ├── index.html              # Main landing page
+├── metrics.html            # Experience metrics dashboard
 ├── public/                 # Static pages
 │   ├── portfolio/          # Portfolio page
 │   ├── print/              # Print resume
 │   ├── ats/                # ATS resume
 │   ├── digital/            # Digital resume
 │   └── 404.html            # Error page
+├── data/
+│   └── roles/              # Resume role variants (JSON)
+├── .github/
+│   └── workflows/          # GitHub Actions workflows
 ├── assets/                 # Shared resources
 │   ├── css/                # Stylesheets
 │   ├── js/src/             # JavaScript modules

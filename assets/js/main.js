@@ -1,21 +1,52 @@
-﻿// main.js — entrypoint loaded by index.html
-import { App } from "./src/app.js";
-import { createRouter } from "./router.js";
+﻿/**
+ * main.js - Premium Redesign Entry Point
+ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize app
-  const app = new App();
-  app.run();
-
-  // Initialize router for active nav highlighting
-  const router = createRouter({
-    base: "/resume-website/",
-    activeClass: "active",
-    navSelector: "[data-nav-link]",
-    knownRoutes: ["home", "portfolio", "print", "ats", "digital"],
-  });
-  router.init();
-
-  // Make router globally available for debugging (optional)
-  window.__router = router;
+  initTheme();
+  initNavbar();
 });
+
+/* -------------------------------------------------------------------------- */
+/*                                THEME LOGIC                                 */
+/* -------------------------------------------------------------------------- */
+function initTheme() {
+  const toggleBtn = document.getElementById("themeToggle");
+  const html = document.documentElement;
+
+  // 1. Check local storage
+  const savedTheme = localStorage.getItem("theme");
+
+  // 2. Check system preference
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  let currentTheme = savedTheme || (systemDark ? "dark" : "light");
+  applyTheme(currentTheme);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      applyTheme(currentTheme);
+    });
+  }
+
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                NAVBAR LOGIC                                */
+/* -------------------------------------------------------------------------- */
+function initNavbar() {
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+}

@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKASH - Data & Business Analyst</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        background-color: #fff;
+        color: #333;
+        line-height: 1.35;
+        font-size: 12.5px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        display: flex;
+        overflow: hidden;
+        background-color: #fff;
+      }
+      .sidebar {
+        width: 32%;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px 15px;
+        box-sizing: border-box;
+      }
+      .profile-header {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #34495e;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      .profile-header h1 {
+        margin: 0 0 5px 0;
+        font-size: 24px;
+        font-family: "Merriweather", "Inter", serif;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #fff;
+      }
+      .profile-header h2 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 600;
+        color: #bdc3c7;
+        text-transform: uppercase;
+      }
+      .sidebar-section {
+        margin-bottom: 18px;
+      }
+      .sidebar-section h2 {
+        font-size: 14px;
+        margin: 0 0 12px 0;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #34495e;
+        text-transform: uppercase;
+        color: #f39c12;
+        font-weight: 600;
+      }
+      .sidebar-section p,
+      .sidebar-section li {
+        font-size: 11.5px;
+        margin: 6px 0;
+        line-height: 1.4;
+      }
+      .sidebar-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .contact-info p {
+        display: block;
+        margin: 6px 0;
+        line-height: 1.25;
+        word-break: break-word;
+        font-size: 11.5px;
+      }
+      .sidebar-section a {
+        color: #ecf0f1;
+        text-decoration: none;
+      }
+      .chip {
+        display: inline-block;
+        background-color: #ecf0f1;
+        color: #2c3e50;
+        border-radius: 12px;
+        padding: 4px 8px;
+        margin: 0 6px 6px 0;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .main-content {
+        width: 68%;
+        padding: 25px;
+        box-sizing: border-box;
+      }
+      .section {
+        margin-bottom: 12px;
+      }
+      .section h2 {
+        font-size: 15px;
+        margin: 0;
+        padding-bottom: 3px;
+        border-bottom: 2px solid #f39c12;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+      .section p,
+      .section li {
+        font-size: 12px;
+        color: #555;
+        margin: 4px 0;
+      }
+      .section ul {
+        padding-left: 18px;
+        margin: 6px 0;
+      }
+      .section li {
+        margin-bottom: 4px;
+        position: relative;
+      }
+      .section li::before {
+        content: "•";
+        color: #f39c12;
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
+      .job {
+        margin-bottom: 14px;
+      }
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .job-title {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 12.5px;
+      }
+      .job-company {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+      .job-period {
+        font-style: italic;
+        color: #7f8c8d;
+        font-size: 11.5px;
+      }
+      .education-item {
+        margin-bottom: 14px;
+      }
+      .education-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .education-degree {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 12.5px;
+      }
+      .education-period {
+        font-style: italic;
+        color: #7f8c8d;
+        font-size: 11.5px;
+      }
+      .education-institution {
+        font-weight: 500;
+        color: #2c3e50;
+        font-size: 12px;
+      }
+      .education-details {
+        font-size: 11.5px;
+        color: #7f8c8d;
+        margin-top: 3px;
+      }
+      .project-item {
+        margin-bottom: 10px;
+      }
+      .project-name {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 12px;
+      }
+      .project-desc {
+        font-size: 12px;
+        color: #555;
+        margin: 3px 0;
+      }
+      .project-keywords {
+        font-size: 11px;
+        color: #7f8c8d;
+        margin-top: 2px;
+      }
+      .publication-item {
+        margin-bottom: 10px;
+      }
+      .publication-title {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 12px;
+      }
+      .publication-meta {
+        font-size: 11.5px;
+        color: #7f8c8d;
+        margin-top: 2px;
+      }
+    </style>
+  </head>
+  <body data-role="data-business-analyst">
+    <div class="page">
+      <div class="sidebar">
+        <div class="profile-header">
+          <h1 id="cv-name">AKASH</h1>
+          <h2 id="cv-title">Data & Business Analyst</h2>
+        </div>
+        <div class="sidebar-section">
+          <h2>Contact</h2>
+          <div class="contact-info">
+            <p>
+              <strong>Email:</strong> <a id="cv-email-link" href="#">akashkbhat4414@gmail.com</a>
+            </p>
+            <p><strong>Phone:</strong> <a id="cv-phone-link" href="#">+91 7019779907</a></p>
+            <p><strong>Location:</strong> <span id="cv-location">Bengaluru, India</span></p>
+            <p id="cv-github-row" style="display: none">
+              <strong>GitHub:</strong> <a id="cv-github" href="#" target="_blank"></a>
+            </p>
+            <p id="cv-linkedin-row" style="display: none">
+              <strong>LinkedIn:</strong> <a id="cv-linkedin" href="#" target="_blank"></a>
+            </p>
+            <p id="cv-portfolio-row" style="display: none">
+              <strong>Portfolio:</strong> <a id="cv-portfolio" href="#" target="_blank"></a>
+            </p>
+          </div>
+        </div>
+        <div class="sidebar-section">
+          <h2>Skills</h2>
+          <div id="cv-skills-sidebar"></div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="section">
+          <h2>Professional Summary</h2>
+          <p id="cv-summary"></p>
+        </div>
+        <div class="section">
+          <h2>Experience</h2>
+          <div id="cv-work"></div>
+        </div>
+        <div class="section">
+          <h2>Projects</h2>
+          <div id="cv-projects"></div>
+        </div>
+        <div class="section">
+          <h2>Education</h2>
+          <div id="cv-education"></div>
+        </div>
+        <div class="section" id="cv-publications-section" style="display: none">
+          <h2>Publications</h2>
+          <div id="cv-publications"></div>
+        </div>
+        <div class="section" id="cv-awards-section" style="display: none">
+          <h2>Awards & Recognition</h2>
+          <div id="cv-awards"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cvRenderer = {
+        renderWork: function (items) {
+          const el = document.getElementById("cv-work");
+          el.innerHTML = items
+            .map((job) => {
+              const bullets = job.bullets
+                ? "<ul>" + job.bullets.map((b) => `<li>${b}</li>`).join("") + "</ul>"
+                : "";
+              return `<div class="job"><div class="job-header"><span class="job-title">${job.role}</span><span class="job-company">${job.company}</span></div><div class="job-period">${job.period}</div>${bullets}</div>`;
+            })
+            .join("");
+        },
+        renderEducation: function (items) {
+          const el = document.getElementById("cv-education");
+          el.innerHTML = items
+            .map((e) => {
+              const details = e.details ? `<div class="education-details">${e.details}</div>` : "";
+              return `<div class="education-item"><div class="education-header"><span class="education-degree">${e.degree}</span><span class="education-period">${e.year}</span></div><div class="education-institution">${e.institution}</div>${details}</div>`;
+            })
+            .join("");
+        },
+        renderProjects: function (items) {
+          const el = document.getElementById("cv-projects");
+          el.innerHTML = items
+            .map((p) =>
+              (() => {
+                const href = p.link || p.url;
+                const link = href
+                  ? `<span class="project-link"> | <a href="${href}" target="_blank" style="color: #f39c12; text-decoration: none;">Link</a></span>`
+                  : "";
+                return `<div class="project-item"><div class="project-name">${p.name}${link}</div><div class="project-desc">${p.desc}</div><div class="project-keywords"><strong>Tech:</strong> ${p.keywords.join(", ")}</div></div>`;
+              })()
+            )
+            .join("");
+        },
+        renderSkills: function (items) {
+          const el = document.getElementById("cv-skills-sidebar");
+          el.innerHTML = items.map((s) => `<div class="chip">${s}</div>`).join("");
+        },
+        renderPublications: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-publications");
+          const sec = document.getElementById("cv-publications-section");
+          sec.style.display = "block";
+          el.innerHTML = items
+            .map(
+              (p) =>
+                `<div class="publication-item"><div class="publication-title">${p.title}</div><div class="publication-meta">${p.journal} (${p.year}) ${p.link ? `<a href="${p.link}" target="_blank" style="color: #f39c12; text-decoration: none;">View</a>` : ""}</div></div>`
+            )
+            .join("");
+        },
+        renderAwards: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-awards");
+          const sec = document.getElementById("cv-awards-section");
+          sec.style.display = "block";
+          el.innerHTML = items.map((a) => `<p class="award-item">• ${a}</p>`).join("");
+        },
+      };
+      async function render() {
+        const res = await fetch("/data/roles/data-business-analyst.json");
+        const data = await res.json();
+        const m = data.meta || {};
+        document.getElementById("cv-name").textContent = m.name || "AKASH";
+        document.getElementById("cv-title").textContent = m.title || "Data & Business Analyst";
+        document.getElementById("cv-location").textContent = m.location || "Bengaluru, India";
+        document.getElementById("cv-email-link").href = `mailto:${m.email}`;
+        document.getElementById("cv-email-link").textContent = m.email;
+        document.getElementById("cv-phone-link").href = `tel:${m.phone?.replace(/\s/g, "")}`;
+        document.getElementById("cv-phone-link").textContent = m.phone;
+        if (m.github) {
+          const row = document.getElementById("cv-github-row");
+          const link = document.getElementById("cv-github");
+          link.textContent = m.github;
+          link.href = m.github;
+          row.style.display = "block";
+        }
+        if (m.linkedin) {
+          const row = document.getElementById("cv-linkedin-row");
+          const link = document.getElementById("cv-linkedin");
+          link.textContent = m.linkedin;
+          link.href = m.linkedin;
+          row.style.display = "block";
+        }
+        if (m.portfolio) {
+          const row = document.getElementById("cv-portfolio-row");
+          const link = document.getElementById("cv-portfolio");
+          link.textContent = m.portfolio;
+          link.href = m.portfolio;
+          row.style.display = "block";
+        }
+        document.getElementById("cv-summary").textContent = data.summary || "";
+        cvRenderer.renderWork(data.work_experience || []);
+        cvRenderer.renderEducation(data.education || []);
+        cvRenderer.renderProjects(data.projects || []);
+        cvRenderer.renderSkills(data.skills || []);
+        cvRenderer.renderPublications(data.publications || []);
+        cvRenderer.renderAwards(data.awards || []);
+      }
+      document.addEventListener("DOMContentLoaded", render);
+    </script>
+  </body>
+</html>
