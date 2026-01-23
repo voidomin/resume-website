@@ -47,8 +47,13 @@ class PWAManager {
 
   async registerServiceWorker() {
     try {
-      const registration = await navigator.serviceWorker.register("/public/service-worker.js", {
-        scope: "/",
+      // Detect the correct path based on current location
+      const basePath = window.location.pathname.includes("/resume-website/")
+        ? "/resume-website/public/service-worker.js"
+        : "/public/service-worker.js";
+
+      const registration = await navigator.serviceWorker.register(basePath, {
+        scope: window.location.pathname.includes("/resume-website/") ? "/resume-website/" : "/",
         updateViaCache: "none",
       });
 
