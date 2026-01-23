@@ -1,0 +1,147 @@
+/**
+ * Accessibility & Performance Enhancements
+ * WCAG 2.1 AA Compliance
+ */
+
+/* Skip Links - Keyboard Navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0969da;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Improved focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #0969da;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+body {
+  color: #000;
+  background: #ffffff;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .resume {
+    background-color: #2a2a2a;
+    border-color: #444;
+  }
+
+  a {
+    color: #4a9eff;
+  }
+
+  .download-btn {
+    background: #0969da;
+    color: white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Better line height for readability */
+body,
+p,
+li,
+h1,
+h2,
+h3 {
+  line-height: 1.5;
+}
+
+/* Image optimization loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Print optimization */
+@media print {
+  .skip-link,
+  .download-buttons,
+  a:after {
+    display: none;
+  }
+}
+
+/* Dark mode theme variables */
+:root {
+  --primary-color: #0969da;
+  --primary-dark: #0860ca;
+  --text-primary: #000;
+  --text-secondary: #555;
+  --bg-primary: #ffffff;
+  --bg-secondary: #e9ecf1;
+  --border-color: #d0d4dd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #4a9eff;
+    --primary-dark: #2a8ee9;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaa;
+    --bg-primary: #2a2a2a;
+    --bg-secondary: #1a1a1a;
+    --border-color: #444;
+  }
+}
+
+/* Apply CSS variables (for future theme support) */
+body {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.resume {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.download-btn {
+  background: var(--primary-color);
+}
+
+.download-btn:hover {
+  background: var(--primary-dark);
+}

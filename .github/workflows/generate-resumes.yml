@@ -1,0 +1,77 @@
+name: Generate Resume Files
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/roles/**"
+      - "scripts/generate-*.js"
+      - "public/ats/**/*.html"
+      - ".github/workflows/generate-resumes.yml"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate DOCX files
+        run: npm run generate:docx
+
+      - name: Generate Markdown files
+        run: node scripts/generate-markdown.js
+
+      - name: Generate Email HTML files
+        run: node scripts/generate-email.js
+
+      - name: Build and generate PDFs
+        run: |
+          npm run build
+          npm run generate:pdf
+
+      - name: Check for changes
+        id: verify-changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push generated files
+        if: steps.verify-changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/ats/**/*.pdf public/ats/**/*.docx public/print/**/*.pdf public/markdown/ public/email/
+          git commit -m "chore: auto-generate resume files [skip ci]"
+          git push
+
+      - name: Run tests
+        run: npm run test:unit
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          configPath: "./lighthouserc.json"
+          uploadArtifacts: true
+          temporaryPublicStorage: true

@@ -16,7 +16,9 @@
     "format:check": "prettier --check \"**/*.{js,css,html,json,md}\"",
     "generate:docx": "node scripts/generate-docx.js",
     "generate:pdf": "node scripts/generate-pdf.js",
-    "generate:all": "npm run generate:docx && npm run generate:pdf",
+    "generate:markdown": "node scripts/generate-markdown.js",
+    "generate:email": "node scripts/generate-email.js",
+    "generate:all": "npm run generate:docx && npm run generate:markdown && npm run generate:email && npm run generate:pdf",
     "generate:resume": "node scripts/generate-single-resume.js",
     "prepare": "husky"
   },

@@ -159,10 +159,127 @@
         background: #2468d3;
         border-color: #2468d3;
       }
+
+      /* Theme Toggle Button */
+      #theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #0969da;
+        color: white;
+        border: none;
+        padding: 10px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      #theme-toggle:hover {
+        background: #0860ca;
+        transform: scale(1.1);
+      }
+
+      /* Comparison Controls */
+      .comparison-controls {
+        background: #f0f4f8;
+        padding: 15px;
+        border-radius: 4px;
+        margin: 15px 0;
+      }
+
+      .comparison-controls select {
+        padding: 8px 12px;
+        margin: 5px;
+        border: 1px solid #d0d4dd;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+
+      .comparison-controls button {
+        padding: 8px 16px;
+        background: #0969da;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+
+      .comparison-controls button:hover {
+        background: #0860ca;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      .comparison-row {
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .comparison-header {
+        font-weight: bold;
+        background: #f0f4f8;
+        padding: 8px;
+        text-align: center;
+      }
+
+      .comparison-cell {
+        font-size: 11px;
+        padding: 8px;
+        line-height: 1.4;
+      }
+
+      .github-badge {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #f6f8fa;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        border: 1px solid #d0d4dd;
+      }
+
+      .github-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      .github-stats {
+        flex: 1;
+      }
+
+      .github-stats strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .github-stats p {
+        margin: 0;
+        font-size: 11px;
+        color: #666;
+      }
+
       @media print {
         body {
           background: #ffffff;
           display: block;
+        }
+        #theme-toggle,
+        .comparison-controls,
+        .github-badge {
+          display: none;
         }
         .download-buttons {
           display: none;
@@ -407,5 +524,16 @@
       }
       document.addEventListener("DOMContentLoaded", render);
     </script>
+
+    <!-- Enhanced Features -->
+    <link rel="stylesheet" href="/assets/css/accessibility.css" />
+    <link rel="stylesheet" href="/assets/css/print-advanced.css" />
+    <script src="/assets/js/src/theme-manager-enhanced.js"></script>
+    <script src="/assets/js/src/download-analytics.js"></script>
+    <script src="/assets/js/src/resume-comparator.js"></script>
+    <script src="/assets/js/src/portfolio-enhancer.js"></script>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" title="Toggle dark/light theme" aria-label="Toggle theme">🔄</button>
   </body>
 </html>
