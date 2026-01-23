@@ -237,6 +237,14 @@
           <h2>Awards & Recognition</h2>
           <div id="cv-awards"></div>
         </section>
+        <section id="cv-languages-section" style="display: none">
+          <h2>Languages</h2>
+          <p id="cv-languages"></p>
+        </section>
+        <section id="cv-certifications-section" style="display: none">
+          <h2>Certifications</h2>
+          <div id="cv-certifications"></div>
+        </section>
         <section
           id="cv-keywords-section"
           style="display: none; opacity: 0; height: 0; overflow: hidden"
@@ -295,6 +303,20 @@
           sec.style.display = "block";
           el.innerHTML = items.map((a) => `<p>• ${a}</p>`).join("");
         },
+        renderLanguages: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-languages");
+          const sec = document.getElementById("cv-languages-section");
+          sec.style.display = "block";
+          el.textContent = items.join(", ");
+        },
+        renderCertifications: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-certifications");
+          const sec = document.getElementById("cv-certifications-section");
+          sec.style.display = "block";
+          el.innerHTML = items.map((c) => `<p>• ${c}</p>`).join("");
+        },
         renderKeywords: function (keywords) {
           if (!keywords) return;
           const el = document.getElementById("cv-keywords");
@@ -339,6 +361,8 @@
         cvRenderer.renderSkills(data.skills || []);
         cvRenderer.renderPublications(data.publications || []);
         cvRenderer.renderAwards(data.awards || []);
+        cvRenderer.renderLanguages(data.languages || []);
+        cvRenderer.renderCertifications(data.certifications || []);
         cvRenderer.renderKeywords(data.ats_keywords || "");
       }
       document.addEventListener("DOMContentLoaded", render);
