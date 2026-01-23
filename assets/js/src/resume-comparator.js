@@ -62,9 +62,13 @@ class ResumeComparator {
     const roleRight = document.getElementById("role-right")?.value || this.roles[1];
 
     try {
+      // Use relative path for GitHub Pages compatibility
+      const basePath = window.location.pathname.includes("/resume-website/")
+        ? "../../data/roles/"
+        : "/data/roles/";
       const [dataLeft, dataRight] = await Promise.all([
-        fetch(`/data/roles/${roleLeft}.json`).then((r) => r.json()),
-        fetch(`/data/roles/${roleRight}.json`).then((r) => r.json()),
+        fetch(`${basePath}${roleLeft}.json`).then((r) => r.json()),
+        fetch(`${basePath}${roleRight}.json`).then((r) => r.json()),
       ]);
 
       this.displayComparison(dataLeft, dataRight, roleLeft, roleRight);
@@ -126,8 +130,8 @@ class ResumeComparator {
         </div>
 
         <div class="comparison-actions">
-          <a href="/ats/${roleLeft}/" class="comparison-link">View ${this.formatRoleName(roleLeft)}</a>
-          <a href="/ats/${roleRight}/" class="comparison-link">View ${this.formatRoleName(roleRight)}</a>
+          <a href="${window.location.pathname.includes("/resume-website/") ? `/resume-website/public/ats/${roleLeft}/` : `/ats/${roleLeft}/`}" class="comparison-link">View ${this.formatRoleName(roleLeft)}</a>
+          <a href="${window.location.pathname.includes("/resume-website/") ? `/resume-website/public/ats/${roleRight}/` : `/ats/${roleRight}/`}" class="comparison-link">View ${this.formatRoleName(roleRight)}</a>
         </div>
       </div>
     `;
