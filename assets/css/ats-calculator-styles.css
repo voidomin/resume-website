@@ -1,0 +1,500 @@
+/* ATS Score Calculator Styles */
+
+.scorer-toggle {
+  position: fixed;
+  top: 20px;
+  right: 200px;
+  z-index: 999;
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scorer-toggle:hover {
+  background: #2ea043;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ats-scorer-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 998;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ats-scorer-panel.open {
+  transform: translateX(0);
+}
+
+.scorer-content {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ats-scorer-panel.open .scorer-content {
+  display: flex;
+}
+
+.scorer-header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #e1e4e8;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scorer-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #24292e;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6a737d;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #f3f4f6;
+  color: #24292e;
+}
+
+.scorer-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.score-display {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f6f8fa 0%, #eaeef2 100%);
+  border: 3px solid #238636;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.score-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #238636;
+}
+
+.score-label {
+  font-size: 14px;
+  color: #6a737d;
+  font-weight: 600;
+}
+
+.score-rating {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.score-breakdown {
+  margin-bottom: 32px;
+}
+
+.breakdown-item {
+  margin-bottom: 20px;
+}
+
+.breakdown-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 6px;
+}
+
+.score-bar {
+  width: 100%;
+  height: 8px;
+  background: #e1e4e8;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #238636 0%, #2ea043 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.breakdown-value {
+  font-size: 12px;
+  color: #6a737d;
+  font-weight: 600;
+}
+
+.improvement-suggestions {
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.suggestions-header {
+  font-weight: 700;
+  font-size: 13px;
+  color: #24292e;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.suggestion-item {
+  font-size: 13px;
+  color: #24292e;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.suggestion-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Job analysis results */
+.job-match-results {
+  background: #f0f7ff;
+  border: 1px solid #a5d6ff;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.match-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #24292e;
+}
+
+.match-percentage {
+  background: #238636;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.match-found,
+.match-missing {
+  margin-bottom: 16px;
+}
+
+.match-found:last-child,
+.match-missing:last-child {
+  margin-bottom: 0;
+}
+
+.match-found > strong,
+.match-missing > strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #24292e;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keyword-tag {
+  background: white;
+  border: 1px solid #238636;
+  color: #238636;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.keyword-tag.missing {
+  border-color: #d1242f;
+  color: #d1242f;
+  background: #fff8f8;
+}
+
+.text-muted {
+  font-size: 12px;
+  color: #6a737d;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.scorer-actions {
+  padding: 16px;
+  border-top: 1px solid #e1e4e8;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.job-desc-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  resize: vertical;
+}
+
+.job-desc-input:focus {
+  outline: none;
+  border-color: #238636;
+  box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.1);
+}
+
+.btn-primary {
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: #2ea043;
+}
+
+/* Overlay */
+.scorer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 997;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scorer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scorer-toggle {
+    top: 10px;
+    right: auto;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .ats-scorer-panel {
+    max-width: 100%;
+    width: 100%;
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  .ats-scorer-panel.open {
+    transform: translateX(0);
+  }
+
+  .scorer-header {
+    padding: 16px;
+  }
+
+  .scorer-body {
+    padding: 16px;
+  }
+
+  .scorer-actions {
+    padding: 12px;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-number {
+    font-size: 36px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .ats-scorer-panel {
+    background: #0d1117;
+    color: #c9d1d9;
+  }
+
+  .scorer-header {
+    border-bottom-color: #30363d;
+  }
+
+  .scorer-header h3 {
+    color: #c9d1d9;
+  }
+
+  .close-btn {
+    color: #8b949e;
+  }
+
+  .close-btn:hover {
+    background: #30363d;
+    color: #c9d1d9;
+  }
+
+  .score-circle {
+    background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+    border-color: #238636;
+  }
+
+  .score-number {
+    color: #2ea043;
+  }
+
+  .score-label,
+  .breakdown-label {
+    color: #8b949e;
+  }
+
+  .score-bar {
+    background: #30363d;
+  }
+
+  .improvement-suggestions {
+    background: #161b22;
+    border-color: #30363d;
+  }
+
+  .suggestions-header,
+  .suggestion-item {
+    color: #c9d1d9;
+  }
+
+  .job-match-results {
+    background: #0a3069;
+    border-color: #1f6feb;
+  }
+
+  .match-header h4 {
+    color: #c9d1d9;
+  }
+
+  .match-found > strong,
+  .match-missing > strong {
+    color: #c9d1d9;
+  }
+
+  .keyword-tag {
+    background: #0d1117;
+    border-color: #2ea043;
+    color: #2ea043;
+  }
+
+  .keyword-tag.missing {
+    border-color: #f85149;
+    color: #f85149;
+    background: #3d0d0c;
+  }
+
+  .text-muted {
+    color: #8b949e;
+  }
+
+  .job-desc-input {
+    background: #0d1117;
+    border-color: #30363d;
+    color: #c9d1d9;
+  }
+
+  .job-desc-input:focus {
+    border-color: #238636;
+    box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.2);
+  }
+}
+
+/* Accessibility */
+.scorer-toggle:focus,
+.close-btn:focus,
+.btn-primary:focus,
+.job-desc-input:focus {
+  outline: 3px solid #238636;
+  outline-offset: 2px;
+}
+
+/* Print */
+@media print {
+  .scorer-toggle,
+  .ats-scorer-panel,
+  .scorer-overlay {
+    display: none !important;
+  }
+}

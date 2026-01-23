@@ -1,0 +1,391 @@
+/* PWA Styles - Install Prompts, Notifications, Status */
+
+/* PWA Status Indicator */
+.pwa-status {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #0969da;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.3);
+  z-index: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pwa-status.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-icon {
+  font-size: 18px;
+}
+
+/* PWA Install Button */
+.pwa-install-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  background: linear-gradient(135deg, #0969da 0%, #033d8b 100%);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.pwa-install-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(9, 105, 218, 0.4);
+}
+
+.pwa-install-btn:active {
+  transform: translateY(0);
+}
+
+/* PWA Prompts */
+.pwa-prompt {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+}
+
+.prompt-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.prompt-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.prompt-text h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #24292e;
+}
+
+.prompt-text p {
+  margin: 0;
+  font-size: 13px;
+  color: #6a737d;
+}
+
+.prompt-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: #0969da;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #0860ca;
+}
+
+.btn-secondary {
+  background: #f6f8fa;
+  color: #24292e;
+  border: 1px solid #e1e4e8;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #eaeef2;
+  border-color: #d0d7de;
+}
+
+/* PWA Notifications */
+.pwa-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.notification-text {
+  flex: 1;
+  color: #24292e;
+}
+
+.notification-action {
+  background: #0969da;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.notification-action:hover {
+  background: #0860ca;
+}
+
+.pwa-notification.online-notification {
+  background: #28a745;
+  color: white;
+}
+
+.pwa-notification.online-notification .notification-text {
+  color: white;
+}
+
+.pwa-notification.offline-notification {
+  background: #fd7e14;
+  color: white;
+}
+
+.pwa-notification.offline-notification .notification-text {
+  color: white;
+}
+
+.pwa-notification.update-notification {
+  background: linear-gradient(135deg, #0969da 0%, #033d8b 100%);
+  color: white;
+}
+
+.pwa-notification.update-notification .notification-text {
+  color: white;
+}
+
+.pwa-notification.success-notification {
+  background: #238636;
+  color: white;
+}
+
+.pwa-notification.success-notification .notification-text {
+  color: white;
+}
+
+/* Offline mode indicator */
+body.offline {
+  --offline-opacity: 0.85;
+}
+
+body.offline::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 20px
+  );
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pwa-install-btn {
+    top: 10px;
+    right: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .pwa-status {
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+  }
+
+  .pwa-prompt {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .pwa-notification {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    font-size: 13px;
+  }
+
+  .prompt-content {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .prompt-icon {
+    font-size: 28px;
+  }
+
+  .prompt-text h4 {
+    font-size: 14px;
+  }
+
+  .prompt-text p {
+    font-size: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .pwa-prompt {
+    background: #0d1117;
+  }
+
+  .prompt-text h4 {
+    color: #c9d1d9;
+  }
+
+  .prompt-text p {
+    color: #8b949e;
+  }
+
+  .btn-secondary {
+    background: #161b22;
+    color: #c9d1d9;
+    border-color: #30363d;
+  }
+
+  .btn-secondary:hover {
+    background: #21262d;
+    border-color: #444c56;
+  }
+
+  .pwa-notification {
+    background: #161b22;
+    color: #c9d1d9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .pwa-notification.update-notification {
+    background: linear-gradient(135deg, #0969da 0%, #033d8b 100%);
+  }
+
+  .pwa-notification.update-notification .notification-text {
+    color: white;
+  }
+
+  .notification-action {
+    background: #0969da;
+  }
+
+  .notification-action:hover {
+    background: #1f6feb;
+  }
+}
+
+/* Accessibility */
+.pwa-install-btn:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.notification-action:focus {
+  outline: 3px solid #0969da;
+  outline-offset: 2px;
+}
+
+/* Print */
+@media print {
+  .pwa-status,
+  .pwa-install-btn,
+  .pwa-prompt,
+  .pwa-notification {
+    display: none !important;
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "name": "Resume Portfolio - ATS Optimized",
+  "short_name": "Resume Portfolio",
+  "description": "Professional resume platform with ATS optimization, customization, and real-time scoring",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0969da",
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "business"],
+  "screenshots": [
+    {
+      "src": "/assets/img/screenshot-540.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/img/screenshot-1280.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Main Resume",
+      "short_name": "Resume",
+      "description": "View your main ATS-optimized resume",
+      "url": "/public/ats/index.html?role=main",
+      "icons": [{ "src": "/assets/img/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "ATS Score Calculator",
+      "short_name": "ATS Score",
+      "description": "Check your resume's ATS compatibility score",
+      "url": "/public/ats/index.html#scorer",
+      "icons": [{ "src": "/assets/img/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Customize Resume",
+      "short_name": "Customize",
+      "description": "Customize and reorder resume sections",
+      "url": "/public/ats/index.html#customizer",
+      "icons": [{ "src": "/assets/img/icon-96.png", "sizes": "96x96" }]
+    }
+  ],
+  "share_target": {
+    "action": "/share/resume",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "prefer_related_applications": false
+}

@@ -387,5 +387,43 @@
       }
       document.addEventListener("DOMContentLoaded", render);
     </script>
+
+    <!-- Enhanced Features -->
+    <link rel="stylesheet" href="/assets/css/accessibility.css" />
+    <link rel="stylesheet" href="/assets/css/print-advanced.css" />
+    <link rel="stylesheet" href="/assets/css/resume-customizer-styles.css" />
+    <link rel="stylesheet" href="/assets/css/ats-calculator-styles.css" />
+    <link rel="stylesheet" href="/assets/css/pwa-styles.css" />
+    <script src="/assets/js/src/theme-manager-enhanced.js"></script>
+    <script src="/assets/js/src/download-analytics.js"></script>
+    <script src="/assets/js/src/resume-customizer.js"></script>
+    <script src="/assets/js/src/ats-calculator.js"></script>
+    <script src="/assets/js/src/pwa-manager.js"></script>
+
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="/public/manifest.json" />
+    <meta name="theme-color" content="#0969da" />
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      title="Toggle dark/light theme"
+      aria-label="Toggle theme"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #0969da;
+        color: white;
+        border: none;
+        padding: 10px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1000;
+      "
+    >
+      🔄
+    </button>
   </body>
 </html>
