@@ -176,7 +176,65 @@ async function generateDocxFromData(roleData, outputPath) {
     );
   }
 
-  // Education - Compact
+  // All Projects - show all 3 with details
+  if (roleData.projects && roleData.projects.length > 0) {
+    sections.push(
+      new Paragraph({
+        text: "PROJECTS",
+        spacing: { before: 40, after: 40 },
+        bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
+      })
+    );
+
+    roleData.projects.forEach((project) => {
+      sections.push(
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: `${project.name}`,
+              bold: true,
+              size: 20,
+            }),
+            new TextRun({
+              text: project.url ? ` | ${project.url}` : "",
+              size: 19,
+            }),
+          ],
+          spacing: { after: 30 },
+        })
+      );
+
+      sections.push(
+        new Paragraph({
+          text: project.desc,
+          spacing: { after: 30 },
+          size: 20,
+        })
+      );
+
+      if (project.keywords && project.keywords.length > 0) {
+        sections.push(
+          new Paragraph({
+            text: `Tech: ${project.keywords.join(", ")}`,
+            spacing: { after: 40 },
+            italics: true,
+            size: 19,
+          })
+        );
+      }
+    });
+  }
+
+  // Education - Compact with details
   if (roleData.education && roleData.education.length > 0) {
     sections.push(
       new Paragraph({
@@ -209,7 +267,77 @@ async function generateDocxFromData(roleData, outputPath) {
               size: 20,
             }),
           ],
-          spacing: { after: 40 },
+          spacing: { after: 20 },
+        })
+      );
+
+      if (edu.details) {
+        sections.push(
+          new Paragraph({
+            text: edu.details,
+            spacing: { after: 40 },
+            italics: true,
+            size: 19,
+          })
+        );
+      }
+    });
+  }
+
+  // Languages
+  if (roleData.languages && roleData.languages.length > 0) {
+    sections.push(
+      new Paragraph({
+        text: "LANGUAGES",
+        spacing: { before: 40, after: 40 },
+        bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
+      })
+    );
+
+    sections.push(
+      new Paragraph({
+        text: roleData.languages.join(" • "),
+        spacing: { after: 80 },
+        size: 20,
+      })
+    );
+  }
+
+  // Certifications
+  if (roleData.certifications && roleData.certifications.length > 0) {
+    sections.push(
+      new Paragraph({
+        text: "CERTIFICATIONS",
+        spacing: { before: 40, after: 40 },
+        bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
+      })
+    );
+
+    roleData.certifications.forEach((cert) => {
+      sections.push(
+        new Paragraph({
+          text: cert,
+          spacing: { after: 30 },
+          bullet: { level: 0 },
+          size: 20,
         })
       );
     });
