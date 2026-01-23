@@ -347,7 +347,7 @@
         },
       };
       async function render() {
-        const res = await fetch("/data/roles/bioinformatics.json");
+        const res = await fetch("../../../data/roles/bioinformatics.json");
         const data = await res.json();
         const m = data.meta || {};
         document.getElementById("cv-name").textContent = m.name || "";
@@ -392,19 +392,19 @@
     </script>
 
     <!-- Enhanced Features -->
-    <link rel="stylesheet" href="/assets/css/accessibility.css" />
-    <link rel="stylesheet" href="/assets/css/print-advanced.css" />
-    <link rel="stylesheet" href="/assets/css/resume-customizer-styles.css" />
-    <link rel="stylesheet" href="/assets/css/ats-calculator-styles.css" />
-    <link rel="stylesheet" href="/assets/css/pwa-styles.css" />
-    <script src="/assets/js/src/theme-manager-enhanced.js"></script>
-    <script src="/assets/js/src/download-analytics.js"></script>
-    <script src="/assets/js/src/resume-customizer.js"></script>
-    <script src="/assets/js/src/ats-calculator.js"></script>
-    <script src="/assets/js/src/pwa-manager.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/accessibility.css" />
+    <link rel="stylesheet" href="../../../assets/css/print-advanced.css" />
+    <link rel="stylesheet" href="../../../assets/css/resume-customizer-styles.css" />
+    <link rel="stylesheet" href="../../../assets/css/ats-calculator-styles.css" />
+    <link rel="stylesheet" href="../../../assets/css/pwa-styles.css" />
+    <script src="../../../assets/js/src/theme-manager-enhanced.js"></script>
+    <script src="../../../assets/js/src/download-analytics.js"></script>
+    <script src="../../../assets/js/src/resume-customizer.js"></script>
+    <script src="../../../assets/js/src/ats-calculator.js"></script>
+    <script src="../../../assets/js/src/pwa-manager.js"></script>
 
     <!-- PWA Manifest & Theme -->
-    <link rel="manifest" href="/public/manifest.json" />
+    <link rel="manifest" href="../../manifest.json" />
     <meta name="theme-color" content="#0969da" />
 
     <!-- Theme Toggle Button -->
