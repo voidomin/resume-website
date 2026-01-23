@@ -22,6 +22,24 @@ async function generatePDFs() {
       { name: "print", baseUrl: "/public/print", outName: "resume_print.pdf" },
     ];
 
+    // Generate main ATS resume PDF
+    console.log("Generating MAIN ATS PDF...");
+    const mainUrl = "http://localhost:8081/public/ats/index.html";
+    const mainOutPath = "public/ats/resume_ats.pdf";
+    try {
+      await page.goto(mainUrl, { waitUntil: "networkidle" });
+      await page.waitForTimeout(500);
+      await page.pdf({
+        path: mainOutPath,
+        format: "A4",
+        printBackground: true,
+        margin: { top: "18mm", right: "12mm", bottom: "18mm", left: "12mm" },
+      });
+      console.log(`Generated ${mainOutPath}`);
+    } catch (err) {
+      console.error("Failed to generate main ATS PDF:", err);
+    }
+
     for (const role of roles) {
       for (const v of variants) {
         const url = `http://localhost:8081${v.baseUrl}/${role}/index.html`;

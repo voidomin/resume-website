@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,18 +9,41 @@
     />
     <meta name="theme-color" content="#0b1728" />
     <title>Akash - Resume (ATS)</title>
-
-    <!-- SEO -->
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://voidomin.github.io/resume-website/ats/" />
 
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Akash - Full-Stack Developer & QA Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack developer and QA automation engineer with expertise in React, Next.js, Python, and test automation. View professional resume and portfolio."
+    />
+    <meta property="og:url" content="https://voidomin.github.io/resume-website/ats/" />
+    <meta
+      property="og:image"
+      content="https://voidomin.github.io/resume-website/assets/img/og-image.jpg"
+    />
+    <meta property="profile:first_name" content="Akash" />
+    <meta property="profile:username" content="voidomin" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Akash - Full-Stack Developer & QA Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack developer and QA automation engineer with expertise in React, Next.js, Python, and test automation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://voidomin.github.io/resume-website/assets/img/og-image.jpg"
+    />
+
     <style>
-      /* Minimal, ATS-safe single-column layout */
       @page {
         size: A4;
         margin: 10mm;
       }
-
       body {
         font-family: Arial, Helvetica, sans-serif;
         color: #000;
@@ -29,14 +52,11 @@
         background: #e9ecf1;
         font-size: 12px;
         line-height: 1.4;
-
-        /* Center resume block on screen */
         display: flex;
         justify-content: center;
         align-items: flex-start;
         min-height: 100vh;
       }
-
       .resume {
         width: 100%;
         max-width: 800px;
@@ -48,17 +68,14 @@
         border-radius: 6px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
       }
-
       header {
         text-align: center;
       }
-
       h1 {
         font-size: 22px;
         margin: 0 0 4px 0;
         letter-spacing: 0.5px;
       }
-
       h2 {
         font-size: 13.5px;
         margin: 14px 0 6px 0;
@@ -67,60 +84,47 @@
         border-bottom: 1px solid #ddd;
         padding-bottom: 2px;
       }
-
       h3 {
         font-size: 12.5px;
         margin: 7px 0 2px 0;
       }
-
       p {
         margin: 3px 0;
       }
-
       ul {
         margin: 3px 0 6px 18px;
         padding: 0;
       }
-
       li {
         margin: 2px 0;
       }
-
       .contact {
         font-size: 11.3px;
         margin-bottom: 6px;
       }
-
       .contact-line {
         margin: 2px 0;
       }
-
       .meta {
         font-style: italic;
         font-size: 11px;
         margin-bottom: 2px;
       }
-
       a {
         color: #000;
         text-decoration: none;
       }
-
       a:hover {
         text-decoration: underline;
       }
-
       .section-divider {
         border-top: 1px solid #ccc;
         margin: 10px 0 12px 0;
       }
-
-      /* Slight visual separation between sections */
       section + section {
         margin-top: 6px;
         padding-top: 4px;
       }
-
       .download-buttons {
         display: flex;
         gap: 12px;
@@ -129,7 +133,6 @@
         z-index: 10;
         position: relative;
       }
-
       .download-btn {
         display: inline-block;
         padding: 10px 18px;
@@ -143,33 +146,27 @@
         transition: all 0.2s ease;
         cursor: pointer;
       }
-
       .download-btn:hover {
         background: #0860ca;
         border-color: #0860ca;
         text-decoration: none;
       }
-
       .download-btn.docx {
         background: #2d7ee6;
         border-color: #2d7ee6;
       }
-
       .download-btn.docx:hover {
         background: #2468d3;
         border-color: #2468d3;
       }
-
       @media print {
         body {
           background: #ffffff;
-          display: block; /* remove flex centering for print */
+          display: block;
         }
-
         .download-buttons {
           display: none;
         }
-
         .resume {
           margin: 0;
           border: none;
@@ -177,278 +174,238 @@
           box-shadow: none;
           max-width: none;
           width: 190mm;
-          padding: 5mm 9mm; /* Reduced padding from 7mm */
+          padding: 5mm 9mm;
           font-size: 9.2px;
-          line-height: 1.2; /* Reduced from 1.22 */
+          line-height: 1.2;
         }
-
         h1 {
           font-size: 16px;
           margin-bottom: 2px;
         }
-
         h2 {
           font-size: 12px;
-          margin: 5px 0 2px 0; /* Reduced from 6px */
+          margin: 5px 0 2px 0;
           padding-bottom: 1px;
         }
-
         h3 {
           font-size: 10.8px;
-          margin: 4px 0 2px 0; /* Reduced top margin */
+          margin: 4px 0 2px 0;
         }
-
         .contact {
           font-size: 9.8px;
         }
-
         .meta {
           font-size: 9.2px;
         }
-
         ul {
-          margin: 2px 0 3px 15px; /* Reduced bottom margin */
+          margin: 2px 0 3px 15px;
         }
-
         li {
           margin: 1px 0;
         }
-
         p {
           margin: 2px 0;
         }
-
         .section-divider {
-          margin: 4px 0 6px 0; /* Reduced margins */
+          margin: 4px 0 6px 0;
         }
       }
     </style>
   </head>
-  <body>
-    <main role="main">
+  <body data-role="main">
+    <div class="resume">
       <div class="download-buttons">
         <a href="resume_ats.docx" class="download-btn docx" download>📄 Download as Word (.docx)</a>
         <a href="resume_ats.pdf" class="download-btn" download>📋 Download as PDF</a>
       </div>
-      <div class="resume">
-        <header>
-          <h1>Akash</h1>
-          <div class="contact">
-            <div class="contact-line">
-              No 41, 2nd Main, Vinayaka Nagara, Gubbalala, Bangalore Urban 560061
-            </div>
-            <div class="contact-line">Phone: +91 7019779907</div>
-            <div class="contact-line">
-              Email:
-              <a href="mailto:akashkbhat4414@gmail.com"> akashkbhat4414@gmail.com </a>
-            </div>
-            <div class="contact-line">
-              Publication:
-              <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/prot.26738">
-                Wiley Online Library
-              </a>
-            </div>
-            <div class="contact-line">
-              Project:
-              <a href="https://param-adventures-phase1-web.vercel.app/">
-                https://param-adventures-phase1-web.vercel.app/
-              </a>
-            </div>
-            <div class="contact-line">
-              Portfolio:
-              <a href="https://voidomin.github.io/resume-website/portfolio/">
-                https://voidomin.github.io/resume-website/portfolio/
-              </a>
-            </div>
-            <div class="contact-line">
-              GitHub:
-              <a href="https://github.com/voidomin"> https://github.com/voidomin </a>
-            </div>
-            <div class="contact-line">
-              LinkedIn:
-              <a href="http://www.linkedin.com/in/akash-bhat-930346197">
-                http://www.linkedin.com/in/akash-bhat-930346197
-              </a>
-            </div>
+      <header>
+        <h1 id="cv-name">Name</h1>
+        <div class="contact">
+          <div class="contact-line" id="cv-location">Location</div>
+          <div class="contact-line">Phone: <span id="cv-phone"></span></div>
+          <div class="contact-line">Email: <span id="cv-email"></span></div>
+          <div class="contact-line" id="cv-github-row" style="display: none">
+            GitHub: <a id="cv-github" target="_blank"></a>
           </div>
-          <div class="section-divider"></div>
-        </header>
-
-        <section>
-          <h2>Professional Summary</h2>
-          <p>
-            Full-stack developer (React, Next.js, TypeScript, REST APIs, PostgreSQL) and
-            test-automation engineer (Python, Selenium, Postman, CI). Experienced in building
-            scalable web applications and automated test frameworks that reduce defects, improve
-            performance, and speed up releases.
-          </p>
-        </section>
-
-        <section>
-          <h2>Work Experience</h2>
-
-          <h3>Program Coordinator &amp; Web Developer, Abhyudaya</h3>
-          <div class="meta">August 2025 – Present | Bengaluru, India</div>
-          <ul>
-            <li>
-              Coordinate program activities, outreach, and stakeholder relations across community
-              initiatives.
-            </li>
-            <li>
-              Streamline program delivery and organise events and trainings for students and
-              volunteers.
-            </li>
-          </ul>
-
-          <h3>Development Engineer, Merck</h3>
-          <div class="meta">January 2024 – July 2025 | Bengaluru, India</div>
-          <ul>
-            <li>
-              Built front-end and back-end features for Bio4C Process Pad using React, TypeScript,
-              REST APIs, and PostgreSQL.
-            </li>
-            <li>
-              Automated regression tests and workflows using Python and Selenium, reducing manual QA
-              effort.
-            </li>
-            <li>
-              Implemented APIs and UI features and collaborated with cross-functional teams to
-              deliver product releases.
-            </li>
-          </ul>
-
-          <h3>Research Project, Indian Institute of Science (IISc)</h3>
-          <div class="meta">June 2023 – December 2023 | Bengaluru, India</div>
-          <ul>
-            <li>
-              Conducted computational research in structural biology and protein stability analysis.
-            </li>
-            <li>
-              Published “In Silico Saturation Mutagenesis of CCDB” in the journal
-              <em>Proteins: Structure, Function, and Bioinformatics</em>.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Key Achievements</h2>
-          <ul>
-            <li>
-              Reduced manual QA effort by creating Python + Selenium automation for key workflows at
-              Merck.
-            </li>
-            <li>
-              Designed and developed Abhyudaya’s website to improve online outreach and information
-              access for volunteers and donors.
-            </li>
-            <li>
-              Built reusable TypeScript components and patterns that improved frontend development
-              speed and consistency.
-            </li>
-            <li>
-              Published peer-reviewed bioinformatics research on protein stability in a reputed
-              international journal.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Projects</h2>
-
-          <h3>Param Adventures – Tourism Website</h3>
-          <div class="meta">Personal / Freelance</div>
-          <p>
-            Built a responsive tourism website using TypeScript and Next.js. Live:
-            <a href="https://param-adventures-phase1-web.vercel.app/">
-              https://param-adventures-phase1-web.vercel.app/
-            </a>
-          </p>
-          <ul>
-            <li>
-              Implemented booking flows and modular TypeScript components for trip listings and
-              enquiries.
-            </li>
-            <li>
-              Integrated maps/APIs and optimised performance and accessibility for a smoother user
-              experience.
-            </li>
-          </ul>
-
-          <h3>Abhyudaya Website – NGO Platform</h3>
-          <div class="meta">Abhyudaya</div>
-          <p>
-            Designed and developed the website
-            <a href="https://abhyudayakkss.org/"> https://abhyudayakkss.org/ </a>
-            to present programs, volunteering, and donation information.
-          </p>
-          <ul>
-            <li>
-              Structured content for programs, centres, and contact flows to increase clarity for
-              visitors.
-            </li>
-            <li>
-              Improved discoverability of key information, supporting outreach and engagement for
-              community initiatives.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Education</h2>
-
-          <h3>M.Sc. in Molecular &amp; Cellular Biology</h3>
-          <div class="meta">
-            MS Ramaiah University of Applied Sciences, Bengaluru, India | August 2022 – September
-            2024
+          <div class="contact-line" id="cv-linkedin-row" style="display: none">
+            LinkedIn: <a id="cv-linkedin" target="_blank"></a>
           </div>
-          <p>GPA: 8.12</p>
-
-          <h3>B.Sc. in Biotechnology</h3>
-          <div class="meta">
-            Dayananda Sagar University, Bengaluru, India | July 2019 – May 2022
+          <div class="contact-line" id="cv-portfolio-row" style="display: none">
+            Portfolio: <a id="cv-portfolio" target="_blank"></a>
           </div>
-        </section>
-
-        <section>
-          <h2>Relevant Coursework / Learning</h2>
-          <p>
-            Data Structures and Algorithms, Web Development, Software Engineering, Database Systems,
-            Object-Oriented Programming (OOP), Computer Networks, Basic Operating Systems.
-          </p>
-        </section>
-
-        <section>
-          <h2>Awards &amp; Publications</h2>
-          <ul>
-            <li>
-              Published “In Silico Saturation Mutagenesis of CCDB” in
-              <em>Proteins: Structure, Function, and Bioinformatics</em>.
-            </li>
-            <li>
-              3rd place in a hackathon conducted by Merck (team-based software development and
-              problem solving).
-            </li>
-            <li>State government scholarship recipient through State Scholarship Program (SSP).</li>
-            <li>1st place in a poster-making competition at Dayananda Sagar University.</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Languages</h2>
-          <p>English (Fluent), Hindi (Native), Kannada (Native), German (Basic)</p>
-        </section>
-
-        <section>
-          <h2>Certifications</h2>
-          <ul>
-            <li>JavaScript Mastery (Udemy)</li>
-            <li>Data Analysis &amp; Analytics (Coursera)</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Additional</h2>
-          <p>References available upon request.</p>
-        </section>
-      </div>
-    </main>
+        </div>
+        <div class="section-divider"></div>
+      </header>
+      <section>
+        <h2>Professional Summary</h2>
+        <p id="cv-summary"></p>
+      </section>
+      <section>
+        <h2>Work Experience</h2>
+        <div id="cv-work"></div>
+      </section>
+      <section>
+        <h2>Projects</h2>
+        <div id="cv-projects"></div>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <p id="cv-skills"></p>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <div id="cv-education"></div>
+      </section>
+      <section id="cv-publications-section" style="display: none">
+        <h2>Publications</h2>
+        <div id="cv-publications"></div>
+      </section>
+      <section id="cv-awards-section" style="display: none">
+        <h2>Awards & Recognition</h2>
+        <div id="cv-awards"></div>
+      </section>
+      <section id="cv-languages-section" style="display: none">
+        <h2>Languages</h2>
+        <p id="cv-languages"></p>
+      </section>
+      <section id="cv-certifications-section" style="display: none">
+        <h2>Certifications</h2>
+        <div id="cv-certifications"></div>
+      </section>
+      <section
+        id="cv-keywords-section"
+        style="display: none; opacity: 0; height: 0; overflow: hidden"
+      >
+        <h2 style="display: none">Keywords</h2>
+        <div id="cv-keywords" style="font-size: 1px; color: #fff"></div>
+      </section>
+    </div>
+    <script>
+      const cvRenderer = {
+        renderWork: function (items) {
+          const el = document.getElementById("cv-work");
+          el.innerHTML = items
+            .map((w) => {
+              const bullets = w.bullets
+                ? `<ul>${w.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+                : "";
+              return `<h3>${w.role}</h3><div class="meta">${w.company} | ${w.period}</div>${bullets}`;
+            })
+            .join("");
+        },
+        renderEducation: function (items) {
+          const el = document.getElementById("cv-education");
+          el.innerHTML = items
+            .map((e) => {
+              const details = e.details
+                ? `<p style="margin-top: 3px; font-size: 11px;">${e.details}</p>`
+                : "";
+              return `<h3>${e.degree}</h3><div class="meta">${e.institution} | ${e.year}</div>${details}`;
+            })
+            .join("");
+        },
+        renderProjects: function (items) {
+          const el = document.getElementById("cv-projects");
+          el.innerHTML = items
+            .map((p) => {
+              const href = p.link || p.url;
+              const link = href
+                ? ` <a href="${href}" target="_blank" style="color: #0969da; font-weight: 500;">[View Project]</a>`
+                : "";
+              const tech =
+                p.keywords && p.keywords.length
+                  ? `<div style="margin-top: 3px; font-size: 10.5px; color: #555;">Tech: ${p.keywords.join(", ")}</div>`
+                  : "";
+              return `<h3>${p.name}${link}</h3><p>${p.desc}</p>${tech}`;
+            })
+            .join("");
+        },
+        renderSkills: function (items) {
+          const el = document.getElementById("cv-skills");
+          el.textContent = items.join(", ");
+        },
+        renderPublications: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-publications");
+          const sec = document.getElementById("cv-publications-section");
+          sec.style.display = "block";
+          el.innerHTML = items
+            .map((pub) => {
+              const link = pub.link ? ` <a href="${pub.link}" target="_blank">[Link]</a>` : "";
+              return `<p>• ${pub.title}, <em>${pub.journal}</em> (${pub.year})${link}</p>`;
+            })
+            .join("");
+        },
+        renderAwards: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-awards");
+          const sec = document.getElementById("cv-awards-section");
+          sec.style.display = "block";
+          el.innerHTML = items.map((a) => `<p>• ${a}</p>`).join("");
+        },
+        renderLanguages: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-languages");
+          const sec = document.getElementById("cv-languages-section");
+          sec.style.display = "block";
+          el.textContent = items.join(", ");
+        },
+        renderCertifications: function (items) {
+          if (!items || !items.length) return;
+          const el = document.getElementById("cv-certifications");
+          const sec = document.getElementById("cv-certifications-section");
+          sec.style.display = "block";
+          el.innerHTML = items.map((c) => `<p>• ${c}</p>`).join("");
+        },
+        renderKeywords: function (keywords) {
+          if (!keywords) return;
+          const el = document.getElementById("cv-keywords");
+          el.textContent = keywords;
+        },
+      };
+      async function render() {
+        const res = await fetch("/data/roles/developer-testing.json");
+        const data = await res.json();
+        const m = data.meta || {};
+        document.getElementById("cv-name").textContent = m.name || "";
+        document.getElementById("cv-location").textContent = m.location || "";
+        document.getElementById("cv-email").innerHTML =
+          `<a href="mailto:${m.email}">${m.email}</a>`;
+        document.getElementById("cv-phone").innerHTML =
+          `<a href="tel:${m.phone?.replace(/\s/g, "")}">${m.phone || ""}</a>`;
+        if (m.github) {
+          const row = document.getElementById("cv-github-row");
+          const link = document.getElementById("cv-github");
+          link.textContent = m.github;
+          link.href = m.github;
+          row.style.display = "block";
+        }
+        if (m.linkedin) {
+          const row = document.getElementById("cv-linkedin-row");
+          const link = document.getElementById("cv-linkedin");
+          link.textContent = m.linkedin;
+          link.href = m.linkedin;
+          row.style.display = "block";
+        }
+        if (m.portfolio) {
+          const row = document.getElementById("cv-portfolio-row");
+          const link = document.getElementById("cv-portfolio");
+          link.textContent = m.portfolio;
+          link.href = m.portfolio;
+          row.style.display = "block";
+        }
+        document.getElementById("cv-summary").textContent = data.summary || "";
+        cvRenderer.renderWork(data.work_experience || []);
+        cvRenderer.renderEducation(data.education || []);
+        cvRenderer.renderProjects(data.projects || []);
+        cvRenderer.renderSkills(data.skills || []);
+        cvRenderer.renderPublications(data.publications || []);
+        cvRenderer.renderAwards(data.awards || []);
+        cvRenderer.renderLanguages(data.languages || []);
+        cvRenderer.renderCertifications(data.certifications || []);
+        cvRenderer.renderKeywords(data.ats_keywords || "");
+      }
+      document.addEventListener("DOMContentLoaded", render);
+    </script>
   </body>
 </html>

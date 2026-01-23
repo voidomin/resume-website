@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="ATS-friendly data and business analyst resume for Akash with clean structure."
+      content="Data and business analyst resume with expertise in data analysis, visualization, SQL, Python, and business intelligence."
     />
     <meta name="theme-color" content="#0b1728" />
     <title>Data / Business Analyst - Resume (ATS)</title>
@@ -13,6 +13,18 @@
     <link
       rel="canonical"
       href="https://voidomin.github.io/resume-website/ats/data-business-analyst/"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Akash - Data & Business Analyst" />
+    <meta
+      property="og:description"
+      content="Data and business analyst with expertise in data analysis, visualization, SQL, Python, and business intelligence."
+    />
+    <meta
+      property="og:url"
+      content="https://voidomin.github.io/resume-website/ats/data-business-analyst/"
     />
     <style>
       @page {
@@ -273,7 +285,12 @@
         renderEducation: function (items) {
           const el = document.getElementById("cv-education");
           el.innerHTML = items
-            .map((e) => `<h3>${e.degree}</h3><div class="meta">${e.institution} | ${e.year}</div>`)
+            .map((e) => {
+              const details = e.details
+                ? `<p style="margin-top: 3px; font-size: 11px;">${e.details}</p>`
+                : "";
+              return `<h3>${e.degree}</h3><div class="meta">${e.institution} | ${e.year}</div>${details}`;
+            })
             .join("");
         },
         renderProjects: function (items) {
@@ -281,8 +298,14 @@
           el.innerHTML = items
             .map((p) => {
               const href = p.link || p.url;
-              const link = href ? ` <a href="${href}" target="_blank">Link</a>` : "";
-              return `<h3>${p.name}</h3><p>${p.desc}${link}</p>`;
+              const link = href
+                ? ` <a href="${href}" target="_blank" style="color: #0969da; font-weight: 500;">[View Project]</a>`
+                : "";
+              const tech =
+                p.keywords && p.keywords.length
+                  ? `<div style="margin-top: 3px; font-size: 10.5px; color: #555;">Tech: ${p.keywords.join(", ")}</div>`
+                  : "";
+              return `<h3>${p.name}${link}</h3><p>${p.desc}</p>${tech}`;
             })
             .join("");
         },

@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Developer & Testing - Resume (ATS)</title>
     <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Full-stack developer and QA automation engineer resume with expertise in React, Next.js, Python, Selenium, and test automation."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Akash - Full-Stack Developer & QA Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack developer and QA automation engineer with expertise in React, Next.js, Python, and test automation."
+    />
+    <meta
+      property="og:url"
+      content="https://voidomin.github.io/resume-website/ats/developer-testing/"
+    />
     <style>
       @page {
         size: A4;
@@ -262,7 +278,12 @@
         renderEducation: function (items) {
           const el = document.getElementById("cv-education");
           el.innerHTML = items
-            .map((e) => `<h3>${e.degree}</h3><div class="meta">${e.institution} | ${e.year}</div>`)
+            .map((e) => {
+              const details = e.details
+                ? `<p style="margin-top: 3px; font-size: 11px;">${e.details}</p>`
+                : "";
+              return `<h3>${e.degree}</h3><div class="meta">${e.institution} | ${e.year}</div>${details}`;
+            })
             .join("");
         },
         renderProjects: function (items) {
@@ -270,8 +291,14 @@
           el.innerHTML = items
             .map((p) => {
               const href = p.link || p.url;
-              const link = href ? ` <a href="${href}" target="_blank">Link</a>` : "";
-              return `<h3>${p.name}</h3><p>${p.desc}${link}</p>`;
+              const link = href
+                ? ` <a href="${href}" target="_blank" style="color: #0969da; font-weight: 500;">[View Project]</a>`
+                : "";
+              const tech =
+                p.keywords && p.keywords.length
+                  ? `<div style="margin-top: 3px; font-size: 10.5px; color: #555;">Tech: ${p.keywords.join(", ")}</div>`
+                  : "";
+              return `<h3>${p.name}${link}</h3><p>${p.desc}</p>${tech}`;
             })
             .join("");
         },
