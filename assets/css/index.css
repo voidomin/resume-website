@@ -198,8 +198,8 @@ button {
 
 .theme-toggle {
   color: var(--text-muted);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,7 +298,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 1.6rem;
+  padding: 0.9rem 1.6rem;
+  min-height: 44px;
   border-radius: 12px;
   font-weight: 600;
   font-size: 1rem;
@@ -503,8 +504,9 @@ button {
 }
 
 .btn-sm {
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  font-size: 0.95rem;
   background: var(--text-main);
   color: var(--bg-body);
   border-radius: 8px;
@@ -561,7 +563,10 @@ button {
 .social-links a {
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  border-radius: 8px;
 }
 
 .social-links a:hover {
