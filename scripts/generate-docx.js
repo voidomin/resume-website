@@ -7,6 +7,7 @@ const {
   AlignmentType,
   TabStopType,
   TabStopAlignment,
+  BorderStyle,
 } = require("docx");
 const fs = require("fs");
 const path = require("path");
@@ -17,15 +18,14 @@ async function generateDocxFromData(roleData, outputPath) {
   const m = roleData.meta || {};
   const sections = [];
 
-  // Header: Name and Title
+  // Header: Name and Title - Compact
   sections.push(
     new Paragraph({
-      text: m.name,
-      heading: HeadingLevel.HEADING_1,
+      text: m.name || "Professional",
       alignment: AlignmentType.CENTER,
-      spacing: { after: 0 },
+      spacing: { after: 40 },
       bold: true,
-      size: 28,
+      size: 26,
     })
   );
 
@@ -33,82 +33,107 @@ async function generateDocxFromData(roleData, outputPath) {
     new Paragraph({
       text: m.title || "Professional",
       alignment: AlignmentType.CENTER,
-      spacing: { after: 200 },
-      size: 22,
+      spacing: { after: 80 },
+      size: 20,
+      italics: true,
     })
   );
 
-  // Contact Info
+  // Contact Info - Inline and compact
   const contactLines = [];
   if (m.email) contactLines.push(m.email);
   if (m.phone) contactLines.push(m.phone);
   if (m.location) contactLines.push(m.location);
-  if (m.github) contactLines.push(m.github);
-  if (m.linkedin) contactLines.push(m.linkedin);
 
-  sections.push(
-    new Paragraph({
-      text: contactLines.join(" • "),
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 240 },
-      size: 20,
-    })
-  );
+  if (contactLines.length > 0) {
+    sections.push(
+      new Paragraph({
+        text: contactLines.join(" | "),
+        alignment: AlignmentType.CENTER,
+        spacing: { after: 80 },
+        size: 20,
+      })
+    );
+  }
 
-  // Professional Summary
+  // Professional Summary - Compact
   if (roleData.summary) {
     sections.push(
       new Paragraph({
-        text: "PROFESSIONAL SUMMARY",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        text: "SUMMARY",
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
     sections.push(
       new Paragraph({
         text: roleData.summary,
-        spacing: { after: 200 },
+        spacing: { after: 80 },
+        size: 20,
       })
     );
   }
 
-  // Work Experience
+  // Work Experience - Compressed format
   if (roleData.work_experience && roleData.work_experience.length > 0) {
     sections.push(
       new Paragraph({
-        text: "WORK EXPERIENCE",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        text: "EXPERIENCE",
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
-    roleData.work_experience.forEach((job) => {
+    roleData.work_experience.slice(0, 3).forEach((job) => {
       sections.push(
         new Paragraph({
-          text: `${job.role}, ${job.company}`,
-          spacing: { before: 50, after: 0 },
-          bold: true,
-        })
-      );
-
-      sections.push(
-        new Paragraph({
-          text: job.period,
-          spacing: { after: 100 },
-          italics: true,
+          children: [
+            new TextRun({
+              text: `${job.role}`,
+              bold: true,
+              size: 20,
+            }),
+            new TextRun({
+              text: ` | ${job.company}`,
+              size: 20,
+            }),
+            new TextRun({
+              text: ` (${job.period})`,
+              italics: true,
+              size: 18,
+            }),
+          ],
+          spacing: { after: 40 },
         })
       );
 
       if (job.bullets && job.bullets.length > 0) {
-        job.bullets.forEach((bullet) => {
+        job.bullets.slice(0, 2).forEach((bullet) => {
           sections.push(
             new Paragraph({
               text: bullet,
-              spacing: { after: 50 },
+              spacing: { after: 20 },
               bullet: { level: 0 },
+              size: 20,
             })
           );
         });
@@ -117,146 +142,144 @@ async function generateDocxFromData(roleData, outputPath) {
       sections.push(
         new Paragraph({
           text: "",
-          spacing: { after: 50 },
+          spacing: { after: 20 },
         })
       );
     });
   }
 
-  // Projects
-  if (roleData.projects && roleData.projects.length > 0) {
-    sections.push(
-      new Paragraph({
-        text: "PROJECTS",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
-        bold: true,
-      })
-    );
-
-    roleData.projects.forEach((project) => {
-      sections.push(
-        new Paragraph({
-          text: project.name,
-          spacing: { before: 50, after: 0 },
-          bold: true,
-        })
-      );
-
-      sections.push(
-        new Paragraph({
-          text: project.desc,
-          spacing: { after: 50 },
-        })
-      );
-
-      if (project.keywords && project.keywords.length > 0) {
-        sections.push(
-          new Paragraph({
-            text: `Tech: ${project.keywords.join(", ")}`,
-            spacing: { after: 100 },
-            italics: true,
-          })
-        );
-      }
-    });
-  }
-
-  // Skills
+  // Skills - Inline format for one-page
   if (roleData.skills && roleData.skills.length > 0) {
     sections.push(
       new Paragraph({
         text: "SKILLS",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
     sections.push(
       new Paragraph({
         text: roleData.skills.join(" • "),
-        spacing: { after: 200 },
+        spacing: { after: 80 },
+        size: 20,
       })
     );
   }
 
-  // Education
+  // Education - Compact
   if (roleData.education && roleData.education.length > 0) {
     sections.push(
       new Paragraph({
         text: "EDUCATION",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
     roleData.education.forEach((edu) => {
       sections.push(
         new Paragraph({
-          text: edu.degree,
-          spacing: { before: 50, after: 0 },
-          bold: true,
-        })
-      );
-
-      sections.push(
-        new Paragraph({
-          text: `${edu.institution} | ${edu.year}`,
-          spacing: { after: 100 },
+          children: [
+            new TextRun({
+              text: `${edu.degree}`,
+              bold: true,
+              size: 20,
+            }),
+            new TextRun({
+              text: ` | ${edu.institution} (${edu.year})`,
+              size: 20,
+            }),
+          ],
+          spacing: { after: 40 },
         })
       );
     });
   }
 
-  // Publications
+  // Publications - Only if present and limit to 1
   if (roleData.publications && roleData.publications.length > 0) {
     sections.push(
       new Paragraph({
         text: "PUBLICATIONS",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
-    roleData.publications.forEach((pub) => {
+    roleData.publications.slice(0, 1).forEach((pub) => {
       sections.push(
         new Paragraph({
-          text: pub.title,
-          spacing: { before: 50, after: 0 },
-          bold: true,
-        })
-      );
-
-      sections.push(
-        new Paragraph({
-          text: `${pub.journal} (${pub.year})`,
-          spacing: { after: 100 },
-          italics: true,
+          children: [
+            new TextRun({
+              text: `${pub.title}`,
+              bold: true,
+              size: 20,
+            }),
+            new TextRun({
+              text: ` | ${pub.journal} (${pub.year})`,
+              size: 20,
+            }),
+          ],
+          spacing: { after: 80 },
         })
       );
     });
   }
 
-  // Awards
+  // Awards - Only if present
   if (roleData.awards && roleData.awards.length > 0) {
     sections.push(
       new Paragraph({
-        text: "AWARDS & RECOGNITION",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 100, after: 100 },
+        text: "AWARDS",
+        spacing: { before: 40, after: 40 },
         bold: true,
+        size: 22,
+        border: {
+          bottom: {
+            color: "0f4fbf",
+            space: 1,
+            style: BorderStyle.SINGLE,
+            size: 6,
+          },
+        },
       })
     );
 
-    roleData.awards.forEach((award) => {
+    roleData.awards.slice(0, 2).forEach((award) => {
       sections.push(
         new Paragraph({
           text: award,
-          spacing: { after: 50 },
+          spacing: { after: 30 },
           bullet: { level: 0 },
+          size: 20,
         })
       );
     });
@@ -265,8 +288,17 @@ async function generateDocxFromData(roleData, outputPath) {
   const doc = new Document({
     sections: [
       {
+        properties: {
+          page: {
+            margins: {
+              top: 400, // 0.5 inch
+              bottom: 400,
+              left: 500, // 0.625 inch
+              right: 500,
+            },
+          },
+        },
         children: sections,
-        properties: {},
       },
     ],
   });
