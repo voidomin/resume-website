@@ -121,10 +121,50 @@
         padding-top: 4px;
       }
 
+      .download-buttons {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+
+      .download-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background: #0969da;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid #0969da;
+        transition: all 0.2s ease;
+      }
+
+      .download-btn:hover {
+        background: #0860ca;
+        border-color: #0860ca;
+        text-decoration: none;
+      }
+
+      .download-btn.docx {
+        background: #2d7ee6;
+        border-color: #2d7ee6;
+      }
+
+      .download-btn.docx:hover {
+        background: #2468d3;
+        border-color: #2468d3;
+      }
+
       @media print {
         body {
           background: #ffffff;
           display: block; /* remove flex centering for print */
+        }
+
+        .download-buttons {
+          display: none;
         }
 
         .resume {
@@ -183,6 +223,10 @@
   </head>
   <body>
     <main role="main">
+      <div class="download-buttons">
+        <a href="resume_ats.docx" class="download-btn docx" download>📄 Download as Word (.docx)</a>
+        <a href="resume_ats.pdf" class="download-btn" download>📋 Download as PDF</a>
+      </div>
       <div class="resume">
         <header>
           <h1>Akash</h1>
