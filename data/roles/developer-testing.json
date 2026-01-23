@@ -10,7 +10,7 @@
     "portfolio": "https://voidomin.github.io/resume-website/portfolio/",
     "role": "developer-testing"
   },
-  "summary": "Full-stack developer and QA engineer with expertise in building scalable web applications (React, Next.js) and automated test frameworks (Python, Selenium). Passionate about writing clean code, optimizing workflows, and reducing defects through comprehensive testing strategies.",
+  "summary": "Full-stack developer and QA automation engineer with expertise in building scalable web applications (React, Next.js, TypeScript) and comprehensive automated test frameworks (Python, Selenium, Playwright). Proficient in JavaScript, Node.js, REST APIs, SQL, and CI/CD pipelines. Proven track record of architecting production analytics platforms, reducing manual QA effort by 40%, and accelerating release cycles through test automation. Experience with Git, GitHub, and Agile development.",
   "work_experience": [
     {
       "role": "Development Engineer",

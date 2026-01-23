@@ -10,7 +10,7 @@
     "portfolio": "https://voidomin.github.io/resume-website/portfolio/",
     "role": "bioinformatics"
   },
-  "summary": "Computational biologist and bioinformatics researcher with expertise in protein engineering, structural biology, and molecular simulation. Proven track record of publishing peer-reviewed research while developing robust full-stack software solutions for biotech applications.",
+  "summary": "Computational biologist and bioinformatics researcher with expertise in protein engineering, structural biology, molecular simulation, and biotech software development. Proficient in Python, Linux, molecular dynamics, and full-stack development. Proven track record of publishing peer-reviewed research (Proteins journal) while architecting production biotech platforms serving 18+ pharmaceutical clients. Experience with PyMOL, AlphaFold, Rosetta, Next.js, React, Node.js, SQL, REST APIs, and Git.",
   "work_experience": [
     {
       "role": "Development Engineer",
