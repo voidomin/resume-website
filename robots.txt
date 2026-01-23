@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /print/
-Disallow: /ats/
 
 Sitemap: https://voidomin.github.io/resume-website/sitemap.xml
