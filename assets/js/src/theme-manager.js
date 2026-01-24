@@ -92,7 +92,7 @@ export class ThemeManager {
     } catch (e) {
       void e;
     }
-    return "light";
+    return "dark";
   }
 
   _readStoredTheme() {
