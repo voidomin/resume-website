@@ -65,7 +65,7 @@ class ATSScoreCalculator {
       <div class="scorer-content">
         <div class="scorer-header">
           <h3>ATS Compatibility Score</h3>
-          <button class="close-btn" onclick="window.atsCalculator?.toggleScorer()">✕</button>
+          <button class="close-btn" aria-label="Close ATS Scorer">✕</button>
         </div>
         <div class="scorer-body">
           <div class="score-display">
@@ -124,6 +124,12 @@ class ATSScoreCalculator {
     `;
 
     document.body.appendChild(scorer);
+
+    // Add event listener programmatically for better reliability
+    const closeBtn = scorer.querySelector(".close-btn");
+    if (closeBtn) {
+      closeBtn.onclick = () => this.toggleScorer();
+    }
   }
 
   toggleScorer() {

@@ -276,6 +276,7 @@ body.offline::before {
 @media (max-width: 768px) {
   .pwa-install-btn {
     top: 10px;
+    bottom: auto;
     right: 10px;
     padding: 10px 14px;
     font-size: 14px;
