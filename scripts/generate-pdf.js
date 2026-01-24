@@ -4,13 +4,14 @@ const path = require("path");
 
 async function generatePDFs() {
   console.log("Starting local server...");
-  const server = spawn("npx", ["http-server", ".", "-p", "8081"], {
+  // Use -y to automatically accept potential install prompts in CI
+  const server = spawn("npx", ["-y", "http-server", ".", "-p", "8081"], {
     shell: true,
     stdio: "ignore",
   });
 
-  // Give server time to start
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // Give server time to start (increased for CI)
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const browser = await chromium.launch();
   const page = await browser.newPage();
