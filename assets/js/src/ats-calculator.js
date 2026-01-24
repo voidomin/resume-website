@@ -52,6 +52,7 @@ class ATSScoreCalculator {
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "scorer-toggle";
     toggleBtn.innerHTML = "📊 ATS Score";
+    toggleBtn.setAttribute("aria-label", "Toggle ATS Compatibility Score Panel");
     toggleBtn.onclick = () => this.toggleScorer();
     // Ensure it uses the class style, but we can verify position in CSS file
     document.body.appendChild(toggleBtn);
