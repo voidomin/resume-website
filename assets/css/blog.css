@@ -28,7 +28,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #f39c12, #f1c40f, #e67e22);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,19 +137,19 @@
 }
 
 .tags .tag {
-  background: rgba(243, 156, 18, 0.12);
-  color: var(--blog-accent);
+  background: var(--primary-glow);
+  color: var(--primary);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 600;
-  border: 1px solid rgba(243, 156, 18, 0.25);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
 
 .tags .tag:hover {
-  background: rgba(243, 156, 18, 0.2);
-  border-color: rgba(243, 156, 18, 0.5);
+  background: var(--bg-soft);
+  border-color: var(--primary);
 }
 
 /* Card Title */
@@ -215,15 +215,15 @@
 
 .cta-card {
   background:
-    radial-gradient(circle at 50% 0%, rgba(243, 156, 18, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-  border: 1px solid rgba(243, 156, 18, 0.2);
+    radial-gradient(circle at 50% 0%, var(--primary-glow) 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg-alt), var(--bg));
+  border: 1px solid var(--border);
   border-radius: 24px;
   padding: 3.5rem 2rem;
   text-align: center;
   backdrop-filter: blur(12px);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 20px 50px var(--shadow-soft),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   max-width: 600px;
   margin: 0 auto;
@@ -270,18 +270,18 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #f39c12, #e67e22);
-  color: #111827;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
   border: none;
   box-shadow:
-    0 8px 24px rgba(243, 156, 18, 0.35),
+    0 8px 24px var(--primary-glow),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow:
-    0 14px 36px rgba(243, 156, 18, 0.45),
+    0 14px 36px var(--primary-glow),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
