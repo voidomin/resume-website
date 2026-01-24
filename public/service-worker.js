@@ -22,6 +22,9 @@ const CACHE_URLS = [
   "/assets/js/src/theme-manager.js",
   "/assets/js/src/analytics.js",
   "/assets/js/src/app.js",
+  "/assets/css/blog.css",
+  "/assets/css/holo-effects.css",
+  "/public/blog/index.html",
   "/public/robots.txt",
   "/public/sitemap.xml",
 ];

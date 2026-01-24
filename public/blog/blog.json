@@ -1,5 +1,13 @@
 [
   {
+    "id": "site-architecture",
+    "title": "Architecture of this Site: A Deep Dive",
+    "date": "2026-01-24",
+    "summary": "How I built a performant, modular portfolio using Vanilla JavaScript and Vite.",
+    "tags": ["Architecture", "Vite", "JavaScript", "Performance"],
+    "url": "./posts/site-architecture.html"
+  },
+  {
     "id": "welcome",
     "title": "Welcome to My Digital Garden",
     "date": "2026-01-05",
