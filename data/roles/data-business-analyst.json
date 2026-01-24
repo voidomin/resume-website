@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "name": "AKASH",
+    "title": "Data / Business Analyst",
+    "email": "akashkbhat4414@gmail.com",
+    "phone": "+91 7019779907",
+    "location": "Bengaluru, India",
+    "github": "https://github.com/voidomin",
+    "linkedin": "http://www.linkedin.com/in/akash-bhat-930346197",
+    "portfolio": "https://voidomin.github.io/resume-website/portfolio/",
+    "role": "data-business-analyst"
+  },
+  "summary": "Data-driven Development Engineer and Business Analyst with hands-on expertise building analytics solutions, optimizing data pipelines, and automating reporting systems. Proficient in SQL, Python, Excel, Power BI, and data visualization. Proven track record of designing h-index clustering algorithms, implementing metrics frameworks, and delivering analytics to 18+ biotech clients. Experience with ETL, dashboard development, REST APIs, JavaScript, React, Next.js, Node.js, and Git.",
+  "work_experience": [
+    {
+      "role": "Development Engineer",
+      "company": "Merck Life Science, Bangalore",
+      "period": "January 2024 – July 2025",
+      "bullets": [
+        "Engineered Bio4C Process Pad—a critical analytics platform serving 18+ clients including Lotte and Syngene, enabling real-time bioprocess monitoring and data-driven decision making.",
+        "Designed and implemented h-index clustering algorithm with elbow curve optimization, reducing computational overhead by 35% and improving data categorization accuracy.",
+        "Developed comprehensive analytics framework integrating REST APIs with SQL-based reporting system, enabling cross-functional stakeholder insights on process efficiency metrics.",
+        "Tech stack: JavaScript, React, Next.js, Node.js, SQL, Python, REST APIs, Git/GitHub"
+      ]
+    },
+    {
+      "role": "Research Intern (Student Researcher)",
+      "company": "Indian Institute of Science (IISc), Molecular Biophysics Dept",
+      "period": "2023 – 2024",
+      "bullets": [
+        "Conducted in silico saturation mutagenesis studies using computational molecular biology tools to predict protein variant effects.",
+        "Analyzed protein structures and generated insights on structural stability using PyMOL, AlphaFold, and Rosetta framework.",
+        "Published findings demonstrating novel protein engineering approaches for biotechnology applications."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Param Adventures",
+      "url": "https://param-adventures-phase1-web.vercel.app/",
+      "desc": "Full-featured tourism website with responsive design, dynamic content routing, and integrated analytics.",
+      "keywords": ["Next.js", "React", "TypeScript", "Analytics", "Responsive Design"]
+    },
+    {
+      "name": "Todo Application",
+      "url": "https://todo-app-react-tawny.vercel.app/",
+      "desc": "Task management application with persistent state and real-time updates.",
+      "keywords": ["React", "State Management", "User Interface"]
+    }
+  ],
+  "skills": [
+    "SQL",
+    "Python",
+    "JavaScript",
+    "Data Analysis",
+    "REST APIs",
+    "React",
+    "Excel",
+    "Analytical Thinking"
+  ],
+  "education": [
+    {
+      "degree": "Masters in Molecular & Cellular Biology",
+      "institution": "MS Ramaiah University",
+      "year": "2024",
+      "details": "Published research on protein engineering"
+    },
+    {
+      "degree": "Bachelors in Biotechnology",
+      "institution": "Dayananda Sagar University",
+      "year": "2023",
+      "details": "State Government Scholarship recipient"
+    }
+  ],
+  "awards": [
+    "3rd Place Hackathon Winner (Merck)",
+    "1st Place Poster Competition (Dayananda Sagar University)",
+    "State Government Scholarship"
+  ],
+  "certifications": ["JavaScript Mastery (Udemy)", "Data Analysis & Analytics (Coursera)"],
+  "languages": ["English (Fluent)", "Hindi (Native)", "Kannada (Native)", "German (Basic)"],
+  "publications": ["Published research on protein variant analysis and biotechnology applications"],
+  "keywords": [
+    "data analysis",
+    "business analytics",
+    "SQL",
+    "python",
+    "biotech",
+    "analytics",
+    "dashboarding"
+  ],
+  "ats_keywords": "Data Analyst, SQL, Python, Excel, Power BI, Data Visualization, Analytics, Dashboard, ETL, Reporting, Biotech",
+  "metrics": {
+    "experience_years": 1.5,
+    "projects_count": 2,
+    "publications_count": 1,
+    "companies": 2,
+    "tech_stack": {
+      "Languages": { "SQL": 85, "Python": 80, "JavaScript": 75 },
+      "Frontend": { "React": 70, "Next.js": 65, "TypeScript": 60 },
+      "Backend": { "Node.js": 70, "REST APIs": 80 },
+      "Data": { "Power BI": 75, "Excel": 80, "Pandas": 70 },
+      "Tools": { "Git": 85, "Docker": 50 }
+    },
+    "domains": {
+      "Analytics": 40,
+      "Biotech": 35,
+      "Web Development": 25
+    }
+  }
+}

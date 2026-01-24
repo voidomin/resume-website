@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "name": "AKASH",
+    "title": "Development Engineer",
+    "email": "akashkbhat4414@gmail.com",
+    "phone": "+91 7019779907",
+    "location": "Bengaluru, India",
+    "github": "https://github.com/voidomin",
+    "linkedin": "http://www.linkedin.com/in/akash-bhat-930346197",
+    "portfolio": "https://voidomin.github.io/resume-website/portfolio/",
+    "role": "developer-testing"
+  },
+  "summary": "Full-stack developer and QA automation engineer with expertise in building scalable web applications (React, Next.js, TypeScript) and comprehensive automated test frameworks (Python, Selenium, Playwright). Proficient in JavaScript, Node.js, REST APIs, SQL, and CI/CD pipelines. Proven track record of architecting production analytics platforms, reducing manual QA effort by 40%, and accelerating release cycles through test automation. Experience with Git, GitHub, and Agile development.",
+  "work_experience": [
+    {
+      "role": "Development Engineer",
+      "company": "Merck Life Science, Bangalore",
+      "period": "January 2024 – July 2025",
+      "bullets": [
+        "Engineered Bio4C Process Pad—a production analytics platform used by 18+ clients (Lotte, Syngene), featuring real-time dashboards and data synchronization across multiple bioprocess parameters.",
+        "Designed and implemented h-index clustering algorithm with elbow curve optimization, reducing data processing time by 35% and improving classification precision.",
+        "Developed comprehensive REST API integrations with Next.js/React frontend, enabling seamless data flow between client and backend systems.",
+        "Architected and automated test suites using Python and Selenium, reducing manual QA effort by 40% and accelerating release cycles.",
+        "Tech stack: JavaScript, React, Next.js, Node.js, SQL, Python, REST APIs, CI/CD, Git/GitHub"
+      ]
+    },
+    {
+      "role": "Program Coordinator & Web Developer",
+      "company": "Abhyudaya (NGO)",
+      "period": "August 2025 – Present",
+      "bullets": [
+        "Developing responsive web applications using HTML, CSS, JavaScript with Laravel backend integration.",
+        "Implementing CakePHP-based web solutions for organizational management and community outreach.",
+        "Version control with Git/GitHub."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Param Adventures",
+      "url": "https://param-adventures-phase1-web.vercel.app/",
+      "desc": "Full-featured responsive tourism website with dynamic routing, multi-page layouts, and optimized user interface for exploration and booking.",
+      "keywords": ["Next.js", "React", "TypeScript", "Responsive Design", "Vercel"]
+    },
+    {
+      "name": "Todo Application",
+      "url": "https://todo-app-react-tawny.vercel.app/",
+      "desc": "Interactive task management app demonstrating state management, persistent storage, and real-time UI updates.",
+      "keywords": ["React", "State Management", "User Interface", "Vercel"]
+    },
+    {
+      "name": "Pokedex Explorer",
+      "url": "https://pokedex-app-beta-pied.vercel.app/",
+      "desc": "Pokemon explorer application integrating external REST APIs with modern UI patterns and responsive design.",
+      "keywords": ["React", "REST APIs", "Data Fetching", "Component Design"]
+    },
+    {
+      "name": "Caffiend",
+      "url": "https://caffiend-ksmtxzlxe-akashs-projects-19d0262e.vercel.app/",
+      "desc": "Coffee Tracking for Coffee Fiends! Track every coffee, measure blood caffeine levels, and quantify your consumption.",
+      "keywords": ["React", "Firebase", "Health Tracking"]
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "Selenium",
+    "SQL",
+    "REST APIs",
+    "HTML/CSS",
+    "Git"
+  ],
+  "education": [
+    {
+      "degree": "Masters in Molecular & Cellular Biology",
+      "institution": "MS Ramaiah University",
+      "year": "2024",
+      "details": "Published research on protein engineering"
+    },
+    {
+      "degree": "Bachelors in Biotechnology",
+      "institution": "Dayananda Sagar University",
+      "year": "2023",
+      "details": "State Government Scholarship recipient"
+    }
+  ],
+  "publications": [
+    {
+      "title": "In Silico Saturation Mutagenesis of CCDB",
+      "journal": "Proteins: Structure, Function, and Bioinformatics",
+      "year": "2024",
+      "link": "https://onlinelibrary.wiley.com/doi/abs/10.1002/prot.26738"
+    }
+  ],
+  "awards": [
+    "3rd Place Hackathon Winner (Merck)",
+    "1st Place Poster Competition (Dayananda Sagar University)",
+    "State Government Scholarship"
+  ],
+  "certifications": ["JavaScript Mastery (Udemy)", "Data Analysis & Analytics (Coursera)"],
+  "languages": ["English (Fluent)", "Hindi (Native)", "Kannada (Native)", "German (Basic)"],
+  "keywords": [
+    "developer",
+    "full-stack",
+    "testing",
+    "automation",
+    "javascript",
+    "react",
+    "python",
+    "selenium",
+    "qa"
+  ],
+  "ats_keywords": "Full-Stack Developer, React, Next.js, JavaScript, TypeScript, Selenium, Python, QA, Testing, Automation, REST APIs, CI/CD",
+  "metrics": {
+    "experience_years": 1.5,
+    "projects_count": 3,
+    "publications_count": 1,
+    "companies": 2,
+    "tech_stack": {
+      "Languages": { "JavaScript": 85, "TypeScript": 80, "Python": 80 },
+      "Frontend": { "React": 85, "Next.js": 80, "HTML/CSS": 85 },
+      "Backend": { "Node.js": 75, "REST APIs": 85, "SQL": 70 },
+      "Testing": { "Selenium": 80, "Playwright": 75, "Vitest": 70 },
+      "Tools": { "Git": 85, "CI/CD": 70 }
+    },
+    "domains": {
+      "Full-Stack Development": 50,
+      "QA Automation": 30,
+      "Biotech Integration": 20
+    }
+  }
+}

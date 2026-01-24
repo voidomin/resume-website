@@ -481,7 +481,7 @@
         },
       };
       async function render() {
-        const res = await fetch("../../data/roles/developer-testing.json");
+        const res = await fetch("../data/roles/developer-testing.json");
         const data = await res.json();
         const m = data.meta || {};
         document.getElementById("cv-name").textContent = m.name || "";
