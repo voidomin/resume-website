@@ -595,3 +595,78 @@ button {
     display: none;
   } /* Simplified mobile handling for now */
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                 PRINT STYLES                               */
+/* -------------------------------------------------------------------------- */
+@media print {
+  /* Enforce Light Theme for Print */
+  :root {
+    --bg-body: #ffffff !important;
+    --text-main: #000000 !important;
+    --text-muted: #333333 !important;
+    --primary: #000000 !important;
+    --bg-soft: #ffffff !important;
+    --border: #ccc !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide Navigation & non-printable elements */
+  .navbar,
+  .theme-toggle,
+  .bg-noise,
+  .bg-glow,
+  .btn,
+  .hero-actions,
+  .social-links {
+    display: none !important;
+  }
+
+  /* Ensure Content is Visible */
+  .hero-title,
+  .section-title,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  li {
+    color: black !important;
+    text-shadow: none !important;
+  }
+
+  /* Reset Layout */
+  .main-content {
+    padding-top: 0 !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  .hero-inner {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Expand Cards */
+  .glass-card,
+  .skill-card,
+  .variant-card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    background: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

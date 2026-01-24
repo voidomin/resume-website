@@ -968,3 +968,67 @@ button:focus-visible {
     transform: translateY(0);
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                 PRINT STYLES                               */
+/* -------------------------------------------------------------------------- */
+@media print {
+  /* Enforce Light Theme */
+  :root {
+    --bg: #ffffff !important;
+    --bg-alt: #ffffff !important;
+    --text: #000000 !important;
+    --text-muted: #333333 !important;
+    --card: transparent !important;
+    --border-subtle: #cccccc !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide Interactive/Decor Elements */
+  .nav-portfolio,
+  .theme-toggle,
+  .sidebar,
+  .btn,
+  .bg-glow,
+  .contact-btn,
+  .scroll-down {
+    display: none !important;
+  }
+
+  /* Layout Adjustments */
+  .portfolio-wrapper {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .main-column {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  /* Card Reset */
+  .card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: black !important;
+  }
+
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  .hero-title,
+  .section-title {
+    color: black !important;
+  }
+}
