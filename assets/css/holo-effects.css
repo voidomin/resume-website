@@ -1,9 +1,9 @@
 /* Holo-Gallery Effects */
 
 :root {
-  --holo-primary: #00f3ff;
-  --holo-secondary: #ff00ea;
-  --holo-bg: rgba(255, 255, 255, 0.05);
+  --holo-primary: var(--primary);
+  --holo-secondary: var(--accent);
+  --holo-bg: var(--glass);
 }
 
 .holo-card {
@@ -19,8 +19,8 @@
 .holo-card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow:
-    0 0 20px rgba(0, 243, 255, 0.3),
-    0 0 40px rgba(255, 0, 234, 0.2);
+    0 0 20px var(--primary-glow),
+    0 0 40px var(--accent-soft);
   z-index: 10;
 }
 
@@ -88,7 +88,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 243, 255, 0.05) 50%);
+  background: linear-gradient(to bottom, transparent 50%, var(--primary-glow) 50%);
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 2;
