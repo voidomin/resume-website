@@ -58,6 +58,7 @@ body {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+  animation: fadeUp 0.5s ease-out;
 }
 
 a {
@@ -274,6 +275,7 @@ button {
 
 .gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
