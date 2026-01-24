@@ -4,36 +4,36 @@
 :root {
   /* LIGHT THEME (Default) */
   --bg-body: #ffffff;
-  --bg-soft: #f8fafc;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --primary: #2563eb; /* Royal Blue */
-  --primary-glow: rgba(37, 99, 235, 0.2);
-  --accent: #06b6d4; /* Cyan */
-  --accent-2: #8b5cf6; /* Violet */
-  --border: rgba(15, 23, 42, 0.08);
-  --glass: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
+  --bg-soft: #f1f5f9; /* Slate-100 */
+  --text-main: #0f172a; /* Slate-900 */
+  --text-muted: #64748b; /* Slate-500 */
+  --primary: #6366f1; /* Indigo-500 */
+  --primary-glow: rgba(99, 102, 241, 0.2);
+  --accent: #14b8a6; /* Teal-500 */
+  --accent-2: #8b5cf6; /* Violet-500 */
+  --border: rgba(15, 23, 42, 0.1);
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.6);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
 }
 
 [data-theme="dark"] {
-  --bg-body: #020617; /* Very dark slate */
-  --bg-soft: #0f172a;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --primary: #3b82f6;
-  --primary-glow: rgba(59, 130, 246, 0.15);
-  --accent: #22d3ee;
-  --accent-2: #a78bfa;
-  --border: rgba(255, 255, 255, 0.08);
-  --glass: rgba(15, 23, 42, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --bg-body: #020617; /* Slate-950 */
+  --bg-soft: #0f172a; /* Slate-900 */
+  --text-main: #f8fafc; /* Slate-50 */
+  --text-muted: #94a3b8; /* Slate-400 */
+  --primary: #818cf8; /* Indigo-400 */
+  --primary-glow: rgba(129, 140, 248, 0.15);
+  --accent: #2dd4bf; /* Teal-400 */
+  --accent-2: #a78bfa; /* Violet-400 */
+  --border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 *,

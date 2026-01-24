@@ -2,15 +2,15 @@
 
 /* CSS Variables for Blog */
 :root {
-  --blog-bg: #050810;
-  --blog-surface: rgba(15, 23, 42, 0.9);
-  --blog-card: rgba(17, 24, 39, 0.85);
-  --blog-accent: #f39c12;
-  --blog-accent-soft: rgba(243, 156, 18, 0.15);
-  --blog-text: #f9fafb;
-  --blog-text-muted: #9ca3af;
-  --blog-border: rgba(148, 163, 184, 0.3);
-  --blog-gradient: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(168, 85, 247, 0.08));
+  --blog-bg: var(--bg-body);
+  --blog-surface: var(--bg-soft);
+  --blog-card: var(--glass);
+  --blog-accent: var(--primary);
+  --blog-accent-soft: var(--primary-glow);
+  --blog-text: var(--text-main);
+  --blog-text-muted: var(--text-muted);
+  --blog-border: var(--border);
+  --blog-gradient: linear-gradient(135deg, var(--primary-glow), rgba(168, 85, 247, 0.1));
 }
 
 /* ====== Header ====== */
