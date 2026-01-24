@@ -24,7 +24,7 @@ const template = (title, date, summary, tags) => `<!DOCTYPE html>
 <body class="blog-post-page">
     <nav class="blog-nav">
         <div class="nav-content">
-            <a href="../" class="nav-logo">← Back to Garden</a>
+            <a href="../index.html" class="nav-logo">← Back to Garden</a>
         </div>
     </nav>
 
