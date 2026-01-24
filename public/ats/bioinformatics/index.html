@@ -194,6 +194,41 @@
           margin: 4px 0 6px 0;
         }
       }
+
+      /* Dark Mode Overrides */
+      html.dark body {
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+      html.dark .resume {
+        background: #161b22;
+        border-color: #30363d;
+        color: #c9d1d9;
+      }
+      html.dark h1,
+      html.dark h2,
+      html.dark h3,
+      html.dark strong {
+        color: #f0f6fc;
+      }
+      html.dark h2 {
+        border-bottom-color: #30363d;
+      }
+      html.dark .contact,
+      html.dark .meta,
+      html.dark p,
+      html.dark li {
+        color: #8b949e;
+      }
+      html.dark a {
+        color: #58a6ff;
+      }
+      html.dark .section-divider {
+        border-top-color: #30363d;
+      }
+      html.dark .contact {
+        border-bottom-color: #30363d;
+      }
     </style>
   </head>
   <body data-role="bioinformatics">
@@ -347,7 +382,7 @@
         },
       };
       async function render() {
-        const res = await fetch("../../../data/roles/bioinformatics.json");
+        const res = await fetch("../../data/roles/bioinformatics.json");
         const data = await res.json();
         const m = data.meta || {};
         document.getElementById("cv-name").textContent = m.name || "";

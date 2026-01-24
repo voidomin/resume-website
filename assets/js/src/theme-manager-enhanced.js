@@ -27,8 +27,12 @@ class ThemeManager {
         "data-theme",
         prefersDark ? this.THEMES.DARK : this.THEMES.LIGHT
       );
+      if (prefersDark) document.documentElement.classList.add("dark");
+      else document.documentElement.classList.remove("dark");
     } else {
       document.documentElement.setAttribute("data-theme", theme);
+      if (theme === this.THEMES.DARK) document.documentElement.classList.add("dark");
+      else document.documentElement.classList.remove("dark");
     }
     localStorage.setItem(this.THEME_KEY, theme);
     this.updateToggleButton(theme);

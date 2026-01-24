@@ -440,7 +440,7 @@ async function generateAllDocx() {
   console.log("🚀 Generating DOCX files for all roles...\n");
 
   for (const role of roles) {
-    const dataPath = path.join(__dirname, "..", "data", "roles", `${role}.json`);
+    const dataPath = path.join(__dirname, "..", "public", "data", "roles", `${role}.json`);
     const outputPath = path.join(
       __dirname,
       "..",
@@ -467,7 +467,14 @@ async function generateAllDocx() {
 
   // Main resume DOCX
   try {
-    const mainDataPath = path.join(__dirname, "..", "data", "roles", "developer-testing.json");
+    const mainDataPath = path.join(
+      __dirname,
+      "..",
+      "public",
+      "data",
+      "roles",
+      "developer-testing.json"
+    );
     const mainOutputPath = path.join(__dirname, "..", "public", "ats", "resume_ats.docx");
     const mainData = JSON.parse(fs.readFileSync(mainDataPath, "utf-8"));
 

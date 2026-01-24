@@ -133,7 +133,7 @@ async function generateAllMarkdown() {
 
   try {
     for (const role of roles) {
-      const dataPath = path.join(__dirname, "..", "data", "roles", `${role}.json`);
+      const dataPath = path.join(__dirname, "..", "public", "data", "roles", `${role}.json`);
       const outputPath = path.join(__dirname, "..", "public", "markdown", `${role}.md`);
 
       // Create markdown directory if it doesn't exist
@@ -149,7 +149,14 @@ async function generateAllMarkdown() {
     }
 
     // Generate main resume
-    const mainDataPath = path.join(__dirname, "..", "data", "roles", "developer-testing.json");
+    const mainDataPath = path.join(
+      __dirname,
+      "..",
+      "public",
+      "data",
+      "roles",
+      "developer-testing.json"
+    );
     const mainOutputPath = path.join(__dirname, "..", "public", "markdown", "resume.md");
     const mainData = JSON.parse(fs.readFileSync(mainDataPath, "utf-8"));
     mainData.meta.title = "Development Engineer";

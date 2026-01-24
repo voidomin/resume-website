@@ -7,7 +7,7 @@ class ResumeCustomizer {
   constructor() {
     this.STORAGE_KEY = "resume_customization";
     this.sections = [
-      { id: "cv-summary", label: "Professional Summary", enabled: true },
+      { id: "cv-summary-section", label: "Professional Summary", enabled: true },
       { id: "cv-work-section", label: "Work Experience", enabled: true },
       { id: "cv-projects-section", label: "Projects", enabled: true },
       { id: "cv-skills-section", label: "Skills", enabled: true },

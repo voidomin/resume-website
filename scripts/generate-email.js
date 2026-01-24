@@ -235,7 +235,7 @@ async function generateEmailResumes() {
     }
 
     for (const role of roles) {
-      const dataPath = path.join(__dirname, "..", "data", "roles", `${role}.json`);
+      const dataPath = path.join(__dirname, "..", "public", "data", "roles", `${role}.json`);
       const outputPath = path.join(emailDir, `${role}.html`);
 
       const roleData = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
@@ -246,7 +246,14 @@ async function generateEmailResumes() {
     }
 
     // Main resume
-    const mainDataPath = path.join(__dirname, "..", "data", "roles", "developer-testing.json");
+    const mainDataPath = path.join(
+      __dirname,
+      "..",
+      "public",
+      "data",
+      "roles",
+      "developer-testing.json"
+    );
     const mainOutputPath = path.join(emailDir, "resume.html");
     const mainData = JSON.parse(fs.readFileSync(mainDataPath, "utf-8"));
     mainData.meta.title = "Development Engineer";

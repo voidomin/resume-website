@@ -48,6 +48,12 @@ Interactive task management app demonstrating state management, persistent stora
 Pokemon explorer application integrating external REST APIs with modern UI patterns and responsive design.
 **Tech:** React, REST APIs, Data Fetching, Component Design
 
+### Caffiend
+
+[View Project](https://caffiend-ksmtxzlxe-akashs-projects-19d0262e.vercel.app/)
+Coffee Tracking for Coffee Fiends! Track every coffee, measure blood caffeine levels, and quantify your consumption.
+**Tech:** React, Firebase, Health Tracking
+
 ## Skills
 
 JavaScript • React.js • Next.js • TypeScript • Python • Selenium • SQL • REST APIs • HTML/CSS • Git

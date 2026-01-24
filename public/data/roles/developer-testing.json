@@ -53,6 +53,12 @@
       "url": "https://pokedex-app-beta-pied.vercel.app/",
       "desc": "Pokemon explorer application integrating external REST APIs with modern UI patterns and responsive design.",
       "keywords": ["React", "REST APIs", "Data Fetching", "Component Design"]
+    },
+    {
+      "name": "Caffiend",
+      "url": "https://caffiend-ksmtxzlxe-akashs-projects-19d0262e.vercel.app/",
+      "desc": "Coffee Tracking for Coffee Fiends! Track every coffee, measure blood caffeine levels, and quantify your consumption.",
+      "keywords": ["React", "Firebase", "Health Tracking"]
     }
   ],
   "skills": [

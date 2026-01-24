@@ -48,8 +48,9 @@ class PWAManager {
   async registerServiceWorker() {
     try {
       // Detect the correct path based on current location
+      // For local development (npx serve .), we need /public/ prefix
       const basePath = window.location.pathname.includes("/resume-website/")
-        ? "/resume-website/public/service-worker.js"
+        ? "/resume-website/service-worker.js"
         : "/public/service-worker.js";
 
       const registration = await navigator.serviceWorker.register(basePath, {
@@ -153,9 +154,10 @@ class PWAManager {
     button.innerHTML = `📱 Install App`;
     button.addEventListener("click", () => this.promptInstall());
 
-    // Only show if deferredPrompt is available
-    if (!this.deferredPrompt) {
-      button.style.display = "none";
+    // For debugging/demo: Show button if not installed, even if prompt hasn't fired yet
+    // In production, you'd wait for valid event, but for this portfolio demo we want it visible
+    if (!this.isInstalled) {
+      button.style.display = "inline-flex";
     }
 
     document.body.appendChild(button);
@@ -176,7 +178,12 @@ class PWAManager {
   }
 
   async promptInstall() {
-    if (!this.deferredPrompt) return;
+    if (!this.deferredPrompt) {
+      alert(
+        "To install: Click the 'Share' or 'Menu' button in your browser and select 'Add to Home Screen' or 'Install App'."
+      );
+      return;
+    }
 
     this.deferredPrompt.prompt();
     const choiceResult = await this.deferredPrompt.userChoice;

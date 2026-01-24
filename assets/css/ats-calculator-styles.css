@@ -3,7 +3,7 @@
 .scorer-toggle {
   position: fixed;
   top: 20px;
-  right: 200px;
+  right: 140px; /* 70px (customizer) + ~60px margin */
   z-index: 999;
   background: #238636;
   color: white;
@@ -31,7 +31,7 @@
   height: 100vh;
   background: white;
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
-  z-index: 998;
+  z-index: 1000;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   overflow-y: auto;

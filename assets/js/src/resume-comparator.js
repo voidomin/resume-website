@@ -63,9 +63,10 @@ class ResumeComparator {
 
     try {
       // Use relative path for GitHub Pages compatibility
+      // When in /public/ats/, we need to go up one level to /public/ then down to /data/
       const basePath = window.location.pathname.includes("/resume-website/")
-        ? "../../data/roles/"
-        : "/data/roles/";
+        ? "../../public/data/roles/"
+        : "../data/roles/";
       const [dataLeft, dataRight] = await Promise.all([
         fetch(`${basePath}${roleLeft}.json`).then((r) => r.json()),
         fetch(`${basePath}${roleRight}.json`).then((r) => r.json()),
@@ -130,8 +131,8 @@ class ResumeComparator {
         </div>
 
         <div class="comparison-actions">
-          <a href="${window.location.pathname.includes("/resume-website/") ? `/resume-website/public/ats/${roleLeft}/` : `/ats/${roleLeft}/`}" class="comparison-link">View ${this.formatRoleName(roleLeft)}</a>
-          <a href="${window.location.pathname.includes("/resume-website/") ? `/resume-website/public/ats/${roleRight}/` : `/ats/${roleRight}/`}" class="comparison-link">View ${this.formatRoleName(roleRight)}</a>
+          <a href="${roleLeft}/" class="comparison-link">View ${this.formatRoleName(roleLeft)}</a>
+          <a href="${roleRight}/" class="comparison-link">View ${this.formatRoleName(roleRight)}</a>
         </div>
       </div>
     `;

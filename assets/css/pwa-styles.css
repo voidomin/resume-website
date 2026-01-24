@@ -36,8 +36,9 @@
 /* PWA Install Button */
 .pwa-install-btn {
   position: fixed;
-  top: 20px;
+  bottom: 80px; /* Above status indicator if present */
   right: 20px;
+  top: auto;
   z-index: 999;
   background: linear-gradient(135deg, #0969da 0%, #033d8b 100%);
   color: white;

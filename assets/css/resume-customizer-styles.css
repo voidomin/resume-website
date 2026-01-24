@@ -3,7 +3,7 @@
 .customizer-toggle {
   position: fixed;
   top: 20px;
-  right: 120px;
+  right: 70px; /* Space for theme toggle (approx 50px) + margin */
   z-index: 999;
   background: #0969da;
   color: white;
