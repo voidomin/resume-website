@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture of this Site - Akash's Blog</title>
+    <meta
+      name="description"
+      content="How I built a performant, modular portfolio using Vanilla JavaScript and Vite."
+    />
+    <link rel="stylesheet" href="../../assets/css/blog.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="blog-post-page">
+    <nav class="blog-nav">
+      <div class="nav-content">
+        <a href="../" class="nav-logo">← Back to Garden</a>
+      </div>
+    </nav>
+
+    <main class="post-container">
+      <article class="post-content">
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-date">2026-01-24</span>
+            <div class="post-tags">
+              <span class="tag">Architecture</span>
+              <span class="tag">Vite</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+          <h1>Architecture of this Site: A Deep Dive</h1>
+        </header>
+
+        <div class="post-body">
+          <p class="lead">
+            How I built a performant, modular portfolio using Vanilla JavaScript and Vite, eschewing
+            heavy frameworks for raw speed and control.
+          </p>
+
+          <h2>Introduction</h2>
+          <p>
+            When building this portfolio, I made a conscious decision to avoid heavy frontend
+            frameworks like React or Vue for the core site. Instead, I chose a stack focused on
+            performance, modularity, and long-term maintainability.
+          </p>
+
+          <h2>The Stack</h2>
+          <ul>
+            <li>
+              <strong>Vite</strong>: For ultra-fast development server and optimized production
+              builds.
+            </li>
+            <li>
+              <strong>Vanilla JavaScript (ES Modules)</strong>: Organized in a modular way
+              (components, managers).
+            </li>
+            <li>
+              <strong>CSS Variables</strong>: For theming (Dark/Light mode) without CSS-in-JS
+              overhead.
+            </li>
+            <li>
+              <strong>GitHub Actions</strong>: For CI/CD, including automated PDF generation with
+              Playwright.
+            </li>
+          </ul>
+
+          <h2>Key Structural Decisions</h2>
+
+          <h3>1. Component-Based Architecture without a Framework</h3>
+          <p>
+            I mimicked the component structure of React using native ES Modules. Each major feature
+            (ATS Scorer, Theme Manager) is a self-contained class that initializes itself.
+          </p>
+
+          <div class="code-block">
+            <pre><code class="language-javascript">// Example: ThemeManager.js
+export class ThemeManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        // ... set up event listeners
+    }
+}</code></pre>
+          </div>
+
+          <h3>2. Automated Resume Generation</h3>
+          <p>
+            The most complex part of this project is the dual-mode resume. I use a JSON data source
+            (`data/roles/`) to drive both the website content and the PDF generation.
+          </p>
+          <p>
+            A GitHub Action spins up the site, uses Playwright to render the "Print" variant, and
+            saves it as a PDF artifact. This ensures my PDF resume is always in sync with my
+            website.
+          </p>
+
+          <h3>3. PWA & Offline Support</h3>
+          <p>
+            Using a custom Service Worker, the site caches core assets and pages. The `PWAManager`
+            class handles the "Install App" prompt and offline notifications, providing a
+            native-app-like feel on mobile.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            This architecture proves that you don't need a heavy framework to build a modern,
+            interactive, and maintainable web application. By sticking to web standards, we get
+            better performance and less dependency drift.
+          </p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
