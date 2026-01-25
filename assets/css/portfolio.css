@@ -1,20 +1,50 @@
 ﻿/* ====== Base ====== */
 
 :root {
-  /* Inherit from global index.css */
-  --bg: var(--bg-body);
-  --bg-alt: var(--bg-soft);
-  --card: var(--glass);
-  --accent: var(--primary);
-  --accent-soft: var(--primary-glow);
-  --accent-strong: var(--primary); /* Simplified for consistency */
-  --text: var(--text-main);
-  --text-muted: var(--text-muted);
-  --border-subtle: var(--border);
-  --shadow-soft: var(--shadow-lg);
+  /* Dark theme (default) */
+  --bg: #020617;
+  --bg-body: #020617;
+  --bg-soft: #0f172a;
+  --bg-alt: #0f172a;
+  --card: rgba(15, 23, 42, 0.7);
+  --glass: rgba(15, 23, 42, 0.7);
+  --accent: #facc15;
+  --accent-strong: #facc15;
+  --accent-soft: rgba(250, 204, 21, 0.15);
+  --primary: #818cf8;
+  --primary-glow: rgba(129, 140, 248, 0.15);
+  --text: #f8fafc;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
   --radius-lg: 20px;
   --radius-pill: 999px;
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-body: #ffffff;
+  --bg-soft: #f1f5f9;
+  --bg-alt: #f1f5f9;
+  --card: rgba(255, 255, 255, 0.95);
+  --glass: rgba(255, 255, 255, 0.8);
+  --accent: #f97316;
+  --accent-strong: #ea580c;
+  --accent-soft: rgba(249, 115, 22, 0.15);
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.2);
+  --text: #0f172a;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(15, 23, 42, 0.1);
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --shadow-soft: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 *,
@@ -45,9 +75,9 @@ body {
 .nav-container {
   width: 100%;
   padding: 16px 24px;
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--glass);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -143,15 +173,21 @@ body {
 .card,
 .profile-card,
 .side-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .side-card {
   background:
     radial-gradient(circle at top left, rgba(30, 64, 175, 0.35), transparent 40%) border-box,
     radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.35), transparent 45%) border-box,
     rgba(15, 23, 42, 0.9);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  padding: 18px 20px;
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
 }
 
 /* Slightly denser spacing on smaller screens */
@@ -168,14 +204,27 @@ body {
 .hero {
   padding: 24px 24px 20px;
   border-radius: 24px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .hero {
   background:
     radial-gradient(circle at top left, rgba(248, 250, 252, 0.2), transparent 55%),
     radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.25), transparent 60%),
     linear-gradient(135deg, #020617, #020617);
-  border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow: 0 25px 80px rgba(15, 23, 42, 0.9);
-  position: relative;
-  overflow: hidden;
+}
+
+[data-theme="light"] .hero {
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.1), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.1), transparent 60%),
+    linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .hero::before {
@@ -242,7 +291,8 @@ body {
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
   border: 1px solid var(--border);
-  color: #e5e7eb;
+  color: var(--text);
+  background: var(--bg-alt);
 }
 
 .pill-soft {
@@ -349,14 +399,14 @@ body {
   display: inline-flex;
   border-radius: var(--radius-pill);
   padding: 2px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(250, 204, 21, 0.45);
+  background: var(--bg-soft);
+  border: 1px solid var(--accent-soft);
 }
 
 .resume-toggle {
   border: none;
   background: transparent;
-  color: #e5e7eb;
+  color: var(--text);
   font-size: 0.78rem;
   font-weight: 500;
   padding: 5px 11px;
@@ -371,9 +421,9 @@ body {
 
 .resume-toggle.active {
   background: var(--accent);
-  color: #111827;
+  color: var(--bg);
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.75);
+  box-shadow: 0 8px 18px var(--shadow-soft);
 }
 
 /* ====== Sections ====== */
@@ -383,7 +433,7 @@ body {
   margin: 0 0 8px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #e5e7eb;
+  color: var(--text);
 }
 
 .card p {
@@ -483,8 +533,9 @@ body {
   padding: 2px 8px;
   font-size: 0.75rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  color: #e5e7eb;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--bg-alt);
 }
 
 /* ====== Skills ====== */
@@ -527,11 +578,11 @@ body {
   align-items: center;
   padding: 6px 10px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(148, 163, 184, 0.7);
+  border: 1px solid var(--border);
   font-size: 0.8rem;
-  color: #e5e7eb;
+  color: var(--text);
   text-decoration: none;
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--bg-soft);
   transition:
     border-color var(--transition-fast),
     transform var(--transition-fast),
@@ -540,10 +591,10 @@ body {
 }
 
 .contact-chip:hover {
-  border-color: rgba(250, 204, 21, 0.8);
-  background: rgba(15, 23, 42, 0.95);
+  border-color: var(--accent);
+  background: var(--bg-alt);
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.85);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ====== Sidebar ====== */
@@ -560,17 +611,17 @@ body {
   width: 82px;
   height: 82px;
   border-radius: 26px;
-  background: radial-gradient(circle at 30% 0, #facc15, #f97316, #0f172a);
+  background: radial-gradient(circle at 30% 0, var(--accent), var(--primary), var(--bg-soft));
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+  box-shadow: var(--shadow-soft);
 }
 
 .avatar-initials {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #020617;
+  color: var(--bg);
 }
 
 .profile-text h2 {
@@ -747,6 +798,11 @@ button:focus-visible {
 
 .badge-ngo {
   background: #ec4899;
+  color: #fff;
+}
+
+.badge-data {
+  background: #0891b2;
   color: #fff;
 }
 

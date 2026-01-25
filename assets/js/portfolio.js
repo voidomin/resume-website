@@ -1,4 +1,40 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
+  // ===== THEME TOGGLE =====
+  const initTheme = () => {
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    updateThemeToggle(savedTheme);
+  };
+
+  const updateThemeToggle = (theme) => {
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+      themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      themeToggle.setAttribute(
+        "aria-label",
+        `Switch to ${theme === "dark" ? "light" : "dark"} mode`
+      );
+    }
+  };
+
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("portfolio_theme", newTheme);
+    updateThemeToggle(newTheme);
+  };
+
+  // Initialize theme
+  initTheme();
+
+  // Theme toggle button
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", toggleTheme);
+  }
+
+  // ===== RESUME TOGGLE =====
   const toggles = document.querySelectorAll(".resume-toggle");
   const printBtn = document.getElementById("resume-print");
   const atsBtn = document.getElementById("resume-ats");
