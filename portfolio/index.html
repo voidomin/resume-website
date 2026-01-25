@@ -98,6 +98,29 @@
     <!-- Skip Navigation Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding: 10px 14px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: var(--bg-soft);
+        color: var(--text);
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+      "
+      aria-label="Toggle theme"
+    >
+      🌙
+    </button>
+
     <!-- ARIA Live Region for Screen Reader Announcements -->
     <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
 
